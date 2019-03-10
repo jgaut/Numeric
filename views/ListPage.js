@@ -58,8 +58,8 @@ class ListPageScreen extends React.Component {
     return (
       <View style={styles.container}>
       <FlatList
-        //data={formatData(this.state.list, numColumns)}
-        data={this.state.list}
+        data={formatData(this.state.list, numColumns)}
+        //data={this.state.list}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
@@ -71,7 +71,7 @@ class ListPageScreen extends React.Component {
 
   renderItem = ({ item, index }) => {
 
-    const {navigate} = this.props.navigation;
+    //const {navigate} = this.props.navigation;
     console.log("create page : " + item.key);
 
     if (item.empty === true) {
@@ -82,7 +82,7 @@ class ListPageScreen extends React.Component {
           key = {Math.random()}
           style={styles.item}
           onPress={()=>{
-            console.log("create page : " + item.key);
+            //console.log("create page : " + item.key);
             //navigate('Create Page', {fromKey: item.key});
             //navigate('Example', {fromKey: item.key});
           }}
