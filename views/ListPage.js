@@ -29,7 +29,7 @@ class ListPageScreen extends React.Component {
 
      Storage.get('numeric_number_example.json', {level: 'private'})
     .then(result => {
-      console.log('ok:' +result);
+      console.log('ok2:' +result);
       result.forEach(function(item){
         console.log(item);
       });
