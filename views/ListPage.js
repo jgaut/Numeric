@@ -13,10 +13,12 @@ class ListPageScreen extends React.Component {
     super(...args);
     this.state = {list:[]};
     this.state.list=this.ListAllElement();
+    console.log(this.state.list);
   }
 
   ListAllElement = () => {
 
+    //var regex = /numeric_.*\.json/g;
     var regex = /numeric_.*\.json/g;
     var list =[];
 
