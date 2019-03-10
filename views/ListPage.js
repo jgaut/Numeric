@@ -18,8 +18,8 @@ class ListPageScreen extends React.Component {
 
   ListAllElement = () => {
 
-    //var regex = /numeric_.*\.json/g;
-    var regex = /.*/g;
+    var regex = /numeric_.*\.json/g;
+    //var regex = /.*/g;
     var list =[];
 
     Storage.list('', {level: 'private'})
@@ -53,7 +53,7 @@ class ListPageScreen extends React.Component {
   }
 
   render() {
-
+    console.log(this.state.list);
     return (
       <View style={styles.container}>
       <FlatList
