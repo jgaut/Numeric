@@ -26,6 +26,7 @@ class ListPageScreen extends React.Component {
       result.forEach(item=>{
         console.log(item);
         this.state.list.push(item);
+        this.forceUpdate();
         if(item.key.match(regex)){
           Storage.get(item.key, {level: 'private'})
             .then(result => {
@@ -44,10 +45,10 @@ class ListPageScreen extends React.Component {
           .catch(err => console.log(err));
           
         }else{
-          console.log('ignore :'+item.key);
+          //console.log('ignore :'+item.key);
         }
       });
-      console.log('finito');
+      //console.log('finito');
       }
     )
     .catch(err => console.log(err));
