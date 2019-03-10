@@ -2,8 +2,6 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions } from 'react-native'; //https://facebook.github.io/react-native/docs/flatlist#refreshing
 import { createStackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
- 
-const moment = extendMoment(Moment);
 
 const numColumns = 2;
 const ITEM_HEIGHT = Dimensions.get('window').width / numColumns;
