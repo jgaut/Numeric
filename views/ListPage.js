@@ -31,9 +31,9 @@ class ListPageScreen extends React.Component {
     var cpt=0;
     Storage.list('/Numeric/Indicateurs/', {level: 'private'})
     .then(result => {
-      //console.log('data from S3' +result);
+      console.log('data from S3' +result);
       taille=result.length;
-      //console.log('taille:'+taille);
+      console.log('taille:'+taille);
       result.forEach(item=>{
         
         if(item.key.match(regex)){
