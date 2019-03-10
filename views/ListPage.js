@@ -33,7 +33,7 @@ class ListPageScreen extends React.Component {
     .then(result => {
       console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
-      console.log('taille:'+taille);
+      //console.log('taille:'+taille);
       result.forEach(item=>{
         
         if(item.key.match(regex)){
@@ -45,15 +45,39 @@ class ListPageScreen extends React.Component {
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
-                    data.key=Math.random();
-                    tmp.push(data);
-                    cpt++;
-                    if(taille==cpt){
-                    this.state.data.list=tmp;
-                    this.forceUpdate();
-                    console.log("tmp :"+JSON.stringify(tmp));
+
+                    //Find image background
+                    var regex = /\.json/gi;
+                    var image = item.key.replace(regex, ".jpg")
+
+                    regex = /Indicateurs/gi;
+                    image = image.replace(regex, "Images");
+
+                    console.log("key image : "+image);
+                    /*Storage.get(item.key, {level: 'private'})
+                      .then(result => {
+                        fetch(result)
+                          .then(response => response.json())
+                            .then(data => {
+                              data.key=Math.random();
+                              tmp.push(data);
+                              cpt++;
+                              if(taille==cpt){
+                              this.state.data.list=tmp;
+                              this.forceUpdate();
+                              //console.log("tmp :"+JSON.stringify(tmp));
+                              }
+                              //console.log("list :"+JSON.stringify(list));
+                            })
+                            .catch(error => {console.log(error);
+                          }
+                        );
+                      }
+                    )
+                    .catch(err => console.log(err));*/
+                    
                     }
-                    //console.log("list :"+JSON.stringify(list));
+                    
                   })
                   .catch(error => {console.log(error);
                 }
