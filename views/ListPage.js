@@ -40,6 +40,7 @@ class ListPageScreen extends React.Component {
           Storage.get(item.key, {level: 'private'})
             .then(result => {
               taille=result.length;
+              console.log('taille:'+taille);
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
