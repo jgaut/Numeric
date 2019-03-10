@@ -45,7 +45,6 @@ class ListPageScreen extends React.Component {
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
-
                     //Find image background
                     var regex = /\.json/gi;
                     var image = item.key.replace(regex, ".jpg")
@@ -54,30 +53,16 @@ class ListPageScreen extends React.Component {
                     image = image.replace(regex, "Images");
 
                     console.log("key image : "+image);
-                    /*Storage.get(item.key, {level: 'private'})
-                      .then(result => {
-                        fetch(result)
-                          .then(response => response.json())
-                            .then(data => {
-                              data.key=Math.random();
-                              tmp.push(data);
-                              cpt++;
-                              if(taille==cpt){
-                              this.state.data.list=tmp;
-                              this.forceUpdate();
-                              //console.log("tmp :"+JSON.stringify(tmp));
-                              }
-                              //console.log("list :"+JSON.stringify(list));
-                            })
-                            .catch(error => {console.log(error);
-                          }
-                        );
-                      }
-                    )
-                    .catch(err => console.log(err));*/
-                    
+
+                    data.key=Math.random();
+                    tmp.push(data);
+                    cpt++;
+                    if(taille==cpt){
+                    this.state.data.list=tmp;
+                    this.forceUpdate();
+                    //console.log("tmp :"+JSON.stringify(tmp));
                     }
-                    
+                    //console.log("list :"+JSON.stringify(list));
                   })
                   .catch(error => {console.log(error);
                 }
