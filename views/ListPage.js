@@ -22,6 +22,41 @@ class ListPageScreen extends React.Component {
       let item = {key:i};
       this.state.data.list.push(item);
     }
+
+    Storage.list('', {level: 'private'})
+    .then(result => {
+      //console.log('data from S3' +result);
+      result.forEach(item=>{
+        
+        if(item.key.match(regex)){
+          this.state.data.list.push(item);
+          //console.log(this.state.list);
+          this.forceUpdate();
+          Storage.get(item.key, {level: 'private'})
+            .then(result => {
+              fetch(result)
+                .then(response => response.json())
+                  .then(data => {
+                    //console.log("data :"+JSON.stringify(data));
+                    
+                    //console.log("list :"+JSON.stringify(list));
+                  })
+                  .catch(error => {console.log(error);
+                }
+              );
+            }
+          )
+          .catch(err => console.log(err));
+          
+        }else{
+          //console.log('ignore :'+item.key);
+        }
+      });
+      //console.log('finito');
+      }
+    )
+    .catch(err => console.log(err));
+
   }
 
   render() {
