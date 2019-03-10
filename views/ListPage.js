@@ -16,9 +16,9 @@ class ListPageScreen extends React.Component {
   }
 
   ListAllElement = () => {
-    Storage.list('/*', {level: 'private'})
+    Storage.list('', {level: 'private'})
     .then(result => {
-      console.log('ok --------------:' +result);
+      console.log('data from S3' +result);
       result.forEach(function(item){
         console.log(item);
       });
