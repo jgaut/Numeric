@@ -143,6 +143,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
  textAlign: 'center', 
  textAlignVertical: 'center',
+ fontSize: 18,
   },
 });
 
