@@ -25,6 +25,7 @@ class ListPageScreen extends React.Component {
     }
 
     var regex = /numeric_.*\.json/g;
+    var tmp =[];
 
     Storage.list('', {level: 'private'})
     .then(result => {
@@ -32,7 +33,7 @@ class ListPageScreen extends React.Component {
       result.forEach(item=>{
         
         if(item.key.match(regex)){
-          this.state.data.list.push(item);
+          tmp.push(item);
           console.log(item);
           //this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
@@ -55,6 +56,7 @@ class ListPageScreen extends React.Component {
           //console.log('ignore :'+item.key);
         }
       });
+      this.state.data.list=tmp;
       //console.log('finito');
       }
     )
