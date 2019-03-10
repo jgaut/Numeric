@@ -50,7 +50,7 @@ class ListPageScreen extends React.Component {
 
 
   this.state.list=list;
-    
+  console.log(this.state.list);
   }
 
   render() {
