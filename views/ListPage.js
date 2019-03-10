@@ -17,9 +17,14 @@ class ListPageScreen extends React.Component {
 
   ListAllElement() {
 
+    for(let i=this.state.min; i<=this.state.max; i++){
+      let item = {key:i};
+      this.state.list.push(item);
+    }
+
     var regex = /numeric_.*\.json/g;
     //var regex = /.*/g;
-
+    /*
     Storage.list('', {level: 'private'})
     .then(result => {
       //console.log('data from S3' +result);
@@ -52,7 +57,7 @@ class ListPageScreen extends React.Component {
       //console.log('finito');
       }
     )
-    .catch(err => console.log(err));
+    .catch(err => console.log(err));*/
   }
 
   render() {
