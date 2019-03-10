@@ -100,7 +100,7 @@ class ListPageScreen extends React.Component {
         key={Math.random()}
         style={styles.item}
       >
-       <ImageBackground source={{uri: item.uri}} style={{width: '100%', height: '100%'}}>
+       <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%'}}>
         <Text style={styles.itemText}>{item.value}</Text>
         </ImageBackground>
   
