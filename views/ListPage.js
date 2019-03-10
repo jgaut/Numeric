@@ -66,6 +66,7 @@ class ListPageScreen extends React.Component {
                             this.forceUpdate();
                           }
                       });
+                    }
                     
                     //console.log("tmp :"+JSON.stringify(tmp));
                     }
