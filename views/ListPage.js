@@ -17,8 +17,8 @@ class ListPageScreen extends React.Component {
 
   ListAllElement() {
 
-    //var regex = /numeric_.*\.json/g;
-    var regex = /.*/g;
+    var regex = /numeric_.*\.json/g;
+    //var regex = /.*/g;
 
     Storage.list('', {level: 'private'})
     .then(result => {
