@@ -27,13 +27,18 @@ class ListPageScreen extends React.Component {
     )
     .catch(err => console.log(err));
 
-     Storage.get('numeric_number_example.json', {level: 'private'})
-    .then(result => {
-      console.log('ok2:' +result);
-      result.forEach(function(item){
-        console.log(item);
-      });
 
+
+     Storage.get('numeric_number_example.json', {level: 'private'})
+      .then(result => {
+        fetch(result)
+          .then(response => response.json())
+            .then(data => {
+              console.log("data :"+data);
+            })
+            .catch(error => {console.log(error);
+          }
+        );
       }
     )
     .catch(err => console.log(err));
