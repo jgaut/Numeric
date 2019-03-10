@@ -139,11 +139,9 @@ const styles = StyleSheet.create({
   itemText: {
     flex:1,
     color: '#fff',
-    borderColor: 'pink',
-    borderWidth: 5,
  textAlign: 'center', 
  textAlignVertical: 'center',
- fontSize: 40,
+ fontSize: 60,
   },
 });
 
