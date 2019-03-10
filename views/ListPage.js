@@ -40,7 +40,7 @@ class ListPageScreen extends React.Component {
           //tmp.push(item);
           console.log(item);
           //this.forceUpdate();
-          Storage.get('Numeric/Indicateurs/'+item.key, {level: 'private'})
+          Storage.get(item.key, {level: 'private'})
             .then(result => {
               fetch(result)
                 .then(response => response.json())
