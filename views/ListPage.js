@@ -3,13 +3,13 @@ import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions } from '
 import { createStackNavigator } from 'react-navigation';
 import Storage from '@aws-amplify/storage';
 
-const numColumns = 3;
+const numColumns = 2;
 
 class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {data: {"list":[]}, max:30, min:-10};
+    this.state = {data: {"list":[]}, max:8, min:0};
     this.ListAllElement();
     
   }
