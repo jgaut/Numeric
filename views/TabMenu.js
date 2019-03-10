@@ -29,14 +29,14 @@ const MyTabNavigator = createBottomTabNavigator({
     screen: ListPageScreen,
     navigationOptions: () => ({
       tabBarLabel: () => {},
-      tabBarIcon: ({ tintColor }) => (<Image source={require('../images/journal.svg')} style={styles.barbouton} />)
+      tabBarIcon: ({ tintColor }) => (<Text>Journal</Text>)
     }),
   },
   'Menu': {
     screen: () => {},
     navigationOptions: () => ({
       tabBarLabel: () => {},
-      tabBarIcon: ({}) => (<Image source={require('../images/menu.svg')} style={styles.barbouton} />), 
+      tabBarIcon: ({}) => (<Text>Menu</Text>), 
       tabBarOnPress: (...props) => {props[0].navigation.openDrawer();},
     }),
   },
