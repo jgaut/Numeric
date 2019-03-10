@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { StyleSheet, TextInput, View, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
-import HomeScreen from './views/Home';
+import HomeScreen from 'views/Home';
 import ListPageScreen from './ListPage';
 import TabMenuScreen from './TabMenu';
 import Auth from '@aws-amplify/auth';
