@@ -12,10 +12,10 @@ class ListPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {list:[]};
-    this.ListAllElement(this.state);
+    this.ListAllElement();
   }
 
-  ListAllElement(state) {
+  ListAllElement() {
 
     //var regex = /numeric_.*\.json/g;
     var regex = /.*/g;
@@ -23,8 +23,9 @@ class ListPageScreen extends React.Component {
     Storage.list('', {level: 'private'})
     .then(result => {
       //console.log('data from S3' +result);
-      result.forEach(function(item){
+      result.forEach(item=>{
         console.log(item);
+        this.state.list.push(item);
         if(item.key.match(regex)){
           Storage.get(item.key, {level: 'private'})
             .then(result => {
@@ -32,7 +33,7 @@ class ListPageScreen extends React.Component {
                 .then(response => response.json())
                   .then(data => {
                     //console.log("data :"+JSON.stringify(data));
-                    state.list.push(data);
+                    
                     //console.log("list :"+JSON.stringify(list));
                   })
                   .catch(error => {console.log(error);
