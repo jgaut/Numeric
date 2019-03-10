@@ -49,8 +49,9 @@ class ListPageScreen extends React.Component {
       }
     )
     .catch(err => console.log(err));
-    return list
-    this.forceUpdate();
+    console.log("list :"+JSON.stringify(list));
+    return list;
+    
   }
 
   render() {
@@ -105,7 +106,7 @@ const formatData = (data, numColumns) => {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
-  console.log("formatData : " + data);
+  console.log("formatData : " + JSON.stringify(data));
   return data;
 };
 
