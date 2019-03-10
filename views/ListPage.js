@@ -33,7 +33,7 @@ class ListPageScreen extends React.Component {
       result.forEach(item=>{
         
         if(item.key.match(regex)){
-          tmp.push(item);
+          //tmp.push(item);
           console.log(item);
           //this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
@@ -41,6 +41,8 @@ class ListPageScreen extends React.Component {
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
+                    data.key=Math.random();
+                    tmp.push(data);
                     //console.log("data :"+JSON.stringify(data));
                     
                     //console.log("list :"+JSON.stringify(list));
@@ -90,7 +92,7 @@ class ListPageScreen extends React.Component {
       <View
         style={styles.item}
       >
-        <Text style={styles.itemText}>{item.key}</Text>
+        <Text style={styles.itemText}>{item.value}</Text>
       </View>
       </TouchableOpacity>
     );
