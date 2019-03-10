@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     borderColor: 'pink',
     borderWidth: 5,
-        alignItems: 'center',
+        alignItems: 'stretch',
     justifyContent: 'center',
   },
 });
