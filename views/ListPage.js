@@ -28,7 +28,7 @@ class ListPageScreen extends React.Component {
     var tmp =[];
     var taille=0;
     var cpt=0;
-    Storage.list('', {level: 'private'})
+    Storage.list('/numeric*', {level: 'private'})
     .then(result => {
       //console.log('data from S3' +result);
       taille=result.length;
