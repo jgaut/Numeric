@@ -49,7 +49,7 @@ class ListPageScreen extends React.Component {
 
 
 
-  this.setState(list);
+  this.state.list=list;
     
   }
 
@@ -80,21 +80,14 @@ class ListPageScreen extends React.Component {
 
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
-    }else if(item.month === true){
-      return (<View
-        style={styles.item}
-      >
-        <Text style={styles.itemText}>{item.key}</Text>
-      </View>
-      );
     }else{
       return (
         <TouchableOpacity
-          key = { item.key }
+          key = {Math.random()}
           style={styles.item}
           onPress={()=>{
             console.log("create page : " + item.key);
-            navigate('Create Page', {fromKey: item.key});
+            //navigate('Create Page', {fromKey: item.key});
             //navigate('Example', {fromKey: item.key});
           }}
         >
