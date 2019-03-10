@@ -12,7 +12,7 @@ class ListPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {"list":[]};
-    this.ListAllElement();
+    
   }
 
   ListAllElement() {
@@ -27,7 +27,7 @@ class ListPageScreen extends React.Component {
         //console.log(item);
         if(item.key.match(regex)){
           this.state.list.push(item);
-          this.forceUpdate();
+          //this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
             .then(result => {
               fetch(result)
@@ -56,6 +56,7 @@ class ListPageScreen extends React.Component {
 
   render() {
     //console.log(this.state.list);
+    this.ListAllElement();
     return (
       <View style={styles.container}>
       <FlatList
