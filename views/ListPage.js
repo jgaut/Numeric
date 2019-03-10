@@ -20,7 +20,7 @@ class ListPageScreen extends React.Component {
 
   ListAllElement = () => {
     for(let i=this.state.min; i<=this.state.max; i++){
-      let item = {key:i};
+      let item = {ok:i};
       this.state.data.list.push(item);
     }
 
