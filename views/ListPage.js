@@ -49,6 +49,7 @@ class ListPageScreen extends React.Component {
     )
     .catch(err => console.log(err));
     return list
+    this.forceUpdate();
   }
 
   render() {
