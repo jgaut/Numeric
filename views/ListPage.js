@@ -138,7 +138,8 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: '#fff',
-    size:49,
+    borderColor: 'pink',
+    borderWidth: 5,
   },
 });
 
