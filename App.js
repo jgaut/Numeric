@@ -8,7 +8,6 @@ import { createAppContainer } from 'react-navigation';
 import SignInUpScreen from './views/SignInUp';
 import SignUpConfirmScreen from './views/SignUpConfirm';
 import AppAuthScreen from './AppAuth';
-import ExampleScreen from './views/Example';
 import RollScreen from './views/Camerarollpicker';
 import EditNoteScreen from './views/EditNote';
 import EditTextScreen from './views/EditText';
@@ -65,7 +64,6 @@ const AppNavigator = createStackNavigator({
   SignUpConfirm: {screen: SignUpConfirmScreen},
   AppAuth: {screen: AppAuthScreen},
   Roll: {screen: RollScreen},
-  Example: {screen: ExampleScreen},
   EditNote: {screen: EditNoteScreen},
   EditText: {screen: EditTextScreen},
 },
