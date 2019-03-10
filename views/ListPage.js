@@ -73,7 +73,8 @@ class ListPageScreen extends React.Component {
   renderItem = ({ item, index }) => {
 
     const {navigate} = this.props.navigation;
-
+    console.log("create page : " + item.key);
+    
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else{
