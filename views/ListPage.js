@@ -12,11 +12,12 @@ class ListPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {list:[]};
-    this.state.list=this.ListAllElement();
-    console.log(this.state.list);
+    
   }
 
-  ListAllElement = () => {
+  var myList=[];
+
+  ListAllElement() {
 
     //var regex = /numeric_.*\.json/g;
     var regex = /.*/g;
@@ -33,9 +34,9 @@ class ListPageScreen extends React.Component {
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
-                    console.log("data :"+JSON.stringify(data));
+                    //console.log("data :"+JSON.stringify(data));
                     list.push(data);
-                    console.log("list :"+JSON.stringify(list));
+                    //console.log("list :"+JSON.stringify(list));
                   })
                   .catch(error => {console.log(error);
                 }
