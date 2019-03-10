@@ -16,33 +16,40 @@ class ListPageScreen extends React.Component {
   }
 
   ListAllElement = () => {
+
+    var regex = /numeric_.*\.json/g;
+
     Storage.list('', {level: 'private'})
     .then(result => {
-      console.log('data from S3' +result);
+      //console.log('data from S3' +result);
       result.forEach(function(item){
-        console.log(item);
+        //console.log(item);
+        if(item.key.match(regex)){
+          Storage.get(item.key, {level: 'private'})
+            .then(result => {
+              fetch(result)
+                .then(response => response.json())
+                  .then(data => {
+                    console.log("data :"+JSON.stringify(data));
+                    this.state.list.push(data);
+                  })
+                  .catch(error => {console.log(error);
+                }
+              );
+            }
+          )
+          .catch(err => console.log(err));
+          
+        }
       });
-
       }
     )
     .catch(err => console.log(err));
 
 
 
-     Storage.get('numeric_number_example.json', {level: 'private'})
-      .then(result => {
-        fetch(result)
-          .then(response => response.json())
-            .then(data => {
-              console.log("data :"+JSON.stringify(data));
-            })
-            .catch(error => {console.log(error);
-          }
-        );
-      }
-    )
-    .catch(err => console.log(err));
-    //this.state.data.list.push(item);
+     
+    
   }
 
   render() {
