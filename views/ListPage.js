@@ -19,7 +19,7 @@ class ListPageScreen extends React.Component {
     Storage.list('numeric_*.json', {level: 'private'})
     .then(result => {
       console.log(result);
-      result.foreach(function(item){
+      result.forEach(function(item){
         console.log(item);
       });
 
