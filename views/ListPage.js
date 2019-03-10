@@ -18,7 +18,7 @@ class ListPageScreen extends React.Component {
   ListAllElement = () => {
     Storage.list('*.json', {level: 'private'})
     .then(result => {
-      console.log(result);
+      console.log('ok:' +result);
       result.forEach(function(item){
         console.log(item);
       });
