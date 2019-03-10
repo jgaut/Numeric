@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     paddingTop: Constants.statusBarHeight
   },
   item: {
-    backgroundColor: '#4D243D',
+    backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
     flex: 1,
