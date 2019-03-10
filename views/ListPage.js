@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions, ImageBackground } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Storage from '@aws-amplify/storage';
+import { Constants } from 'expo';
 
 const numColumns = 2;
 
@@ -96,7 +97,7 @@ class ListPageScreen extends React.Component {
     }
     return (
       <TouchableOpacity
-        key = { item.key }
+        key={Math.random()}
         style={styles.item}
       >
       <View
@@ -125,7 +126,7 @@ const formatData = (data, numColumns) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 20,
+    paddingTop: Constants.statusBarHeight
   },
   item: {
     backgroundColor: '#4D243D',
