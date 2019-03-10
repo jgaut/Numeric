@@ -62,9 +62,9 @@ class ListPageScreen extends React.Component {
                           tmp.push(data);
                           cpt++;
                           if(taille==cpt){
-                          this.state.data.list=tmp;
-                          this.forceUpdate();
-                        });
+                            this.state.data.list=tmp;
+                            this.forceUpdate();
+                          }
                       });
                     
                     //console.log("tmp :"+JSON.stringify(tmp));
