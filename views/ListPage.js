@@ -1,38 +1,23 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions } from 'react-native'; //https://facebook.github.io/react-native/docs/flatlist#refreshing
 import { createStackNavigator } from 'react-navigation';
-import Moment from 'moment';
-import { extendMoment } from 'moment-range';
 import { Constants } from 'expo';
  
 const moment = extendMoment(Moment);
 
-const numColumns = 3;
+const numColumns = 2;
 const ITEM_HEIGHT = Dimensions.get('window').width / numColumns;
 
 class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {data: {"list":[]}};
-    this.ListAllElement();
+    this.state = {list:[]};
+    //this.ListAllElement();
   }
 
   ListAllElement = () => {
-    const range = moment.range('2019-01-01', '2019-12-31');
-    let m = '';
-    
-    for (let day of range.by('day')) {
-      let n = day.format('MM');
-      if(m!=n){
-        m=n;
-        let item = {key:day.format('MMMM YYYY'), month:true};
-        this.state.data.list.push(item);
-      }
-
-      let item = {key:day.format('YYYY-MM-DD'), month:false};
-      this.state.data.list.push(item);
-    }
+    this.state.data.list.push(item);
   }
 
   render() {
@@ -40,7 +25,7 @@ class ListPageScreen extends React.Component {
     return (
       <View style={styles.container}>
       <FlatList
-        data={formatData(this.state.data.list, numColumns)}
+        data={formatData(this.state.list, numColumns)}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
