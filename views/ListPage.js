@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     borderColor: 'pink',
     borderWidth: 5,
  textAlign: 'center', 
+ textAlignVertical: 'center',
   },
 });
 
