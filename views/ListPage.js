@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 import Storage from '@aws-amplify/storage';
 
-const numColumns = 2;
+const numColumns = 1;
 const ITEM_HEIGHT = Dimensions.get('window').width / numColumns;
 
 class ListPageScreen extends React.Component {
@@ -59,11 +59,11 @@ class ListPageScreen extends React.Component {
         renderItem={this.renderItem}
         numColumns={numColumns}
         //progressViewOffset={(number)=>{console.log('offset : '+number)}}
-        initialNumToRender={30}
+        //initialNumToRender={30}
         //initialScrollIndex={100}
-         getItemLayout={(data, index) => (
-          {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
-          )}
+         //getItemLayout={(data, index) => (
+          //{length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+          //)}
       />
       </View>
     );
