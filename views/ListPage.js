@@ -54,16 +54,11 @@ class ListPageScreen extends React.Component {
     return (
       <View style={styles.container}>
       <FlatList
-        data={formatData(this.state.list, numColumns)}
+        //data={formatData(this.state.list, numColumns)}
+        data={this.state.list}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
-        //progressViewOffset={(number)=>{console.log('offset : '+number)}}
-        //initialNumToRender={30}
-        //initialScrollIndex={100}
-         //getItemLayout={(data, index) => (
-          //{length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
-          //)}
       />
       </View>
     );
