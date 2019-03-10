@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import { Constants } from 'expo';
 import Storage from '@aws-amplify/storage';
 
-const numColumns = 1;
+const numColumns = 3;
 const ITEM_HEIGHT = Dimensions.get('window').width / numColumns;
 
 class ListPageScreen extends React.Component {
@@ -71,7 +71,7 @@ class ListPageScreen extends React.Component {
   
   }
 
-  renderItem = ({ item, index }) => {
+  renderItem(item, index) {
 
     //const {navigate} = this.props.navigation;
     console.log("create page : " + item.key);
