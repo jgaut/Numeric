@@ -1,100 +1,70 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions } from 'react-native'; //https://facebook.github.io/react-native/docs/flatlist#refreshing
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import { Constants } from 'expo';
-import Storage from '@aws-amplify/storage';
 
 const numColumns = 3;
-const ITEM_HEIGHT = Dimensions.get('window').width / numColumns;
 
 class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {"list":[]};
+    this.state = {data: {"list":[]}, max:30, min:-10};
     this.ListAllElement();
+    
   }
 
-  ListAllElement() {
+  componentWillMount(){
+   // this.scrollToItem('item' : this.state.data.list[112]);
+  }
 
+  ListAllElement = () => {
     for(let i=this.state.min; i<=this.state.max; i++){
       let item = {key:i};
-      this.state.list.push(item);
+      this.state.data.list.push(item);
     }
-
-    var regex = /numeric_.*\.json/g;
-    //var regex = /.*/g;
-    /*
-    Storage.list('', {level: 'private'})
-    .then(result => {
-      //console.log('data from S3' +result);
-      result.forEach(item=>{
-        
-        if(item.key.match(regex)){
-          this.state.list.push(item);
-          console.log(this.state.list);
-          this.forceUpdate();
-          Storage.get(item.key, {level: 'private'})
-            .then(result => {
-              fetch(result)
-                .then(response => response.json())
-                  .then(data => {
-                    //console.log("data :"+JSON.stringify(data));
-                    
-                    //console.log("list :"+JSON.stringify(list));
-                  })
-                  .catch(error => {console.log(error);
-                }
-              );
-            }
-          )
-          .catch(err => console.log(err));
-          
-        }else{
-          //console.log('ignore :'+item.key);
-        }
-      });
-      //console.log('finito');
-      }
-    )
-    .catch(err => console.log(err));*/
   }
 
   render() {
-    //console.log(this.state.list);
-    
+
     return (
-      <View style={styles.container}>
       <FlatList
-        data={formatData(this.state.list, numColumns)}
-        //data={this.state.list}
+        data={formatData(this.state.data.list, numColumns)}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
+        onEndReached={(number) => {console.log("distance from end : " + JSON.stringify(number))}}
+        onViewableItemsChanged={(info) => {
+          for(let i=0; i<info.viewableItems.length; i++){
+            let n = info.viewableItems[i];
+            if (Number.isInteger(n) && n>this.state.max-10) {
+              console.log('new max : '+n);
+              this.state.max=n;
+            }
+          };
+          //console.log("viewableItems : " + JSON.stringify(viewableItems)); 
+        }
+      }
       />
-      </View>
     );
   
   }
 
-  renderItem(item, index) {
-
-    //const {navigate} = this.props.navigation;
-    console.log("create page : ");
-
+  renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
-    }else{
-      return (
-       
-        <View
-          style={styles.item}
-        >
-          <Text style={styles.itemText}>bla</Text>
-        </View>
-        
-      );
     }
+    return (
+      <TouchableOpacity
+        key = { item.key }
+        style={styles.item}
+      >
+      <View
+        style={styles.item}
+      >
+        <Text style={styles.itemText}>{item.key}</Text>
+      </View>
+      </TouchableOpacity>
+    );
   };
 }
 
@@ -105,14 +75,14 @@ const formatData = (data, numColumns) => {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
-  console.log("formatData : " + JSON.stringify(data));
+
   return data;
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight
+    marginVertical: 20,
   },
   item: {
     backgroundColor: '#4D243D',
@@ -120,7 +90,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     margin: 1,
-    height: ITEM_HEIGHT, // approximate a square
+    height: Dimensions.get('window').width / numColumns, // approximate a square
   },
   itemInvisible: {
     backgroundColor: 'transparent',
