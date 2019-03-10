@@ -35,7 +35,7 @@ class ListPageScreen extends React.Component {
                   .then(data => {
                     console.log("data :"+JSON.stringify(data));
                     list.push(data);
-                    console.log("list :"+JSON.stringify(list));
+                    //console.log("list :"+JSON.stringify(list));
                   })
                   .catch(error => {console.log(error);
                 }
@@ -51,9 +51,9 @@ class ListPageScreen extends React.Component {
       }
     )
     .catch(err => console.log(err));
+
     console.log("list :"+JSON.stringify(list));
     return list;
-    
   }
 
   render() {
