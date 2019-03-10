@@ -31,6 +31,8 @@ class ListPageScreen extends React.Component {
     Storage.list('', {level: 'private'})
     .then(result => {
       //console.log('data from S3' +result);
+      taille=result.length;
+      console.log('taille:'+taille);
       result.forEach(item=>{
         
         if(item.key.match(regex)){
@@ -39,8 +41,6 @@ class ListPageScreen extends React.Component {
           //this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
             .then(result => {
-              taille=result.length;
-              console.log('taille:'+taille);
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
