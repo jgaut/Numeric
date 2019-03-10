@@ -11,7 +11,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {list:[]};
+    this.state = {"list":[]};
     this.ListAllElement();
   }
 
@@ -56,7 +56,7 @@ class ListPageScreen extends React.Component {
   }
 
   render() {
-    console.log(this.state.list);
+    //console.log(this.state.list);
     return (
       <View style={styles.container}>
       <FlatList
