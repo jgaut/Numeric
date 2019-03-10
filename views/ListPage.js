@@ -32,18 +32,6 @@ class ListPageScreen extends React.Component {
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
-        onEndReached={(number) => {console.log("distance from end : " + JSON.stringify(number))}}
-        onViewableItemsChanged={(info) => {
-          for(let i=0; i<info.viewableItems.length; i++){
-            let n = info.viewableItems[i];
-            if (Number.isInteger(n) && n>this.state.max-10) {
-              console.log('new max : '+n);
-              this.state.max=n;
-            }
-          };
-          //console.log("viewableItems : " + JSON.stringify(viewableItems)); 
-        }
-      }
       />
     );
   
