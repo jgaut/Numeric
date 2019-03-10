@@ -53,7 +53,10 @@ class ListPageScreen extends React.Component {
                     image = image.replace(regex, "Images");
 
                     console.log("key image : "+image);
-
+                    Storage.get(image, {level: 'private'})
+                      .then(result => {
+                        fetch(result).then(response => {console.log(response);})
+                      });
                     data.key=Math.random();
                     tmp.push(data);
                     cpt++;
