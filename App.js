@@ -8,9 +8,6 @@ import { createAppContainer } from 'react-navigation';
 import SignInUpScreen from './views/SignInUp';
 import SignUpConfirmScreen from './views/SignUpConfirm';
 import AppAuthScreen from './AppAuth';
-import RollScreen from './views/Camerarollpicker';
-import EditNoteScreen from './views/EditNote';
-import EditTextScreen from './views/EditText';
 
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
@@ -63,9 +60,6 @@ const AppNavigator = createStackNavigator({
   SignInUp: {screen: SignInUpScreen},
   SignUpConfirm: {screen: SignUpConfirmScreen},
   AppAuth: {screen: AppAuthScreen},
-  Roll: {screen: RollScreen},
-  EditNote: {screen: EditNoteScreen},
-  EditText: {screen: EditTextScreen},
 },
 {
     headerMode: 'none'}
