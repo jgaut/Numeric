@@ -48,6 +48,7 @@ class ListPageScreen extends React.Component {
           console.log('ignore :'+item.key);
         }
       });
+      console.log('finito');
       }
     )
     .catch(err => console.log(err));
