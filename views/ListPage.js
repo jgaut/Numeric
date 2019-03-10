@@ -11,6 +11,7 @@ class ListPageScreen extends React.Component {
     super(...args);
     this.state = {data: {"list":[]}, max:8, min:0};
     this.ListAllElement();
+    console.log(Dimensions.get('window').width / numColumns);
     
   }
 
