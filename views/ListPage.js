@@ -55,8 +55,8 @@ class ListPageScreen extends React.Component {
                     console.log("key image : "+image);
                     Storage.get(image, {level: 'private'}).then(result => {
                       fetch(result).then(response => {
-                        console.log(response);
-                        data.uri=response;
+                        console.log(response.url);
+                        data.uri=response.url;
                         data.key=Math.random();
                         tmp.push(data);
                         cpt++;
