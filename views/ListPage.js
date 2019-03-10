@@ -43,6 +43,8 @@ class ListPageScreen extends React.Component {
                   .then(data => {
                     data.key=Math.random();
                     tmp.push(data);
+                          this.state.data.list=tmp;
+      this.forceUpdate();
                     console.log("tmp :"+JSON.stringify(tmp));
                     
                     //console.log("list :"+JSON.stringify(list));
@@ -58,8 +60,7 @@ class ListPageScreen extends React.Component {
           //console.log('ignore :'+item.key);
         }
       });
-      this.state.data.list=tmp;
-      this.forceUpdate();
+
       //console.log('finito');
       }
     )
