@@ -99,6 +99,7 @@ class ListPageScreen extends React.Component {
       <TouchableOpacity
         key={Math.random()}
         style={styles.item}
+        onPress={()=>null}
       >
        <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%'}}>
         <Text style={styles.itemText}>{item.value}</Text>
