@@ -22,7 +22,7 @@ class ListPageScreen extends React.Component {
       }
     )
     .catch(err => console.log(err));
-    this.state.data.list.push(item);
+    //this.state.data.list.push(item);
   }
 
   render() {
