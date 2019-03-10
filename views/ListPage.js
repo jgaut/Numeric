@@ -20,7 +20,7 @@ class ListPageScreen extends React.Component {
 
   ListAllElement = () => {
     for(let i=this.state.min; i<=this.state.max; i++){
-      let item = {ok:i};
+      let item = {key:i};
       this.state.data.list.push(item);
     }
 
@@ -31,7 +31,7 @@ class ListPageScreen extends React.Component {
         
         if(item.key.match(regex)){
           this.state.data.list.push(item);
-          //console.log(this.state.list);
+          console.log(item);
           this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
             .then(result => {
