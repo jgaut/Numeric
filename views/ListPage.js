@@ -66,10 +66,10 @@ class ListPageScreen extends React.Component {
                             this.forceUpdate();
                           }
                       });
-                    }
+                    });
                     
                     //console.log("tmp :"+JSON.stringify(tmp));
-                    }
+                    });
                     //console.log("list :"+JSON.stringify(list));
                   })
                   .catch(error => {console.log(error);
@@ -78,10 +78,6 @@ class ListPageScreen extends React.Component {
             }
           )
           .catch(err => console.log(err));
-          
-        }else{
-          //console.log('ignore :'+item.key);
-        }
       });
 
       //console.log('finito');
