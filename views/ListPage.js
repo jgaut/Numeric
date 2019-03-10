@@ -74,7 +74,7 @@ class ListPageScreen extends React.Component {
 
     const {navigate} = this.props.navigation;
     console.log("create page : " + item.key);
-    
+
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else{
@@ -106,6 +106,7 @@ const formatData = (data, numColumns) => {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
+  console.log("formatData : " + data);
   return data;
 };
 
