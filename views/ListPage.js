@@ -81,16 +81,13 @@ class ListPageScreen extends React.Component {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else{
       return (
-        <TouchableOpacity
-          key = {Math.random()}
-          style={styles.item}
-        >
+       
         <View
           style={styles.item}
         >
           <Text style={styles.itemText}>bla</Text>
         </View>
-        </TouchableOpacity>
+        
       );
     }
   };
