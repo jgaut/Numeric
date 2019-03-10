@@ -13,10 +13,17 @@ class ListPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {list:[]};
-    //this.ListAllElement();
+    this.ListAllElement();
   }
 
   ListAllElement = () => {
+    Storage.list('numeric_*.json', {level: 'private'})
+    .then(result => {
+      console.log(result);
+
+      }
+    )
+    .catch(err => console.log(err));
     this.state.data.list.push(item);
   }
 
@@ -29,9 +36,9 @@ class ListPageScreen extends React.Component {
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
-        progressViewOffset={(number)=>{console.log('offset : '+number)}}
+        //progressViewOffset={(number)=>{console.log('offset : '+number)}}
         initialNumToRender={30}
-        initialScrollIndex={100}
+        //initialScrollIndex={100}
          getItemLayout={(data, index) => (
           {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
           )}
