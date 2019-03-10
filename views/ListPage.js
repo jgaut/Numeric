@@ -12,7 +12,7 @@ class ListPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {list:[]};
-    this.ListAllElement();
+    this.state.list=this.ListAllElement();
   }
 
   ListAllElement = () => {
@@ -46,11 +46,7 @@ class ListPageScreen extends React.Component {
       }
     )
     .catch(err => console.log(err));
-
-
-
-  this.state.list=list;
-  console.log(this.state.list);
+    return list
   }
 
   render() {
