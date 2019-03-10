@@ -26,7 +26,8 @@ class ListPageScreen extends React.Component {
 
     var regex = /numeric_.*\.json/g;
     var tmp =[];
-
+    var taille=0;
+    var cpt=0;
     Storage.list('', {level: 'private'})
     .then(result => {
       //console.log('data from S3' +result);
@@ -38,15 +39,18 @@ class ListPageScreen extends React.Component {
           //this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
             .then(result => {
+              taille=result.length;
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
                     data.key=Math.random();
                     tmp.push(data);
-                          this.state.data.list=tmp;
-      this.forceUpdate();
+                    cpt++;
+                    if(taille==cpt){
+                    this.state.data.list=tmp;
+                    this.forceUpdate();
                     console.log("tmp :"+JSON.stringify(tmp));
-                    
+                    }
                     //console.log("list :"+JSON.stringify(list));
                   })
                   .catch(error => {console.log(error);
