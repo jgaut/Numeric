@@ -43,7 +43,7 @@ class ListPageScreen extends React.Component {
                   .then(data => {
                     data.key=Math.random();
                     tmp.push(data);
-                    //console.log("data :"+JSON.stringify(data));
+                    console.log("tmp :"+JSON.stringify(tmp));
                     
                     //console.log("list :"+JSON.stringify(list));
                   })
