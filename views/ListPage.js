@@ -28,7 +28,7 @@ class ListPageScreen extends React.Component {
         if(item.key.match(regex)){
           this.state.list.push(item);
           console.log(this.state.list);
-          //this.forceUpdate();
+          this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
             .then(result => {
               fetch(result)
