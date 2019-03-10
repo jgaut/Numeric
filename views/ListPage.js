@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
+import Storage from '@aws-amplify/storage';
 
 const numColumns = 3;
 
