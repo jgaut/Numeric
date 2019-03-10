@@ -34,7 +34,7 @@ class ListPageScreen extends React.Component {
         fetch(result)
           .then(response => response.json())
             .then(data => {
-              console.log("data :"+data);
+              console.log("data :"+JSON.stringify(data));
             })
             .catch(error => {console.log(error);
           }
