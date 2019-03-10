@@ -73,7 +73,7 @@ class ListPageScreen extends React.Component {
   renderItem(item, index) {
 
     //const {navigate} = this.props.navigation;
-    console.log("create page : " + JSON.stringify(item));
+    console.log("create page : ");
 
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
@@ -82,11 +82,6 @@ class ListPageScreen extends React.Component {
         <TouchableOpacity
           key = {Math.random()}
           style={styles.item}
-          onPress={()=>{
-            //console.log("create page : " + item.key);
-            //navigate('Create Page', {fromKey: item.key});
-            //navigate('Example', {fromKey: item.key});
-          }}
         >
         <View
           style={styles.item}
