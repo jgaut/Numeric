@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   itemText: {
+    flex:1,
     color: '#fff',
     borderColor: 'pink',
     borderWidth: 5,
