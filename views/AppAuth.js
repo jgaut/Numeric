@@ -5,8 +5,8 @@ import { StyleSheet, TextInput, View, Text, TouchableOpacity, SafeAreaView, Scro
 import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
 import HomeScreen from './Home';
-import ListPageScreen from './views/ListPage';
-import TabMenuScreen from './views/TabMenu';
+import ListPageScreen from './ListPage';
+import TabMenuScreen from './TabMenu';
 import Auth from '@aws-amplify/auth';
 import { Constants } from 'expo';
 
