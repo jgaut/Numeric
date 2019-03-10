@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions, ImageBackground } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import Storage from '@aws-amplify/storage';
 
