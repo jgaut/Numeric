@@ -26,7 +26,7 @@ class ListPageScreen extends React.Component {
     .then(result => {
       //console.log('data from S3' +result);
       result.forEach(function(item){
-        //console.log(item);
+        console.log(item);
         if(item.key.match(regex)){
           Storage.get(item.key, {level: 'private'})
             .then(result => {
