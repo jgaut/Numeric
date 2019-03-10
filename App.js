@@ -7,7 +7,7 @@ import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
 import SignInUpScreen from './views/SignInUp';
 import SignUpConfirmScreen from './views/SignUpConfirm';
-import AppAuthScreen from './AppAuth';
+import AppAuthScreen from './views/AppAuth';
 
 // retrieve temporary AWS credentials and sign requests
 Auth.configure(awsconfig);
