@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flex:1,
-    color: '#fff',
+    color: 'lightblue',
  textAlign: 'center', 
  textAlignVertical: 'center',
  fontSize: 60,
