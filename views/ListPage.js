@@ -74,7 +74,7 @@ class ListPageScreen extends React.Component {
         }
 
       //console.log('finito');
-      }).catch(err => console.log(err));
+      });
     });
 
   }
