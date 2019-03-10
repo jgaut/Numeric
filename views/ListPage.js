@@ -12,16 +12,13 @@ class ListPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {list:[]};
-    
+    this.ListAllElement(this.state);
   }
 
-  var myList=[];
-
-  ListAllElement() {
+  ListAllElement(state) {
 
     //var regex = /numeric_.*\.json/g;
     var regex = /.*/g;
-    var list =[];
 
     Storage.list('', {level: 'private'})
     .then(result => {
@@ -35,7 +32,7 @@ class ListPageScreen extends React.Component {
                 .then(response => response.json())
                   .then(data => {
                     //console.log("data :"+JSON.stringify(data));
-                    list.push(data);
+                    state.list.push(data);
                     //console.log("list :"+JSON.stringify(list));
                   })
                   .catch(error => {console.log(error);
@@ -53,8 +50,6 @@ class ListPageScreen extends React.Component {
       }
     )
     .catch(err => console.log(err));
-
-    return list;
   }
 
   render() {
