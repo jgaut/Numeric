@@ -24,6 +24,8 @@ class ListPageScreen extends React.Component {
       this.state.data.list.push(item);
     }
 
+    var regex = /numeric_.*\.json/g;
+
     Storage.list('', {level: 'private'})
     .then(result => {
       //console.log('data from S3' +result);
