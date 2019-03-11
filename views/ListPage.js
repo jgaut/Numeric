@@ -103,7 +103,7 @@ class ListPageScreen extends React.Component {
           style={styles.item}
         >
 
-        <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%', position: "absolute", opacity: 0.7}}>
+        <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%', position: "absolute", opacity: 0.2}}>
 
           </ImageBackground>
           
