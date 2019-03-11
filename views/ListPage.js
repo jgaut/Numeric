@@ -138,10 +138,9 @@ const styles = StyleSheet.create({
   },
   itemText: {
     flex:1,
-    color: 'lightblue',
- textAlign: 'center', 
- textAlignVertical: 'center',
- fontSize: 60,
+    textAlign: 'center', 
+    textAlignVertical: 'center',
+    fontSize: 60,
   },
 });
 
