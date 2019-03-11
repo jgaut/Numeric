@@ -39,7 +39,7 @@ class ListPageScreen extends React.Component {
         
         if(item.key.match(regex)){
           //tmp.push(item);
-          console.log(item);
+          //console.log(item);
           //this.forceUpdate();
           Storage.get(item.key, {level: 'private'})
             .then(result => {
@@ -53,7 +53,7 @@ class ListPageScreen extends React.Component {
                     regex = /Indicateurs/gi;
                     image = image.replace(regex, "Images");
 
-                    console.log("key image : "+image);
+                    //console.log("key image : "+image);
                     Storage.get(image, {level: 'private'}).then(result => {
                       fetch(result).then(response => {
                         //console.log(response.url);
@@ -101,7 +101,7 @@ class ListPageScreen extends React.Component {
         style={styles.item}
       >
        <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%'}}>
-        <Text style={styles.itemText, {color: item.color, fontSize: item.fontSize}}>{item.value}</Text>
+        <Text style={styles.itemText/*, {color: item.color, fontSize: item.fontSize}*/}>{item.value}</Text>
         </ImageBackground>
   
       </TouchableOpacity>
