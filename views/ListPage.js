@@ -34,7 +34,7 @@ class ListPageScreen extends React.Component {
     .then(result => {
       console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
-      //console.log('taille:'+taille);
+      console.log('taille:'+taille);
       result.forEach(item=>{
         
         if(item.key.match(regex)){
@@ -53,7 +53,7 @@ class ListPageScreen extends React.Component {
                     regex = /indicateurs/gi;
                     image = image.replace(regex, "images");
 
-                    //console.log("key image : "+image);
+                    console.log("key image : "+image);
                     Storage.get(image, {level: 'private'}).then(result => {
                       fetch(result).then(response => {
                         //console.log(response.url);
