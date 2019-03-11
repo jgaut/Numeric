@@ -39,7 +39,7 @@ class ListPageScreen extends React.Component {
         
         if(item.key.match(regex)){
           //tmp.push(item);
-          //console.log(item);
+          console.log(item);
           //this.forceUpdate();
           Storage.get(item.key, {level: 'public'})
             .then(result => {
@@ -61,10 +61,10 @@ class ListPageScreen extends React.Component {
                         data.key=Math.random();
                         tmp.push(data);
                         cpt++;
-                        if(taille==cpt){
-                          this.state.data.list=tmp;
-                          this.forceUpdate();
-                        }
+                        
+                        this.state.data.list=tmp;
+                        this.forceUpdate();
+                        
                       });
                     });
                     
