@@ -12,7 +12,7 @@ class ListPageScreen extends React.Component {
     super(...args);
     this.state = {data: {"list":[]}, max:8, min:0};
     this.ListAllElement();
-    console.log('taille : '+Dimensions.get('window').width / numColumns);
+    //console.log('taille : '+Dimensions.get('window').width / numColumns);
     
   }
 
@@ -32,7 +32,7 @@ class ListPageScreen extends React.Component {
     var cpt=0;
     Storage.list('Numeric/Indicateurs/numeric_', {level: 'private'})
     .then(result => {
-      console.log('data from S3' +JSON.stringify(result));
+      //console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
       //console.log('taille:'+taille);
       result.forEach(item=>{
@@ -56,7 +56,7 @@ class ListPageScreen extends React.Component {
                     console.log("key image : "+image);
                     Storage.get(image, {level: 'private'}).then(result => {
                       fetch(result).then(response => {
-                        console.log(response.url);
+                        //console.log(response.url);
                         data.uri=response.url;
                         data.key=Math.random();
                         tmp.push(data);
@@ -140,6 +140,8 @@ const styles = StyleSheet.create({
     flex:1,
     textAlign: 'center', 
     textAlignVertical: 'center',
+    color: 'white',
+    fontSize: 30,
   },
 });
 
