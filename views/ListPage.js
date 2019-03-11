@@ -103,9 +103,8 @@ class ListPageScreen extends React.Component {
           style={styles.item}
         >
         <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%', opacity: 0.4}}>
-          <View style={{opacity: 1}}>
+
           <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center',color: item.color, fontSize: item.fontSize, opacity: 1}}>{item.value}</Text>
-          </View>
         </ImageBackground>
     
         </TouchableOpacity>
