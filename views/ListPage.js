@@ -30,7 +30,7 @@ class ListPageScreen extends React.Component {
     var tmp =[];
     var taille=0;
     var cpt=0;
-    Storage.list('Numeric/Indicateurs/numeric_', {level: 'public'})
+    Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
     .then(result => {
       console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
@@ -50,8 +50,8 @@ class ListPageScreen extends React.Component {
                     var regex = /\.json/gi;
                     var image = item.key.replace(regex, ".jpg")
 
-                    regex = /Indicateurs/gi;
-                    image = image.replace(regex, "Images");
+                    regex = /indicateurs/gi;
+                    image = image.replace(regex, "images");
 
                     //console.log("key image : "+image);
                     Storage.get(image, {level: 'private'}).then(result => {
