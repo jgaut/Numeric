@@ -109,8 +109,8 @@ class ListPageScreen extends React.Component {
           
 
           <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center',color: item.color, fontSize: item.fontSize, position: 'absolute'}}>{item.value}</Text>
-        <View style={{...}}>
-        <Text style={{...}}>SOME_WHITE_ICON_HERE</Text>
+        <View style={{flex:1}}>
+        <Text style={{flex:1}}>SOME_WHITE_ICON_HERE</Text>
     </View>
     
         </TouchableOpacity>
