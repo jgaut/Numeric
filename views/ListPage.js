@@ -94,18 +94,19 @@ class ListPageScreen extends React.Component {
   renderItem = ({ item, index }) => {
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
+    }else if(item.type='number'){
+      return (
+        <TouchableOpacity
+          key={Math.random()}
+          style={styles.item}
+        >
+         <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%'}}>
+          <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center',color: item.color, fontSize: item.fontSize}}>{item.value}</Text>
+          </ImageBackground>
+    
+        </TouchableOpacity>
+      );
     }
-    return (
-      <TouchableOpacity
-        key={Math.random()}
-        style={styles.item}
-      >
-       <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%'}}>
-        <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center',color: item.color, fontSize: item.fontSize}}>{item.value}</Text>
-        </ImageBackground>
-  
-      </TouchableOpacity>
-    );
   };
 }
 
