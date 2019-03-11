@@ -30,7 +30,7 @@ class ListPageScreen extends React.Component {
     var tmp =[];
     var taille=0;
     var cpt=0;
-    Storage.list('Numeric/Indicateurs/numeric_', {level: 'private'})
+    Storage.list('Numeric/Indicateurs/numeric_', {level: 'public'})
     .then(result => {
       //console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
@@ -41,7 +41,7 @@ class ListPageScreen extends React.Component {
           //tmp.push(item);
           //console.log(item);
           //this.forceUpdate();
-          Storage.get(item.key, {level: 'private'})
+          Storage.get(item.key, {level: 'public'})
             .then(result => {
               fetch(result)
                 .then(response => response.json())
