@@ -32,9 +32,9 @@ class ListPageScreen extends React.Component {
     var cpt=0;
     Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
     .then(result => {
-      console.log('data from S3' +JSON.stringify(result));
+      //console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
-      console.log('taille:'+taille);
+      //console.log('taille:'+taille);
       result.forEach(item=>{
         
         if(item.key.match(regex)){
@@ -49,7 +49,7 @@ class ListPageScreen extends React.Component {
                     //console.log(data);
                     //Find image background
                     var tmp2 = data[0];
-                    console.log('================>'+JSON.stringify(tmp2));
+                    //console.log('================>'+JSON.stringify(tmp2));
                     var regex = /\.json/gi;
                     var image = item.key.replace(regex, ".jpg")
 
@@ -99,7 +99,7 @@ class ListPageScreen extends React.Component {
   }
 
   renderItem = ({ item, index }) => {
-    console.log('item::'+JSON.stringify(parseInt(item.fontSize,10)));
+    //console.log('item::'+JSON.stringify(parseInt(item.fontSize,10)));
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else if(item.type='number'){
