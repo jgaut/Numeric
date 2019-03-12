@@ -61,7 +61,7 @@ class ListPageScreen extends React.Component {
                         data.uri=response.url;
                         data.key=Math.random();
                         tmp.push(data);
-                        console.log(data.key);
+                        //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
                           this.state.data.list=tmp;
@@ -96,6 +96,7 @@ class ListPageScreen extends React.Component {
   }
 
   renderItem = ({ item, index }) => {
+    console.log(item);
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else if(item.type='number'){
