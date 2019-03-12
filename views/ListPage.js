@@ -49,7 +49,7 @@ class ListPageScreen extends React.Component {
                     //console.log(data);
                     //Find image background
                     var tmp2 = data[0];
-                    console.log(tmp2);
+                    console.log('================>'+tmp2);
                     var regex = /\.json/gi;
                     var image = item.key.replace(regex, ".jpg")
 
@@ -63,8 +63,8 @@ class ListPageScreen extends React.Component {
                         data.uri=response.url;
                         data.key=Math.random();
                         tmp.push(data);
-                        console.log(data.uri);
-                        console.log(data.key);
+                        //console.log(data.uri);
+                        //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
                           this.state.data.list=tmp;
