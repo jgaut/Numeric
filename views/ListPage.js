@@ -48,6 +48,8 @@ class ListPageScreen extends React.Component {
                   .then(data => {
                     //console.log(data);
                     //Find image background
+                    var tmp = data[0];
+                    console.log(tmp);
                     var regex = /\.json/gi;
                     var image = item.key.replace(regex, ".jpg")
 
@@ -97,7 +99,7 @@ class ListPageScreen extends React.Component {
   }
 
   renderItem = ({ item, index }) => {
-    console.log('item::'+JSON.stringify(item[0]));
+    console.log('item::'+JSON.stringify(item));
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else if(item.type='number'){
