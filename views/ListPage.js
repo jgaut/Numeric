@@ -99,7 +99,7 @@ class ListPageScreen extends React.Component {
   }
 
   renderItem = ({ item, index }) => {
-    console.log('item::'+JSON.stringify(item));
+    console.log('item::'+JSON.stringify(parseInt(item.fontSize,2)));
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else if(item.type='number'){
