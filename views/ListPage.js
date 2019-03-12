@@ -47,6 +47,7 @@ class ListPageScreen extends React.Component {
                 .then(response => response.json())
                   .then(data => {
                     console.log(data);
+                    data=data[0];
                     //Find image background
                     var regex = /\.json/gi;
                     var image = item.key.replace(regex, ".jpg")
