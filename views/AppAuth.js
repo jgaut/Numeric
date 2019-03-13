@@ -55,7 +55,7 @@ const CustomdrawerComponent = (props) => (
 const MyDrawerNavigator = createDrawerNavigator({
   'Home': TabMenuScreen,
   //'Journal': ListPageScreen,
-  'other': {
+  'Journal': {
     screen: ListPageScreen,
     navigationOptions: ({navigation}) => ({
       drawerLockMode: 'locked-closed'
