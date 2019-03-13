@@ -115,7 +115,7 @@ class ListPageScreen extends React.Component {
         styleImage.push({tmp:item['obj']});
         console.log(styleImage);
       } else {
-        console.log(obj+" => "+item[obj]);
+        //console.log(obj+" => "+item[obj]);
       }
     }
 
