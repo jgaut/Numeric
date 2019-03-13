@@ -27,7 +27,8 @@ class TabMenuScreen extends React.Component {
 const MyTabNavigator = createBottomTabNavigator({
   'Liste': {
     screen: ListPageScreen,
-    navigationOptions: () => ({
+    navigationOptions: ({navigation}) => ({
+      drawerLockMode: 'locked-closed',
       tabBarLabel: () => {},
       tabBarIcon: ({ tintColor }) => (<Text>Liste</Text>)
     }),
