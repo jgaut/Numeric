@@ -39,7 +39,7 @@ class ListPageScreen extends React.Component {
         
         if(item.key.match(regex)){
           //tmp.push(item);
-          console.log(item);
+          //console.log(item);
           //this.forceUpdate();
           Storage.get(item.key, {level: 'public'})
             .then(result => {
@@ -108,7 +108,7 @@ class ListPageScreen extends React.Component {
           key={Math.random()}
           style={styles.item}
         >
-          <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%', position: "absolute", opacity: item.opacity}}/>
+          <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%', position: "absolute", opacity: item.style_opacity}}/>
           <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center', position: 'absolute'},{color: item.color, fontSize: parseInt(item.fontSize,10)}}>{item.value}</Text>
         </TouchableOpacity>
       );
