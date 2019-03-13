@@ -100,19 +100,19 @@ class ListPageScreen extends React.Component {
 
   renderItem = ({ item, index }) => {
     //console.log('item::'+JSON.stringify(parseInt(item.fontSize,10)));
-    var styleText={};
-    var styleImage={};
+    var styleText=[{}];
+    var styleImage=[{}];
     var regexText = /style_text_.*/g;
     var regexImage = /style_image_.*/g;
 
     for (var obj in item) {
       if(obj.match(regexText)){
         var tmp = obj.replace("style_text_", "");
-        styleText.push(tmp,item['obj']);
+        styleText.push({tmp:item['obj']});
         console.log(styleText);
       } else if(obj.match(regexImage)) {
         var tmp = obj.replace("style_image_", "");
-        styleImage.push(tmp,item['obj']);
+        styleImage.push({tmp:item['obj']});
         console.log(styleImage);
       } else {
         console.log(obj+" => "+item[obj]);
