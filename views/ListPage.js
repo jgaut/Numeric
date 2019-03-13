@@ -100,6 +100,25 @@ class ListPageScreen extends React.Component {
 
   renderItem = ({ item, index }) => {
     //console.log('item::'+JSON.stringify(parseInt(item.fontSize,10)));
+    var styleText={};
+    var styleImage={};
+    var regexText = /style_text_.*/g;
+    var regexImage = /style_image_.*/g;
+
+    for (var obj in item) {
+      if(obj.match(regexText)){
+        var tmp = obj.replace("style_text_", "");
+        styleText.push(tmp:item[obj]);
+        console.log(styleText);
+      } else if() {
+        var tmp = obj.replace("style_image_", "");
+        styleImage.push(tmp:item[obj]);
+        console.log(styleImage);
+      } else {
+        console.log(obj+" => "+item[obj]);
+      }
+    }
+
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
     }else if(item.type='number'){
@@ -108,7 +127,7 @@ class ListPageScreen extends React.Component {
           key={Math.random()}
           style={styles.item}
         >
-          <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%', position: "absolute", opacity: item.style_opacity}}/>
+          <ImageBackground source={{uri: item.uri}} style={styles.item, {width: '100%', height: '100%', position: "absolute"},{opacity: item.opacity}}/>
           <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center', position: 'absolute'},{color: item.color, fontSize: parseInt(item.fontSize,10)}}>{item.value}</Text>
         </TouchableOpacity>
       );
