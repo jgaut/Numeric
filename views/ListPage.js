@@ -127,7 +127,14 @@ class ListPageScreen extends React.Component {
           key={Math.random()}
           style={styles.item}
         >
-          <ImageBackground source={{uri: item.uri}} style={{backgroundColor:'transparent',alignItems:'center',justifyContent:'center',flex:1,margin:1,height:Dimensions.get('window').width/numColumns,width:'100%',height:'100%',position:"absolute"},styleImage}/>
+          <ImageBackground 
+            source={{uri: item.uri}} 
+            style={{
+              backgroundColor:'transparent',alignItems:'center',justifyContent:'center',flex:1,margin:1,
+              height:Dimensions.get('window').width/numColumns,width:'100%',height:'100%',position:"absolute"
+            },
+            styleImage
+          }/>
           <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center', position: 'absolute'},styleText}>{item.value}</Text>
         </TouchableOpacity>
       );
