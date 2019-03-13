@@ -137,8 +137,8 @@ class ListPageScreen extends React.Component {
         >
           <ImageBackground 
             source={{uri: item.uri}} 
-            style={[style.image,styleImage]}/>
-          <Text style={[style.text,styleText]}>{item.value}</Text>
+            style={[styles.image,styleImage]}/>
+          <Text style={[styles.text,styleText]}>{item.value}</Text>
         </TouchableOpacity>
       );
     }
