@@ -110,7 +110,7 @@ class ListPageScreen extends React.Component {
         var tmp = obj.replace("style_text_", "");
         styleText.push(tmp:item[obj]);
         console.log(styleText);
-      } else if() {
+      } else if(obj.match(regexImage)) {
         var tmp = obj.replace("style_image_", "");
         styleImage.push(tmp:item[obj]);
         console.log(styleImage);
