@@ -119,13 +119,13 @@ class ListPageScreen extends React.Component {
       }
     }
 
-    for (var obj in styles.text) {
+    /*for (var obj in styles.text) {
       styleText[obj]=styles.text[obj];
     }
 
     for (var obj in styles.image) {
       styleImage[obj]=styles.image[obj];
-    }
+    }*/
 
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
@@ -137,8 +137,8 @@ class ListPageScreen extends React.Component {
         >
           <ImageBackground 
             source={{uri: item.uri}} 
-            style={styleImage}/>
-          <Text style={styleText}>{item.value}</Text>
+            style={[style.image,styleImage]}/>
+          <Text style={[style.text,styleText]}>{item.value}</Text>
         </TouchableOpacity>
       );
     }
@@ -171,13 +171,6 @@ const styles = StyleSheet.create({
   },
   itemInvisible: {
     backgroundColor: 'transparent',
-  },
-  itemText: {
-    flex:1,
-    textAlign: 'center', 
-    textAlignVertical: 'center',
-    color: 'white',
-    fontSize: 30,
   },
   image: {
     width:'100%',
