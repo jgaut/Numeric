@@ -119,9 +119,17 @@ class ListPageScreen extends React.Component {
       }
     }
 
+    for (var obj in styles.text) {
+      styleText[obj]=styles.text[obj];
+    }
+
+    for (var obj in styles.image) {
+      styleImage[obj]=styles.image[obj];
+    }
+
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
-    }else if(item.type='number'){
+    } else if(item.type='number') {
       return (
         <TouchableOpacity
           key={Math.random()}
@@ -129,8 +137,8 @@ class ListPageScreen extends React.Component {
         >
           <ImageBackground 
             source={{uri: item.uri}} 
-            style={{width:'100%',height:'100%',position:'absolute',opacity:0.5}}/>
-          <Text style={{flex:1, textAlign: 'center', textAlignVertical: 'center', position: 'absolute'}}>{item.value}</Text>
+            style={styleImage}/>
+          <Text style={styleText}>{item.value}</Text>
         </TouchableOpacity>
       );
     }
@@ -170,6 +178,17 @@ const styles = StyleSheet.create({
     textAlignVertical: 'center',
     color: 'white',
     fontSize: 30,
+  },
+  image: {
+    width:'100%',
+    height:'100%',
+    position:'absolute',
+  },
+  text: {
+    flex:1,
+    textAlign:'center',
+    textAlignVertical:'center',
+    position: 'absolute',
   },
 });
 
