@@ -4,7 +4,6 @@ import Icon from "react-native-vector-icons/Ionicons";
 import {createAppContainer, createBottomTabNavigator, createStackNavigator} from 'react-navigation';
 import HomeScreen from './Home';
 import ListPageScreen from './ListPage';
-import Image from 'react-native-remote-svg'
 
 class TabMenuScreen extends React.Component {
 
