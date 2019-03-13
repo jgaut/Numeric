@@ -100,8 +100,8 @@ class ListPageScreen extends React.Component {
 
   renderItem = ({ item, index }) => {
     //console.log('item::'+JSON.stringify(parseInt(item.fontSize,10)));
-    var styleText=[{}];
-    var styleImage=[{}];
+    var styleText={};
+    var styleImage={};
     var regexText = /style_text_.*/g;
     var regexImage = /style_image_.*/g;
 
