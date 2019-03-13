@@ -56,9 +56,9 @@ class ListPageScreen extends React.Component {
                     regex = /indicateurs/gi;
                     image = image.replace(regex, "images");
                     console.log("key image : "+image);
-                    console.log('numeric/images/'+item.image_src);
+                    console.log('numeric/images/'+tmp2.image_src);
 
-                    Storage.get('numeric/images/'+item.image_src, {level: 'public'}).then(result => {
+                    Storage.get('numeric/images/'+tmp2.image_src, {level: 'public'}).then(result => {
                       fetch(result).then(response => {
                         //console.log(response.url);
                         tmp2.uri=response.url;
