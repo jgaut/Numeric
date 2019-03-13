@@ -161,6 +161,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 1,
     height: Dimensions.get('window').width / numColumns, // approximate a square
+    borderRadius: 10,
   },
   itemInvisible: {
     backgroundColor: 'transparent',
