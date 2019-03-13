@@ -162,6 +162,8 @@ const styles = StyleSheet.create({
     margin: 1,
     height: Dimensions.get('window').width / numColumns, // approximate a square
     borderRadius: 10,
+    borderWidth:5,
+    borderColor: 'pink',
   },
   itemInvisible: {
     backgroundColor: 'transparent',
