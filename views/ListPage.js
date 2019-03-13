@@ -50,14 +50,14 @@ class ListPageScreen extends React.Component {
                     //Find image background
                     var tmp2 = data[0];
                     //console.log('================>'+JSON.stringify(tmp2));
-                    var regex = /\.json/gi;
+                    /*var regex = /\.json/gi;
                     var image = item.key.replace(regex, ".jpg")
 
                     regex = /indicateurs/gi;
-                    image = image.replace(regex, "images");
+                    image = image.replace(regex, "images");*/
 
                     //console.log("key image : "+image);
-                    Storage.get(image, {level: 'public'}).then(result => {
+                    Storage.get(item.image_src, {level: 'public'}).then(result => {
                       fetch(result).then(response => {
                         //console.log(response.url);
                         tmp2.uri=response.url;
@@ -118,14 +118,6 @@ class ListPageScreen extends React.Component {
         //console.log(obj+" => "+item[obj]);
       }
     }
-
-    /*for (var obj in styles.text) {
-      styleText[obj]=styles.text[obj];
-    }
-
-    for (var obj in styles.image) {
-      styleImage[obj]=styles.image[obj];
-    }*/
 
     if (item.empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
