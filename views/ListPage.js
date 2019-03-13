@@ -131,7 +131,7 @@ class ListPageScreen extends React.Component {
           <ImageBackground 
             source={{uri: item.uri}} 
             style={[styles.image,styleImage]}
-            imageStyle={{ borderRadius: 25 }}
+            imageStyle={{ borderRadius: 5 }}
           />
           <Text style={[styles.text,styleText]}>{item.value}</Text>
         </TouchableOpacity>
@@ -163,9 +163,6 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 1,
     height: Dimensions.get('window').width / numColumns, // approximate a square
-    borderRadius: 10,
-    borderWidth:5,
-    borderColor: 'pink',
   },
   itemInvisible: {
     backgroundColor: 'transparent',
@@ -174,9 +171,6 @@ const styles = StyleSheet.create({
     width:'100%',
     height:'100%',
     position:'absolute',
-    borderRadius: 10,
-        borderWidth:5,
-    borderColor: 'pink',
   },
   text: {
     flex:1,
