@@ -14,25 +14,15 @@ class ListPageScreen extends React.Component {
     this.state = {data: {"list":[]}, max:8, min:0};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
-    
+    this.props.navigation.addListener('didFocus', () => {
+      this.timer = setTimeout(() => {
+        console.log('I do not leak!');
+      }, 5000);
+    });
+    this.props.navigation.addListener('didBlur', () => {
+      clearTimeout(this.timer);
+    });
   }
-
-componentDidMount() {
-  this.timer = setTimeout(() => {
-    console.log('I do not leak!');
-  }, 5000);
-}
-
-componentWillUnmount() {
-  clearTimeout(this.timer);
-}
-  /*componentWillMount(){
-   // this.scrollToItem('item' : this.state.data.list[112]);
-   this.setTimeout(
-      () => { console.log('I do not leak!'); },
-      500
-    );
-  }*/
 
   ListAllElement = () => {
     for(let i=this.state.min; i<=this.state.max; i++){
