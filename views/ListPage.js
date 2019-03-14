@@ -30,9 +30,9 @@ class ListPageScreen extends React.Component {
     var tmp =[];
     var taille=0;
     var cpt=0;
-    Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
+    Storage.list('numeric/indicateurs/numeric_', {level: 'protected'})
     .then(result => {
-      //console.log('data from S3' +JSON.stringify(result));
+      console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
       //console.log('taille:'+taille);
       result.forEach(item=>{
@@ -41,7 +41,7 @@ class ListPageScreen extends React.Component {
           //tmp.push(item);
           //console.log(item);
           //this.forceUpdate();
-          Storage.get(item.key, {level: 'public'})
+          Storage.get(item.key, {level: 'protected'})
             .then(result => {
               fetch(result)
                 .then(response => response.json())
@@ -49,16 +49,7 @@ class ListPageScreen extends React.Component {
                     //console.log(data);
                     //Find image background
                     var tmp2 = data[0];
-                    console.log('================>'+JSON.stringify(tmp2));
-                    var regex = /\.json/gi;
-                    var image = item.key.replace(regex, ".jpg")
-
-                    regex = /indicateurs/gi;
-                    image = image.replace(regex, "images");
-                    console.log("key image : "+image);
-                    console.log('numeric/images/'+tmp2.image_src);
-
-                    Storage.get('numeric/images/'+tmp2.image_src, {level: 'public'}).then(result => {
+                    Storage.get('numeric/images/'+tmp2.image_src, {level: 'protected'}).then(result => {
                       fetch(result).then(response => {
                         //console.log(response.url);
                         tmp2.uri=response.url;
@@ -71,8 +62,6 @@ class ListPageScreen extends React.Component {
                           this.state.data.list=tmp;
                           this.forceUpdate();
                         }
-
-                        
                       });
                     });
                     
