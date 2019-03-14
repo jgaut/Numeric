@@ -133,7 +133,7 @@ class ListPageScreen extends React.Component {
             style={[styles.image,styleImage]}
             imageStyle={{ borderRadius: 5 }}
           />
-          <Text style={[styles.text,styleText]}>{item.value}</Text>
+          <Text style={[styles.text,styleText]} multiline={true}>{item.value}</Text>
         </TouchableOpacity>
       );
     }
