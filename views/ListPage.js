@@ -4,7 +4,7 @@ import { createStackNavigator } from 'react-navigation';
 import Storage from '@aws-amplify/storage';
 import { Constants } from 'expo';
 
-const numColumns = 2;
+const numColumns = 3;
 
 class ListPageScreen extends React.Component {
 
