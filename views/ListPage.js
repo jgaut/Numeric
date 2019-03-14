@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, FlatList, Dimensions, ImageBa
 import { createStackNavigator } from 'react-navigation';
 import Storage from '@aws-amplify/storage';
 import { Constants } from 'expo';
+import TimerMixin from 'react-timer-mixin';
 
 const numColumns = 3;
 
@@ -18,6 +19,10 @@ class ListPageScreen extends React.Component {
 
   componentWillMount(){
    // this.scrollToItem('item' : this.state.data.list[112]);
+   this.setTimeout(
+      () => { console.log('I do not leak!'); },
+      500
+    );
   }
 
   ListAllElement = () => {
