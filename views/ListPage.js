@@ -15,7 +15,7 @@ class ListPageScreen extends React.Component {
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
-      this.timer = setTimeout(() => {
+      this.timer = setInterval(() => {
         console.log('I do not leak!');
       }, 500, 500);
     });
