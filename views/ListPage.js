@@ -17,7 +17,7 @@ class ListPageScreen extends React.Component {
     this.props.navigation.addListener('didFocus', () => {
       this.timer = setInterval(() => {
         console.log('I do not leak!');
-      }, 500, 500);
+      }, 5000);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
