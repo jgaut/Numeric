@@ -17,11 +17,15 @@ class ListPageScreen extends React.Component {
     
   }
 
-  componentDidMount: function() {
-    this.setTimeout(() => {
-      console.log('I do not leak!');
-    }, 500);
-  }
+componentDidMount() {
+  this.timer = setTimeout(() => {
+    console.log('I do not leak!');
+  }, 5000);
+}
+
+componentWillUnmount() {
+  clearTimeout(this.timer);
+}
   /*componentWillMount(){
    // this.scrollToItem('item' : this.state.data.list[112]);
    this.setTimeout(
