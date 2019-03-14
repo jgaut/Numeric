@@ -17,7 +17,6 @@ class ListPageScreen extends React.Component {
     
   }
 
-  mixins: [TimerMixin],
   componentDidMount: function() {
     this.setTimeout(() => {
       console.log('I do not leak!');
