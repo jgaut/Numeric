@@ -83,6 +83,7 @@ class ListPageScreen extends React.Component {
           //Si l'indicateur a été mis à jour.
           if(!maj){
             tmp.push(this.state.list[indice]);
+            cpt++;
           }else{
             console.log('MAJ element : '+item.key);
 
