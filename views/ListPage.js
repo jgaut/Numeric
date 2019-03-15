@@ -81,11 +81,11 @@ class ListPageScreen extends React.Component {
           //console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
-          if(!maj){
+          /*if(!maj){
             tmp.push(this.state.list[indice]);
           }else{
             console.log('MAJ element : '+item.key);
-
+*/
           //Récupération de l'élément
           Storage.get(item.key, {level: 'public'})
             .then(result => {
@@ -142,7 +142,7 @@ class ListPageScreen extends React.Component {
                     //console.log("list :"+JSON.stringify(list));
                   }).catch(error => {console.log(error);});
             }).catch(err => console.log(err));
-          }
+          
       });
     }
     });
