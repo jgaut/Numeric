@@ -42,7 +42,7 @@ class ListPageScreen extends React.Component {
   ListAllElement = () => {
 
     var regex = /numeric_.*\.json/g;
-    //this.state.data.list = [];
+    this.setState({data.list : []});
     this.forceUpdate();
     var taille=0;
     var cpt=0;
@@ -87,12 +87,12 @@ class ListPageScreen extends React.Component {
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
-                        tmp.push(tmp2);
+                        this.state.data.list.push(tmp2);
                         console.log(tmp2);
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
-                          this.state.data.list=tmp;
+                          //this.state.data.list=tmp;
                           this.forceUpdate();
                           console.log("this.state.data.list :"+JSON.stringify(this.state.data.list));
                           console.log('Update view !');
