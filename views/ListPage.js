@@ -35,7 +35,7 @@ class ListPageScreen extends React.Component {
     var regexIndicateur = /numeric\/indicateurs\/numeric_.*\.json/g;
     var regexImage = /numeric\/images\/.+/g;
     var cpt=0;
-    var tmp=this.state.list;
+    var tmp=[];
     var maj=true;
     var indice;
 
@@ -44,7 +44,6 @@ class ListPageScreen extends React.Component {
     .then(result => {
       //console.log('data from S3' +JSON.stringify(result));
       this.state.taille=result.length;
-
 
       //Pour chaque indicateur
       result.forEach(item=>{
