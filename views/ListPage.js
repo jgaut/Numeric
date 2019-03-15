@@ -11,7 +11,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {list:[], images:[]};
+    this.state = {list:[]};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
@@ -85,7 +85,7 @@ class ListPageScreen extends React.Component {
                     Storage.get('numeric/images/'+tmp2.image_src, {level: 'public'}).then(result => {
                       //console.log(result);
                       fetch(result).then(response => {
-                        console.log(JSON.stringify(response));
+                        //console.log(JSON.stringify(response));
 
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
