@@ -17,6 +17,9 @@ class ListPageScreen extends React.Component {
     this.props.navigation.addListener('didFocus', () => {
       this.timer = setInterval(() => {
         console.log('Reload !');
+        var myKey="numeric/indicateurs/numeric_btc_euro.json";
+        var oldElement=this.state.data.list.find(function(element, myKey) {return element.key == myKey;});
+        console.log("ancien élément : " + JSON.stringify(oldElement));
         //this.ListAllElement();
       }, 10000);
     });
@@ -73,7 +76,7 @@ class ListPageScreen extends React.Component {
                       fetch(result).then(response => {
                         //console.log(response.url);
                         tmp2.uri=response.url;
-                        tmp2.key=Math.random();
+                        tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
                         tmp.push(tmp2);
                         console.log(tmp2);
