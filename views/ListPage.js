@@ -46,7 +46,7 @@ class ListPageScreen extends React.Component {
     var taille=0;
     var cpt=0;
     var tmp=[];
-    var maj;
+    var maj=false;
     var indice;
 
     //Liste de tous les indicateurs
@@ -85,11 +85,11 @@ class ListPageScreen extends React.Component {
             tmp.push(this.state.list[indice]);
             cpt++;
             if(cpt==taille){
-                          this.state.list=tmp;
-                          this.forceUpdate();
-                          //console.log("this.state.list :"+JSON.stringify(this.state.list));
-                          console.log('Update view !');
-                        }
+              this.state.list=tmp;
+              this.forceUpdate();
+              //console.log("this.state.list :"+JSON.stringify(this.state.list));
+              console.log('Update view !');
+            }
           }else{
             console.log('MAJ element : '+item.key);
 
