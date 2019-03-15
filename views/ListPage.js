@@ -32,8 +32,8 @@ class ListPageScreen extends React.Component {
 
   ListAllElement(){
 
-    var regex = /numeric_.*\.json/g;
-    var taille=0;
+    var regexIndicateur = /numeric\/indicateur\/numeric_.*\.json/g;
+    var regexImage = /numeric\/image\//g;
     var cpt=0;
     var tmp=[];
     var maj=true;
@@ -49,7 +49,8 @@ class ListPageScreen extends React.Component {
       result.forEach(item=>{
         
         //S'il respecte le format du fichier
-        if(item.key.match(regex)){
+        if(item.key.match(regexIndicateur)){
+          console.log('indicateur');
 
           //Recherche de l'ancien indicateur
           var oldElement;
@@ -126,7 +127,8 @@ class ListPageScreen extends React.Component {
                   }).catch(error => {console.log(error);});
             }).catch(err => console.log(err));
         }
-      } else {
+      } else if(item.key.match(regexImage)){
+        console.log('image');
         cpt++;
         this.myRefresh(cpt,tmp);
       }
