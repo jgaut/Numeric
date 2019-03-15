@@ -12,7 +12,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {list:[], taille:0};
+    this.state = {list:[], taille:0, lastRefresh:0};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
@@ -38,6 +38,10 @@ class ListPageScreen extends React.Component {
     var tmp=[];
     var maj=true;
     var indice;
+
+    if(this.state.lastRefresh+delayRefresh>Math.floor(Date.now())){
+      return;
+    }
 
     //Liste de tous les indicateurs
     Storage.list('numeric/', {level: 'public'})
