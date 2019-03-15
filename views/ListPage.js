@@ -62,6 +62,7 @@ class ListPageScreen extends React.Component {
         if(item.key.match(regex)){
 
           var oldElement;
+          console.log(this.state.list.length);
           for (var i=0; i<this.state.list.length; i++) {
             console.log(this.state.list[i]);
             if(item.key == this.state.list[i].key){
