@@ -32,7 +32,7 @@ class ListPageScreen extends React.Component {
     }
 
     var regex = /numeric_.*\.json/g;
-    var tmp = this.state.data.list;
+    var tmp = [];
     var taille=0;
     var cpt=0;
 
