@@ -142,9 +142,9 @@ class ListPageScreen extends React.Component {
                     //console.log("list :"+JSON.stringify(list));
                   }).catch(error => {console.log(error);});
             }).catch(err => console.log(err));
-          
+        }
       });
-    }
+    
     });
 
   }
