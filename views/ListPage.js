@@ -32,8 +32,8 @@ class ListPageScreen extends React.Component {
 
   ListAllElement(){
 
-    var regexIndicateur = /numeric\/indicateur\/numeric_.*\.json/g;
-    var regexImage = /numeric\/image\//g;
+    var regexIndicateur = /numeric\/indicateurs\/numeric_.*\.json/g;
+    var regexImage = /numeric\/images\//g;
     var cpt=0;
     var tmp=[];
     var maj=true;
