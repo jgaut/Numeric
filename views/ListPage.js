@@ -11,7 +11,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {list:[]};
+    this.state = {list:[], images:[]}};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
@@ -83,8 +83,10 @@ class ListPageScreen extends React.Component {
                     //Find image background
                     var tmp2 = data[0];
                     Storage.get('numeric/images/'+tmp2.image_src, {level: 'public'}).then(result => {
+                      console.log(result);
                       fetch(result).then(response => {
                         //console.log(response.url);
+
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
@@ -125,7 +127,7 @@ class ListPageScreen extends React.Component {
   }
 
   renderItem = ({ item, index }) => {
-    console.log('item::'+JSON.stringify(item));
+    //console.log('item::'+JSON.stringify(item));
     var styleText={};
     var styleImage={};
     var regexText = /style_text_.*/g;
@@ -172,8 +174,8 @@ const formatData = (data, numColumns) => {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
-  console.log("data =============> X");
-  console.log("data =============> " +data);
+  //console.log("data =============> X");
+  //console.log("data =============> " +data);
   return data;
 };
 
