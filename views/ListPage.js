@@ -110,7 +110,7 @@ class ListPageScreen extends React.Component {
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
-                          this.state.list.push(tmp);
+                          this.state.list=tmp;
                           this.forceUpdate();
                           //console.log("this.state.list :"+JSON.stringify(this.state.list));
                           console.log('Update view !');
