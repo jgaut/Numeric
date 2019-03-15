@@ -29,7 +29,7 @@ class ListPageScreen extends React.Component {
         console.log("ancien élément : " + JSON.stringify(oldElement));
         */
         //this.ListAllElement();
-      }, 5000);
+      }, 60000);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
@@ -110,6 +110,7 @@ class ListPageScreen extends React.Component {
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
+                          tmp.push(this.state.list);
                           this.state.list=tmp;
                           this.forceUpdate();
                           //console.log("this.state.list :"+JSON.stringify(this.state.list));
