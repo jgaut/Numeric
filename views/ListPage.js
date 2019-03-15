@@ -17,7 +17,7 @@ class ListPageScreen extends React.Component {
     this.props.navigation.addListener('didFocus', () => {
       this.timer = setInterval(() => {
         console.log('Reload !');
-        this.ListAllElement();
+        //this.ListAllElement();
       }, 10000);
     });
     this.props.navigation.addListener('didBlur', () => {
@@ -82,6 +82,7 @@ class ListPageScreen extends React.Component {
                         if(cpt==taille){
                           this.state.data.list=tmp;
                           this.forceUpdate();
+                          console.log("tmp :"+JSON.stringify(tmp));
                           console.log('Update view !');
                         }
                       });
