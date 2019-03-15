@@ -65,14 +65,14 @@ class ListPageScreen extends React.Component {
               oldElement=this.state.list[i];
             }
           }
-          console.log("ancien élément : " + JSON.stringify(oldElement));
+          //console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
-          /*if(item.lastModified != oldElement.lastModified){
+          if(oldElement || oldElement.lastModified || item.lastModified != oldElement.lastModified){
             console.log('MAJ element !');
           }else{
             console.log('NOT MAJ element !');
-          }*/
+          }
           
           //Récupération de l'élément
           Storage.get(item.key, {level: 'public'})
@@ -114,7 +114,7 @@ class ListPageScreen extends React.Component {
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
                         tmp.push(tmp2);
-                        console.log(tmp2);
+                        //console.log(tmp2);
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
