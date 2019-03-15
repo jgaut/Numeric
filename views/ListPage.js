@@ -43,8 +43,6 @@ class ListPageScreen extends React.Component {
   ListAllElement = () => {
 
     var regex = /numeric_.*\.json/g;
-    //this.setState({'data.list' : []});
-    //this.forceUpdate();
     var taille=0;
     var cpt=0;
     var tmp=[];
@@ -64,11 +62,6 @@ class ListPageScreen extends React.Component {
           //tmp.push(item);
           //console.log(item);
           //this.forceUpdate();
-
-          //Recherche d'un élément déjà présent
-          //var myKey=item.key;
-          //var oldElement=this.state.list.find(function(element, myKey) {return element.key == myKey;});
-          //console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
           //if(item.lastModified != )
@@ -127,13 +120,23 @@ class ListPageScreen extends React.Component {
   }
 
   renderItem = ({ item, index }) => {
+
+    var myKey=item.key;
+    var indice;
+    for (var i=0; i<this.state.data.list.length; i++) {
+      if(myKey == this.state.data.list[i].key){
+        indice=i;
+      }
+    }
+    console.log("ancien élément : " + indice);
+
     //console.log('item::'+JSON.stringify(item));
     var styleText={};
     var styleImage={};
     var regexText = /style_text_.*/g;
     var regexImage = /style_image_.*/g;
 
-    for (var obj in item) {
+    for (var obj in this.state.data.list[indice]) {
       if(obj.match(regexText)){
         var tmp = obj.replace("style_text_", "");
         styleText[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
@@ -147,20 +150,20 @@ class ListPageScreen extends React.Component {
       }
     }
 
-    if (item.empty === true) {
+    if (this.state.data.list[indice].empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
-    } else if(item.type='number') {
+    } else if(this.state.data.list[indice].type='number') {
       return (
         <TouchableOpacity
           key={Math.random()}
           style={styles.item}
         >
           <ImageBackground 
-            source={{uri: item.uri}} 
+            source={{uri: this.state.data.list[indice].uri}} 
             style={[styles.image,styleImage]}
             imageStyle={{ borderRadius: 5 }}
           />
-          <Text style={[styles.text,styleText]} multiline={true}>{item.value}</Text>
+          <Text style={[styles.text,styleText]} multiline={true}>{this.state.data.list[indice].value}</Text>
         </TouchableOpacity>
       );
     }
