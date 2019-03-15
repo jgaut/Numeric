@@ -134,6 +134,8 @@ class ListPageScreen extends React.Component {
         this.myRefresh(cpt,tmp);
       } else {
         //Other item
+        cpt++;
+        this.myRefresh(cpt,tmp);
       }
       });
     
