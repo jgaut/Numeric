@@ -13,7 +13,7 @@ class ListPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
     this.state = {list:[], taille:0};
-    this.ListAllElement();
+    
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
       this.timer = setInterval(() => {
@@ -27,7 +27,7 @@ class ListPageScreen extends React.Component {
   }
 
   componentDidMount(){
-    
+    this.ListAllElement();
   }
 
   ListAllElement(){
