@@ -11,7 +11,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {data: {"list":[]}};
+    this.state = {list:[]};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
@@ -65,9 +65,9 @@ class ListPageScreen extends React.Component {
           //this.forceUpdate();
 
           //Recherche d'un élément déjà présent
-          var myKey=item.key;
-          var oldElement=this.state.data.list.find(function(element, myKey) {return element.key == myKey;});
-          console.log("ancien élément : " + JSON.stringify(oldElement));
+          //var myKey=item.key;
+          //var oldElement=this.state.list.find(function(element, myKey) {return element.key == myKey;});
+          //console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
           //if(item.lastModified != )
@@ -88,13 +88,13 @@ class ListPageScreen extends React.Component {
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
                         tmp.push(tmp2);
-                        console.log(tmp2);
+                        //console.log(tmp2);
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
-                          this.state.data.list=tmp;
+                          this.setState({list:tmp});
                           this.forceUpdate();
-                          console.log("this.state.data.list :"+JSON.stringify(this.state.data.list));
+                          console.log("this.state.list :"+JSON.stringify(this.state.list));
                           console.log('Update view !');
                         }
                       });
@@ -114,7 +114,7 @@ class ListPageScreen extends React.Component {
 
     return (
       <FlatList
-        data={()=>{formatData(this.state.data.list, numColumns);}}
+        data={()=>{formatData(this.state.list, numColumns);}}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
