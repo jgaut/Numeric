@@ -46,6 +46,7 @@ class ListPageScreen extends React.Component {
     this.forceUpdate();
     var taille=0;
     var cpt=0;
+    var tmp=[];
 
     //Liste de tous les indicateurs
     Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
@@ -86,12 +87,12 @@ class ListPageScreen extends React.Component {
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
-                        this.state.data.list.push(tmp2);
+                        tmp.push(tmp2);
                         console.log(tmp2);
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
-                          //this.state.data.list=tmp;
+                          this.state.data.list=tmp;
                           this.forceUpdate();
                           console.log("this.state.data.list :"+JSON.stringify(this.state.data.list));
                           console.log('Update view !');
