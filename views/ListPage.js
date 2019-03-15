@@ -29,7 +29,7 @@ class ListPageScreen extends React.Component {
         console.log("ancien élément : " + JSON.stringify(oldElement));
         */
         //this.ListAllElement();
-      }, 5000);
+      }, 60000);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
@@ -46,6 +46,8 @@ class ListPageScreen extends React.Component {
     var taille=0;
     var cpt=0;
     var tmp=[];
+    var maj;
+    var indice;
 
     //Liste de tous les indicateurs
     Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
@@ -63,25 +65,26 @@ class ListPageScreen extends React.Component {
           for (var i=0; i<this.state.list.length; i++) {
             if(item.key == this.state.list[i].key){
               oldElement=this.state.list[i];
+              indice=i;
               console.log('1 ! => '+oldElement.eTag);
               console.log('2 ! => '+item.eTag);
               //console.log(oldElement.lastModified.localeCompare(item.lastModified));
               if(item.eTag != oldElement.eTag){
                 console.log('MAJ element !');
+                maj=true;
               }else{
                 console.log('NOT MAJ element !');
+                maj=false;
               }
             }
           }
           //console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
-          /*if(!oldElement || !oldElement.lastModified || item.lastModified != oldElement.lastModified){
-            console.log('MAJ element ! => '+oldElement?JSON.stringify(oldElement.lastModified):"undef");
+          if(!maj){
+            tmp.push(this.state.list[indice]);
           }else{
-            console.log('NOT MAJ element !');
-          }*/
-          
+
           //Récupération de l'élément
           Storage.get(item.key, {level: 'public'})
             .then(result => {
@@ -138,8 +141,9 @@ class ListPageScreen extends React.Component {
                     //console.log("list :"+JSON.stringify(list));
                   }).catch(error => {console.log(error);});
             }).catch(err => console.log(err));
-        }
+          }
       });
+    }
     });
 
   }
