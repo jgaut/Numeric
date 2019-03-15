@@ -65,7 +65,7 @@ class ListPageScreen extends React.Component {
               oldElement=this.state.list[i];
               console.log('1 ! => '+oldElement.lastModified);
               console.log('2 ! => '+item.lastModified);
-              console.log(oldElement.lastModified.localeCompare(item.lastModified);)
+              console.log(oldElement.lastModified.localeCompare(item.lastModified));
               if(item.lastModified != oldElement.lastModified){
                 console.log('MAJ element !');
               }else{
