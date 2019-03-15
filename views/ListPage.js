@@ -65,14 +65,14 @@ class ListPageScreen extends React.Component {
               oldElement=this.state.list[i];
             }
           }
-          //console.log("ancien élément : " + JSON.stringify(oldElement));
+          console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
-          if(item.lastModified != oldElement.lastModified){
+          /*if(item.lastModified != oldElement.lastModified){
             console.log('MAJ element !');
           }else{
             console.log('NOT MAJ element !');
-          }
+          }*/
           
           //Récupération de l'élément
           Storage.get(item.key, {level: 'public'})
