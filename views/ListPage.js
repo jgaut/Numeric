@@ -53,7 +53,7 @@ class ListPageScreen extends React.Component {
           //this.forceUpdate();
 
           //Recherche d'un élément déjà présent
-          var myKey;
+          var myKey=item.key;
           var oldElement=this.state.data.list.find(function(element, myKey) {return element.key == myKey;});
           console.log("ancien élément : " + JSON.stringify(oldElement));
 
