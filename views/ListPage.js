@@ -59,9 +59,6 @@ class ListPageScreen extends React.Component {
         
         //S'il respecte le format du fichier
         if(item.key.match(regex)){
-          //tmp.push(item);
-          //console.log(item);
-          //this.forceUpdate();
 
           //Si l'indicateur a été mis à jour.
           //if(item.lastModified != )
