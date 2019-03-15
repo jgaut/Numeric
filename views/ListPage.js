@@ -60,9 +60,9 @@ class ListPageScreen extends React.Component {
         if(item.key.match(regex)){
 
           var oldElement;
-          for (var i=0; i<this.state.data.list.length; i++) {
-            if(item.key == this.state.data.list[i].key){
-              oldElement=this.state.data.list[i];
+          for (var i=0; i<this.state.list.length; i++) {
+            if(item.key == this.state.list[i].key){
+              oldElement=this.state.list[i];
             }
           }
           //console.log("ancien élément : " + JSON.stringify(oldElement));
