@@ -149,7 +149,7 @@ class ListPageScreen extends React.Component {
         indice=i;
       }
     }
-    console.log("ancien élément : " + indice);
+    console.log("ancien élément : " + this.state.list[indice].styleText);
 
     //console.log('item::'+JSON.stringify(item));
 
