@@ -45,13 +45,13 @@ class ListPageScreen extends React.Component {
       //console.log('data from S3' +JSON.stringify(result));
       this.state.taille=result.length;
 
-      
+
       //Pour chaque indicateur
       result.forEach(item=>{
-        console.log(item.key);
+        //console.log(item.key);
         //S'il respecte le format du fichier
         if(item.key.match(regexIndicateur)){
-          console.log('indicateur');
+          //console.log('indicateur');
 
           //Recherche de l'ancien indicateur
           var oldElement;
@@ -129,9 +129,11 @@ class ListPageScreen extends React.Component {
             }).catch(err => console.log(err));
         }
       } else if(item.key.match(regexImage)){
-        console.log('image');
+        //console.log('image');
         cpt++;
         this.myRefresh(cpt,tmp);
+      } else {
+        //Other item
       }
       });
     
