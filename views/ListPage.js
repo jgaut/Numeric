@@ -18,7 +18,7 @@ class ListPageScreen extends React.Component {
       this.timer = setInterval(() => {
         console.log('Reload !');
         this.ListAllElement();
-      }, 5000);
+      }, 10000);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
@@ -55,7 +55,7 @@ class ListPageScreen extends React.Component {
           //Recherche d'un élément déjà présent
           var myKey;
           var oldElement=this.state.data.list.find(function(element, myKey) {return element.key == myKey;});
-          console.log("ancien élément : " + oldElement);
+          console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
           //if(item.lastModified != )
