@@ -90,13 +90,13 @@ class ListPageScreen extends React.Component {
                           if(obj.match(regexText)){
                             var tmpObj = obj.replace("style_text_", "");
                             styleText[tmpObj]=parseFloat(tmp2[obj],10)||parseInt(tmp2[obj])||tmp2[obj];
-                            console.log(styleText);
+                            //console.log(styleText);
                           } else if(obj.match(regexImage)) {
                             var tmpObj = obj.replace("style_image_", "");
                             styleImage[tmpObj]=parseFloat(tmp2[obj],10)||parseInt(tmp2[obj])||tmp2[obj];
-                            console.log(styleImage);
+                            //console.log(styleImage);
                           } else {
-                            console.log(obj+" => "+tmp2[obj]);
+                            //console.log(obj+" => "+tmp2[obj]);
                           }
                         }
 
@@ -110,7 +110,7 @@ class ListPageScreen extends React.Component {
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
-                          this.state.lis.pusch(tmp);
+                          this.state.list.pusch(tmp);
                           this.forceUpdate();
                           //console.log("this.state.list :"+JSON.stringify(this.state.list));
                           console.log('Update view !');
