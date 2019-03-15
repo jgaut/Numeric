@@ -32,20 +32,35 @@ class ListPageScreen extends React.Component {
     }
 
     var regex = /numeric_.*\.json/g;
-    var tmp =[];
+    var tmp = this.state.data.list;
     var taille=0;
     var cpt=0;
+
+    //Liste de tous les indicateurs
     Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
     .then(result => {
       console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
       //console.log('taille:'+taille);
+
+      //Pour chaque indicateur
       result.forEach(item=>{
         
+        //S'il respecte le format du fichier
         if(item.key.match(regex)){
           //tmp.push(item);
           //console.log(item);
           //this.forceUpdate();
+
+          //Recherche d'un élément déjà présent
+          var myKey;
+          var oldElement=this.state.data.list.find(function(element, myKey) {return element.key == myKey;});
+          console.log("ancien élément : " + oldElement);
+
+          //Si l'indicateur a été mis à jour.
+          //if(item.lastModified != )
+          
+          //Récupération de l'élément
           Storage.get(item.key, {level: 'public'})
             .then(result => {
               fetch(result)
@@ -58,15 +73,15 @@ class ListPageScreen extends React.Component {
                       fetch(result).then(response => {
                         //console.log(response.url);
                         tmp2.uri=response.url;
-                        tmp2.key=Math.random();
+                        tmp2.key=item.key;
+                        tmp2.lastModified=item.lastModified;
                         tmp.push(tmp2);
                         //console.log(data.uri);
                         //console.log(data.key);
-                        cpt++;
-                        if(cpt==taille){
+                        
                           this.state.data.list=tmp;
                           this.forceUpdate();
-                        }
+                        
                       });
                     });
                     
