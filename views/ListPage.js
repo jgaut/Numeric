@@ -171,6 +171,7 @@ const formatData = (data, numColumns) => {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
+  console.log("data =============> X");
   console.log("data =============> " +data);
   return data;
 };
