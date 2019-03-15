@@ -45,10 +45,10 @@ class ListPageScreen extends React.Component {
       //console.log('data from S3' +JSON.stringify(result));
       this.state.taille=result.length;
 
-      console.log(item.key);
+      
       //Pour chaque indicateur
       result.forEach(item=>{
-        
+        console.log(item.key);
         //S'il respecte le format du fichier
         if(item.key.match(regexIndicateur)){
           console.log('indicateur');
