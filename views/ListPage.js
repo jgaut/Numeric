@@ -29,7 +29,7 @@ class ListPageScreen extends React.Component {
         console.log("ancien élément : " + JSON.stringify(oldElement));
         */
         //this.ListAllElement();
-      }, 60000);
+      }, 5000);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
@@ -80,6 +80,7 @@ class ListPageScreen extends React.Component {
                       fetch(result).then(response => {
                         //console.log(JSON.stringify(response));
 
+                        //Création des tyles Text et Image
                         var styleText={};
                         var styleImage={};
                         var regexText = /style_text_.*/g;
@@ -109,7 +110,7 @@ class ListPageScreen extends React.Component {
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
-                          this.state.list=tmp;
+                          this.state.lis.pusch(tmp);
                           this.forceUpdate();
                           //console.log("this.state.list :"+JSON.stringify(this.state.list));
                           console.log('Update view !');
