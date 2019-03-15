@@ -76,12 +76,13 @@ class ListPageScreen extends React.Component {
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
                         tmp.push(tmp2);
-                        //console.log(data.uri);
+                        console.log(tmp2;
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
                           this.state.data.list=tmp;
                           this.forceUpdate();
+                          console.log('Update view !');
                         }
                       });
                     });
