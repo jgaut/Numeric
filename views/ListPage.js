@@ -39,10 +39,12 @@ class ListPageScreen extends React.Component {
     var maj=true;
     var indice;
 
-    if(this.state.lastRefresh+delayRefresh>Math.floor(Date.now())){
+    if(this.state.lastRefresh+delayRefresh>Date.now()){
       return;
     }
 
+    this.state.lastRefresh = Date.now();
+    
     //Liste de tous les indicateurs
     Storage.list('numeric/', {level: 'public'})
     .then(result => {
