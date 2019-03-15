@@ -69,7 +69,7 @@ class ListPageScreen extends React.Component {
 
           //Si l'indicateur a été mis à jour.
           if(!oldElement || !oldElement.lastModified || item.lastModified != oldElement.lastModified){
-            console.log('MAJ element ! => '+JSON.stringify(oldElement));
+            console.log('MAJ element ! => '+JSON.stringify(oldElement.lastModified));
           }else{
             console.log('NOT MAJ element !');
           }
