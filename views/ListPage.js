@@ -40,7 +40,7 @@ class ListPageScreen extends React.Component {
     
   }
 
-  ListAllElement = () => {
+  ListAllElement(){
 
     var regex = /numeric_.*\.json/g;
     var taille=0;
