@@ -114,7 +114,7 @@ class ListPageScreen extends React.Component {
 
     return (
       <FlatList
-        data={()=>{formatData(this.state.list, numColumns);}}
+        data={formatData(this.state.list, numColumns)}
         style={styles.container}
         renderItem={this.renderItem}
         numColumns={numColumns}
