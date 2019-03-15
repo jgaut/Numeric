@@ -17,7 +17,7 @@ class ListPageScreen extends React.Component {
     this.props.navigation.addListener('didFocus', () => {
       this.timer = setInterval(() => {
         console.log('Reload !');
-        //this.ListAllElement();
+        this.ListAllElement();
         
         /*var myKey="numeric/indicateurs/numeric_btc_euro.json";
         var oldElement;
@@ -29,7 +29,7 @@ class ListPageScreen extends React.Component {
         console.log("ancien élément : " + JSON.stringify(oldElement));
         */
         //this.ListAllElement();
-      }, 10000);
+      }, 60000);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
