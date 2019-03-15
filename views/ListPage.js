@@ -18,7 +18,7 @@ class ListPageScreen extends React.Component {
       this.timer = setInterval(() => {
         console.log('Reload !');
         var myKey="numeric/indicateurs/numeric_btc_euro.json";
-        var oldElement=this.state.data.list.find(function(element, myKey) {return element.key == myKey;});
+        var oldElement=this.state.data.list.find(function(element, myKey) { console.log(myKey); return element.key == myKey;});
         console.log("ancien élément : " + JSON.stringify(oldElement));
         //this.ListAllElement();
       }, 10000);
