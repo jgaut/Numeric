@@ -63,10 +63,10 @@ class ListPageScreen extends React.Component {
           for (var i=0; i<this.state.list.length; i++) {
             if(item.key == this.state.list[i].key){
               oldElement=this.state.list[i];
-              console.log('1 ! => '+oldElement.lastModified);
-              console.log('2 ! => '+item.lastModified);
-              console.log(oldElement.lastModified.localeCompare(item.lastModified));
-              if(item.lastModified != oldElement.lastModified){
+              console.log('1 ! => '+oldElement.tag);
+              console.log('2 ! => '+item.tag);
+              //console.log(oldElement.lastModified.localeCompare(item.lastModified));
+              if(item.tag != oldElement.tag){
                 console.log('MAJ element !');
               }else{
                 console.log('NOT MAJ element !');
@@ -120,7 +120,7 @@ class ListPageScreen extends React.Component {
                         tmp2.styleImage=styleImage;
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
-                        tmp2.lastModified=item.lastModified;
+                        tmp2.tag=item.tag;
                         tmp.push(tmp2);
                         //console.log(tmp2);
                         //console.log(data.key);
