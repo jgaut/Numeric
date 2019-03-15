@@ -39,13 +39,14 @@ class ListPageScreen extends React.Component {
 
     var regex = /numeric_.*\.json/g;
     this.state.data.list = [];
+    this.forceUpdate();
     var taille=0;
     var cpt=0;
 
     //Liste de tous les indicateurs
     Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
     .then(result => {
-      console.log('data from S3' +JSON.stringify(result));
+      //console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
       //console.log('taille:'+taille);
 
