@@ -29,7 +29,7 @@ class ListPageScreen extends React.Component {
         console.log("ancien élément : " + JSON.stringify(oldElement));
         */
         //this.ListAllElement();
-      }, 60000);
+      }, 5000);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
@@ -66,14 +66,14 @@ class ListPageScreen extends React.Component {
             if(item.key == this.state.list[i].key){
               oldElement=this.state.list[i];
               indice=i;
-              console.log('1 ! => '+oldElement.eTag);
-              console.log('2 ! => '+item.eTag);
+              //console.log('1 ! => '+oldElement.eTag);
+              //console.log('2 ! => '+item.eTag);
               //console.log(oldElement.lastModified.localeCompare(item.lastModified));
               if(item.eTag != oldElement.eTag){
-                console.log('MAJ element !');
+                //console.log('MAJ element !');
                 maj=true;
               }else{
-                console.log('NOT MAJ element !');
+                //console.log('NOT MAJ element !');
                 maj=false;
               }
             }
@@ -84,6 +84,7 @@ class ListPageScreen extends React.Component {
           if(!maj){
             tmp.push(this.state.list[indice]);
           }else{
+            console.log('MAJ element : '+item.key);
 
           //Récupération de l'élément
           Storage.get(item.key, {level: 'public'})
