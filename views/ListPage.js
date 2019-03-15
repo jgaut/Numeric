@@ -26,7 +26,7 @@ class ListPageScreen extends React.Component {
     });
   }
 
-  componentDidMount(){
+  componentWillMount(){
     this.ListAllElement();
   }
 
