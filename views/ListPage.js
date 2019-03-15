@@ -144,7 +144,7 @@ class ListPageScreen extends React.Component {
   }
 
   myRefresh(myCpt, myList){
-    if(myCpt==this.state.taille){
+    if(myCpt==this.state.taille || myCpt==1){
       this.state.list=myList;
       this.forceUpdate();
       console.log('Update view !');
