@@ -79,8 +79,12 @@ class ListPageScreen extends React.Component {
                       //console.log(result);
                       fetch(result).then(response => {
                         //console.log(JSON.stringify(response));
+                        
                         var styleText={};
                         var styleImage={};
+                        var regexText = /style_text_.*/g;
+                        var regexImage = /style_image_.*/g;
+
                         for (var obj in tmp2) {
                           if(obj.match(regexText)){
                             var tmp = obj.replace("style_text_", "");
@@ -148,8 +152,6 @@ class ListPageScreen extends React.Component {
     console.log("ancien élément : " + indice);
 
     //console.log('item::'+JSON.stringify(item));
-    var regexText = /style_text_.*/g;
-    var regexImage = /style_image_.*/g;
 
     if (this.state.list[indice].empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
