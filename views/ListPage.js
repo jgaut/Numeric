@@ -17,7 +17,7 @@ class ListPageScreen extends React.Component {
     this.props.navigation.addListener('didFocus', () => {
       this.timer = setInterval(() => {
         console.log('Reload !');
-        this.ListAllElement();
+        //this.ListAllElement();
         
         /*var myKey="numeric/indicateurs/numeric_btc_euro.json";
         var oldElement;
