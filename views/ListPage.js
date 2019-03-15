@@ -79,7 +79,24 @@ class ListPageScreen extends React.Component {
                       //console.log(result);
                       fetch(result).then(response => {
                         //console.log(JSON.stringify(response));
+                        var styleText={};
+                        var styleImage={};
+                        for (var obj in tmp2) {
+                          if(obj.match(regexText)){
+                            var tmp = obj.replace("style_text_", "");
+                            styleText[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
+                            //console.log(styleText);
+                          } else if(obj.match(regexImage)) {
+                            var tmp = obj.replace("style_image_", "");
+                            styleImage[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
+                            //console.log(styleImage);
+                          } else {
+                            //console.log(obj+" => "+item[obj]);
+                          }
+                        }
 
+                        tmp2['styleText']=styleText;
+                        tmp2['styleImage']=styleImage;
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
@@ -131,24 +148,8 @@ class ListPageScreen extends React.Component {
     console.log("ancien élément : " + indice);
 
     //console.log('item::'+JSON.stringify(item));
-    var styleText={};
-    var styleImage={};
     var regexText = /style_text_.*/g;
     var regexImage = /style_image_.*/g;
-
-    for (var obj in this.state.list[indice]) {
-      if(obj.match(regexText)){
-        var tmp = obj.replace("style_text_", "");
-        styleText[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
-        //console.log(styleText);
-      } else if(obj.match(regexImage)) {
-        var tmp = obj.replace("style_image_", "");
-        styleImage[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
-        //console.log(styleImage);
-      } else {
-        //console.log(obj+" => "+item[obj]);
-      }
-    }
 
     if (this.state.list[indice].empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
@@ -160,10 +161,10 @@ class ListPageScreen extends React.Component {
         >
           <ImageBackground 
             source={{uri: this.state.list[indice].uri}} 
-            style={[styles.image,styleImage]}
+            style={[styles.image,this.state.list[indice].styleImage]}
             imageStyle={{ borderRadius: 5 }}
           />
-          <Text style={[styles.text,styleText]} multiline={true}>{this.state.list[indice].value}</Text>
+          <Text style={[styles.text,this.state.list[indice].styleText]} multiline={true}>{this.state.list[indice].value}</Text>
         </TouchableOpacity>
       );
     }
