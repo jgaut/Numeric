@@ -65,7 +65,7 @@ class ListPageScreen extends React.Component {
           console.log(this.state.list.length);
           for (var j=0; j<this.state.list.length; j++) {
             console.log(j+" -> "+this.state.list[j]);
-            if(item.key == this.state.list[j].key){
+            if(this.state.list[j] && item.key == this.state.list[j].key){
               oldElement=this.state.list[j];
               indice=j;
               //console.log('1 ! => '+oldElement.eTag);
