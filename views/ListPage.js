@@ -52,7 +52,6 @@ class ListPageScreen extends React.Component {
     .then(result => {
       //console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
-      //console.log('taille:'+taille);
 
       //Pour chaque indicateur
       result.forEach(item=>{
@@ -60,8 +59,20 @@ class ListPageScreen extends React.Component {
         //S'il respecte le format du fichier
         if(item.key.match(regex)){
 
+          var oldElement;
+          for (var i=0; i<this.state.data.list.length; i++) {
+            if(item.key == this.state.data.list[i].key){
+              oldElement=this.state.data.list[i];
+            }
+          }
+          //console.log("ancien élément : " + JSON.stringify(oldElement));
+
           //Si l'indicateur a été mis à jour.
-          //if(item.lastModified != )
+          if(item.lastModified != oldElement.lastModified){
+            console.log('MAJ element !');
+          }else{
+            console.log('NOT MAJ element !');
+          }
           
           //Récupération de l'élément
           Storage.get(item.key, {level: 'public'})
