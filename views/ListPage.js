@@ -83,9 +83,9 @@ class ListPageScreen extends React.Component {
                     //Find image background
                     var tmp2 = data[0];
                     Storage.get('numeric/images/'+tmp2.image_src, {level: 'public'}).then(result => {
-                      console.log(result);
+                      //console.log(result);
                       fetch(result).then(response => {
-                        //console.log(response.url);
+                        console.log(JSON.stringify(response));
 
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
