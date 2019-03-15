@@ -123,8 +123,8 @@ class ListPageScreen extends React.Component {
 
     var myKey=item.key;
     var indice;
-    for (var i=0; i<this.state.data.list.length; i++) {
-      if(myKey == this.state.data.list[i].key){
+    for (var i=0; i<this.state.list.length; i++) {
+      if(myKey == this.state.list[i].key){
         indice=i;
       }
     }
@@ -136,7 +136,7 @@ class ListPageScreen extends React.Component {
     var regexText = /style_text_.*/g;
     var regexImage = /style_image_.*/g;
 
-    for (var obj in this.state.data.list[indice]) {
+    for (var obj in this.state.list[indice]) {
       if(obj.match(regexText)){
         var tmp = obj.replace("style_text_", "");
         styleText[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
@@ -150,20 +150,20 @@ class ListPageScreen extends React.Component {
       }
     }
 
-    if (this.state.data.list[indice].empty === true) {
+    if (this.state.list[indice].empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
-    } else if(this.state.data.list[indice].type='number') {
+    } else if(this.state.list[indice].type='number') {
       return (
         <TouchableOpacity
           key={Math.random()}
           style={styles.item}
         >
           <ImageBackground 
-            source={{uri: this.state.data.list[indice].uri}} 
+            source={{uri: this.state.list[indice].uri}} 
             style={[styles.image,styleImage]}
             imageStyle={{ borderRadius: 5 }}
           />
-          <Text style={[styles.text,styleText]} multiline={true}>{this.state.data.list[indice].value}</Text>
+          <Text style={[styles.text,styleText]} multiline={true}>{this.state.list[indice].value}</Text>
         </TouchableOpacity>
       );
     }
