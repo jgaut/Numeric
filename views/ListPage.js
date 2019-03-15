@@ -63,11 +63,11 @@ class ListPageScreen extends React.Component {
 
           var oldElement;
           console.log(this.state.list.length);
-          for (var i=0; i<this.state.list.length; i++) {
-            console.log(i+" -> "+this.state.list[i]);
-            if(item.key == this.state.list[i].key){
-              oldElement=this.state.list[i];
-              indice=i;
+          for (var j=0; j<this.state.list.length; j++) {
+            console.log(j+" -> "+this.state.list[j]);
+            if(item.key == this.state.list[j].key){
+              oldElement=this.state.list[j];
+              indice=j;
               //console.log('1 ! => '+oldElement.eTag);
               //console.log('2 ! => '+item.eTag);
               //console.log(oldElement.lastModified.localeCompare(item.lastModified));
