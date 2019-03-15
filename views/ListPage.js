@@ -12,7 +12,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {list:[]};
+    this.state = {list:[], taille:0};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
@@ -40,10 +40,10 @@ class ListPageScreen extends React.Component {
     var indice;
 
     //Liste de tous les indicateurs
-    Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
+    Storage.list('numeric/', {level: 'public'})
     .then(result => {
-      //console.log('data from S3' +JSON.stringify(result));
-      taille=result.length;
+      console.log('data from S3' +JSON.stringify(result));
+      this.state.taille=result.length;
 
       //Pour chaque indicateur
       result.forEach(item=>{
@@ -51,35 +51,26 @@ class ListPageScreen extends React.Component {
         //S'il respecte le format du fichier
         if(item.key.match(regex)){
 
+          //Recherche de l'ancien indicateur
           var oldElement;
-          //console.log(this.state.list.length);
           for (var j=0; j<this.state.list.length; j++) {
-            //console.log(j+" -> "+this.state.list[j]);
             if(this.state.list[j] && item.key == this.state.list[j].key){
               oldElement=this.state.list[j];
               indice=j;
               
               if(item.eTag != oldElement.eTag){
-                //console.log('MAJ element !');
                 maj=true;
               }else{
-                //console.log('NOT MAJ element !');
                 maj=false;
               }
             }
           }
-          //console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
           if(!maj){
             tmp.push(this.state.list[indice]);
             cpt++;
-            if(cpt==taille){
-              this.state.list=tmp;
-              this.forceUpdate();
-              //console.log("this.state.list :"+JSON.stringify(this.state.list));
-              console.log('NOT Maj and Update view !');
-            }
+            this.myRefresh(cpt,tmp);
           }else{
             console.log('MAJ element : '+item.key);
 
@@ -126,12 +117,7 @@ class ListPageScreen extends React.Component {
                         //console.log(tmp2);
                         //console.log(data.key);
                         cpt++;
-                        if(cpt==taille){
-                          this.state.list=tmp;
-                          this.forceUpdate();
-                          //console.log("this.state.list :"+JSON.stringify(this.state.list));
-                          console.log('Update view !');
-                        }
+                        this.myRefresh(cpt,tmp);
                       });
                     });
                     
@@ -140,11 +126,22 @@ class ListPageScreen extends React.Component {
                   }).catch(error => {console.log(error);});
             }).catch(err => console.log(err));
         }
+      } else {
+        cpt++;
+        this.myRefresh(cpt,tmp);
       }
       });
     
     });
 
+  }
+
+  myRefresh(myCpt, myList){
+    if(myCpt==this.state.taille){
+      this.state.list=myList;
+      this.forceUpdate();
+      console.log('Update view !');
+    }
   }
 
   render() {
