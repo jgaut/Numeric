@@ -6,6 +6,7 @@ import { Constants } from 'expo';
 import TimerMixin from 'react-timer-mixin';
 
 const numColumns = 3;
+const delayRefresh = 60000;
 
 class ListPageScreen extends React.Component {
 
@@ -29,7 +30,7 @@ class ListPageScreen extends React.Component {
         console.log("ancien élément : " + JSON.stringify(oldElement));
         */
         //this.ListAllElement();
-      }, 5000);
+      }, delayRefresh);
     });
     this.props.navigation.addListener('didBlur', () => {
       clearTimeout(this.timer);
