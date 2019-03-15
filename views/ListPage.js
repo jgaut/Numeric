@@ -83,7 +83,7 @@ class ListPageScreen extends React.Component {
           //console.log("ancien élément : " + JSON.stringify(oldElement));
 
           //Si l'indicateur a été mis à jour.
-          if(!maj){
+          if(!false){
             tmp.push(this.state.list[indice]);
             cpt++;
             if(cpt==taille){
