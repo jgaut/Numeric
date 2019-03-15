@@ -87,12 +87,12 @@ class ListPageScreen extends React.Component {
 
                         for (var obj in tmp2) {
                           if(obj.match(regexText)){
-                            var tmp = obj.replace("style_text_", "");
-                            styleText[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
+                            var tmpObj = obj.replace("style_text_", "");
+                            styleText[tmpObj]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
                             //console.log(styleText);
                           } else if(obj.match(regexImage)) {
-                            var tmp = obj.replace("style_image_", "");
-                            styleImage[tmp]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
+                            var tmpObj = obj.replace("style_image_", "");
+                            styleImage[tmpObj]=parseFloat(item[obj],10)||parseInt(item[obj])||item[obj];
                             //console.log(styleImage);
                           } else {
                             //console.log(obj+" => "+item[obj]);
