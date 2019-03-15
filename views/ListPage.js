@@ -160,7 +160,7 @@ class ListPageScreen extends React.Component {
     } else if(this.state.list[indice].type='number') {
       return (
         <TouchableOpacity
-          key={Math.random()}
+          key={this.state.list[indice].key}
           style={styles.item}
         >
           <ImageBackground 
