@@ -62,7 +62,7 @@ class ListPageScreen extends React.Component {
         if(item.key.match(regex)){
 
           var oldElement;
-          console.log(this.state.list.length);
+          //console.log(this.state.list.length);
           for (var j=0; j<this.state.list.length; j++) {
             console.log(j+" -> "+this.state.list[j]);
             if(this.state.list[j] && item.key == this.state.list[j].key){
@@ -90,7 +90,7 @@ class ListPageScreen extends React.Component {
               this.state.list=tmp;
               this.forceUpdate();
               //console.log("this.state.list :"+JSON.stringify(this.state.list));
-              console.log('Update view !');
+              console.log('NOT Maj and Update view !');
             }
           }else{
             console.log('MAJ element : '+item.key);
