@@ -52,7 +52,7 @@ class ListPageScreen extends React.Component {
     //Liste de tous les indicateurs
     Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
     .then(result => {
-      console.log('data from S3' +JSON.stringify(result));
+      //console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
 
       //Pour chaque indicateur
@@ -84,6 +84,12 @@ class ListPageScreen extends React.Component {
           if(!maj){
             tmp.push(this.state.list[indice]);
             cpt++;
+            if(cpt==taille){
+                          this.state.list=tmp;
+                          this.forceUpdate();
+                          //console.log("this.state.list :"+JSON.stringify(this.state.list));
+                          console.log('Update view !');
+                        }
           }else{
             console.log('MAJ element : '+item.key);
 
