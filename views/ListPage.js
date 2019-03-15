@@ -50,7 +50,7 @@ class ListPageScreen extends React.Component {
     //Liste de tous les indicateurs
     Storage.list('numeric/indicateurs/numeric_', {level: 'public'})
     .then(result => {
-      //console.log('data from S3' +JSON.stringify(result));
+      console.log('data from S3' +JSON.stringify(result));
       taille=result.length;
 
       //Pour chaque indicateur
