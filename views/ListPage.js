@@ -34,10 +34,10 @@ class ListPageScreen extends React.Component {
   }
 
   ListAllElement = () => {
-    for(let i=this.state.min; i<=this.state.max; i++){
+    /*for(let i=this.state.min; i<=this.state.max; i++){
       let item = {key:i};
       this.state.data.list.push(item);
-    }
+    }*/
 
     var regex = /numeric_.*\.json/g;
     var tmp = [];
