@@ -79,7 +79,7 @@ class ListPageScreen extends React.Component {
                       //console.log(result);
                       fetch(result).then(response => {
                         //console.log(JSON.stringify(response));
-                        
+
                         var styleText={};
                         var styleImage={};
                         var regexText = /style_text_.*/g;
@@ -99,8 +99,8 @@ class ListPageScreen extends React.Component {
                           }
                         }
 
-                        tmp2['styleText']=styleText;
-                        tmp2['styleImage']=styleImage;
+                        tmp2.styleText=styleText;
+                        tmp2.styleImage=styleImage;
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
