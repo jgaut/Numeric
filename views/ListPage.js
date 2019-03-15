@@ -11,7 +11,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {data: {"list":[]}, max:8, min:0};
+    this.state = {data: {"list":[]}};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
@@ -124,7 +124,7 @@ class ListPageScreen extends React.Component {
   }
 
   renderItem = ({ item, index }) => {
-    //console.log('item::'+JSON.stringify(parseInt(item.fontSize,10)));
+    console.log('item::'+JSON.stringify(item));
     var styleText={};
     var styleImage={};
     var regexText = /style_text_.*/g;
