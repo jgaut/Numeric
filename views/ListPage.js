@@ -17,7 +17,8 @@ class ListPageScreen extends React.Component {
     this.props.navigation.addListener('didFocus', () => {
       this.timer = setInterval(() => {
         console.log('Reload !');
-        var myKey="numeric/indicateurs/numeric_btc_euro.json";
+        
+        /*var myKey="numeric/indicateurs/numeric_btc_euro.json";
         var oldElement;
         for (var i=0; i<this.state.data.list.length; i++) {
           if(myKey == this.state.data.list[i].key){
@@ -25,6 +26,7 @@ class ListPageScreen extends React.Component {
           }
         }
         console.log("ancien élément : " + JSON.stringify(oldElement));
+        */
         //this.ListAllElement();
       }, 10000);
     });
@@ -34,13 +36,9 @@ class ListPageScreen extends React.Component {
   }
 
   ListAllElement = () => {
-    /*for(let i=this.state.min; i<=this.state.max; i++){
-      let item = {key:i};
-      this.state.data.list.push(item);
-    }*/
 
     var regex = /numeric_.*\.json/g;
-    var tmp = [];
+    this.state.data.list = [];
     var taille=0;
     var cpt=0;
 
@@ -83,14 +81,14 @@ class ListPageScreen extends React.Component {
                         tmp2.uri=response.url;
                         tmp2.key=item.key;
                         tmp2.lastModified=item.lastModified;
-                        tmp.push(tmp2);
+                        this.state.data.list.push(tmp2);
                         console.log(tmp2);
                         //console.log(data.key);
                         cpt++;
                         if(cpt==taille){
-                          this.state.data.list=tmp;
+                          //this.state.data.list=tmp;
                           this.forceUpdate();
-                          console.log("tmp :"+JSON.stringify(tmp));
+                          console.log("this.state.data.list :"+JSON.stringify(this.state.data.list));
                           console.log('Update view !');
                         }
                       });
