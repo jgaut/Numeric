@@ -11,7 +11,7 @@ class ListPageScreen extends React.Component {
 
   constructor(...args) {
     super(...args);
-    this.state = {list:[]};
+    this.state = {list:[{key:Math.random()}]};
     this.ListAllElement();
     //console.log('taille : '+Dimensions.get('window').width / numColumns);
     this.props.navigation.addListener('didFocus', () => {
