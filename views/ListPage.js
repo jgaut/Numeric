@@ -22,7 +22,7 @@ class ListPageScreen extends React.Component {
       }, delayRefresh);
     });
     this.props.navigation.addListener('didBlur', () => {
-      console.log('Reload !');
+      console.log('reset timer !');
       clearTimeout(this.timer);
     });
   }
