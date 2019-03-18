@@ -22,11 +22,13 @@ class DetailsPageScreen extends React.Component {
               fetch(result)
                 .then(response => response.json())
                   .then(data => {
-                    console.log(data);
+                    //console.log(data);
                     data.forEach(item=>{
                       this.state.dataX.push(item[0]);
                       this.state.dataY.push(item[1]);
                     });
+                    console.log('X : ' + this.state.dataX);
+                    console.log('Y : ' + this.state.dataY);
                     this.forceUpdate();
                   })
             });
