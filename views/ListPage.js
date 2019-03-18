@@ -32,7 +32,7 @@ class ListPageScreen extends React.Component {
 
   ListAllElement(){
 
-    var regexIndicateur = /numeric\/indicateurs\/numeric_.*\.json/g;
+    var regexIndicateur = /numeric\/indicateurs\/numeric(?!_details)_.*\.json/g;
     var regexImage = /numeric\/images\/.+/g;
     var cpt=0;
     var tmp=[];
@@ -171,6 +171,7 @@ class ListPageScreen extends React.Component {
 
   renderItem = ({ item, index }) => {
 
+    const {navigate} = this.props.navigation;
     var myKey=item.key;
     var indice;
     for (var i=0; i<this.state.list.length; i++) {
@@ -189,6 +190,7 @@ class ListPageScreen extends React.Component {
         <TouchableOpacity
           key={this.state.list[indice].key}
           style={styles.item}
+          onPress={navigate('Details', {key:this.state.list[indice].key})}
         >
           <ImageBackground 
             source={{uri: this.state.list[indice].uri}} 

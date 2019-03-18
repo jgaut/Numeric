@@ -6,6 +6,7 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
 import HomeScreen from './Home';
 import ListPageScreen from './ListPage';
+import DetailsPageScreen from './DetailsPage';
 import TabMenuScreen from './TabMenu';
 import Auth from '@aws-amplify/auth';
 import { Constants } from 'expo';
@@ -59,6 +60,11 @@ const MyDrawerNavigator = createDrawerNavigator({
       drawerLockMode: 'locked-closed'
     })
   },
+  'Details': {
+    screen: DetailsPageScreen,
+    navigationOptions: ({navigation}) => ({
+      drawerLockMode: 'locked-closed'
+    }),
   }, 
 {
   headerMode: 'none',
