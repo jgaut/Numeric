@@ -27,8 +27,8 @@ class DetailsPageScreen extends React.Component {
                   .then(data => {
                     console.log(data);
                     data.forEach(item=>{
-                      this.state.dataX=item[0];
-                      this.state.dataY=item[1];
+                      this.state.dataX.push(item[0]);
+                      this.state.dataY.push(item[1]);
                     });
                     this.forceUpdate();
                   })
