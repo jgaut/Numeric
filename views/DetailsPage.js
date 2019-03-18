@@ -3,6 +3,7 @@ import { StyleSheet, Text, View} from 'react-native';
 import { Constants } from 'expo';
 import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
+import { createStackNavigator } from 'react-navigation';
 
 class DetailsPageScreen extends React.Component {
   
