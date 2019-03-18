@@ -50,7 +50,7 @@ class DetailsPageScreen extends React.Component {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 0.5, padding: 20, flexDirection: 'row', border:5, borderColor:'pink' }}>
+            <View style={{ flex: 0.5, padding: 20, border:5, borderColor:'pink' }}>
                 <YAxis
                     data={this.state.dataY}
                     style={{ marginBottom: xAxisHeight, border:5, borderColor:'pink'  }}
