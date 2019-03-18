@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text} from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import { Constants } from 'expo';
 import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 
