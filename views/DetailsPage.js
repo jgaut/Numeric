@@ -25,7 +25,7 @@ class DetailsPageScreen extends React.Component {
     this.state.dataX=[1];
     this.state.dataY=[1];
     
-    this.state.key=this.props.navigation.state.params.key;
+    if(this.state.key=this.props.navigation.state.params.key){
     var regex = /numeric_/gi;
     var dKey = this.state.key.replace(regex, 'numeric_details_');
 
@@ -46,6 +46,7 @@ class DetailsPageScreen extends React.Component {
                     this.forceUpdate();
                   })
             });
+    }
   }
 
   componentWillMount(){
