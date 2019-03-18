@@ -65,13 +65,7 @@ class DetailsPageScreen extends React.Component {
                     >
                         <Grid/>
                     </LineChart>
-                    <XAxis
-                        style={{ marginHorizontal: -10, flex: 1 }}
-                        data={this.state.dataX}
-                        formatLabel={(value, index) => value}
-                        contentInset={{ left: 10, right: 10 }}
-                        svg={axesSvg}
-                    />
+                    
                 </View>
             </View>
         );
