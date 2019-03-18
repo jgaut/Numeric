@@ -8,11 +8,15 @@ class DetailsPageScreen extends React.Component {
   
   constructor() {
     super();
-    this.state = {dataY:[ 1,2,3,4,5 ], dataX:[ 1,2,3,4,5 ], key:''};
+    this.state = {dataY:[], dataX:[], key:''};
 
   }
 
   componentWillMount(){
+
+    this.state.dataX=[1];
+    this.state.dataY=[1];
+    
     this.state.key=this.props.navigation.state.params.key;
     var regex = /numeric_/gi;
     var dKey = this.state.key.replace(regex, 'numeric_details_');
