@@ -11,7 +11,7 @@ class DetailsPageScreen extends React.Component {
     super();
     this.state = {dataY:[], dataX:[], key:''};
 
-    this.loadDetails();
+    
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -51,8 +51,7 @@ class DetailsPageScreen extends React.Component {
   }
 
   componentWillMount(){
-
-    
+    this.loadDetails();
   }
 
   render() {
