@@ -64,7 +64,7 @@ const MyDrawerNavigator = createDrawerNavigator({
     screen: DetailsPageScreen,
     navigationOptions: ({navigation}) => ({
       drawerLockMode: 'locked-closed'
-    }),
+    })
   }, 
 {
   headerMode: 'none',
