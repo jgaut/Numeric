@@ -1,17 +1,13 @@
 import React from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity, KeyboardAvoidingView, Dimensions } from 'react-native';
+import { StyleSheet, Text} from 'react-native';
 import { Constants } from 'expo';
+import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 
 class DetailsPageScreen extends React.Component {
   
   constructor() {
     super();
-    this.state = {
-      email: '',
-      password: '',
-      err: '',
-      errColor: '#f5fcff'
-    };
+    this.state = {};
   }
 
   render() {
