@@ -45,7 +45,7 @@ class DetailsPageScreen extends React.Component {
     const {navigate} = this.props.navigation;
     //console.log('X : ' + this.state.dataX);
     const axesSvg = { fontSize: 10, fill: 'grey' };
-    const verticalContentInset = { top: 10, bottom: 10 }
+    const verticalContentInset = { top: 2, bottom: 2 }
     const xAxisHeight = 30
 
     return (
@@ -65,7 +65,13 @@ class DetailsPageScreen extends React.Component {
                     >
                         <Grid/>
                     </LineChart>
-                    
+                    <XAxis
+                        style={{ marginHorizontal: -10, flex: 1 }}
+                        data={this.state.dataX}
+                        formatLabel={(value, index) => value}
+                        contentInset={{ left: 10, right: 10 }}
+                        svg={axesSvg}
+                    />
                 </View>
             </View>
         );
