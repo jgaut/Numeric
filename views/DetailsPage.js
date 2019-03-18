@@ -67,7 +67,7 @@ class DetailsPageScreen extends React.Component {
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ marginHorizontal: -10, flex: 1, bottom:0}}
+                        style={{ flex: 1, bottom:0}}
                         data={this.state.dataX}
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
@@ -92,7 +92,7 @@ class DetailsPageScreen extends React.Component {
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ marginHorizontal: -10, flex: 1, bottom:0}}
+                        style={{flex: 1, bottom:0}}
                         data={this.state.dataX}
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
