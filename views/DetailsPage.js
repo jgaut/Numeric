@@ -49,7 +49,8 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 30
 
     return (
-            <View style={{ flex: 1, padding: 20, flexDirection: 'row' }}>
+        <View style={{flex:1}}>
+            <View style={{ flex: 0.5, padding: 20, flexDirection: 'row' }}>
                 <YAxis
                     data={this.state.dataY}
                     style={{ marginBottom: xAxisHeight }}
@@ -74,6 +75,32 @@ class DetailsPageScreen extends React.Component {
                     />
                 </View>
             </View>
+            <View style={{ flex: 0.5, padding: 20, flexDirection: 'row' }}>
+                <YAxis
+                    data={this.state.dataY}
+                    style={{ marginBottom: xAxisHeight }}
+                    contentInset={verticalContentInset}
+                    svg={axesSvg}
+                />
+                <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                        style={{ flex: 1 }}
+                        data={this.state.dataY}
+                        contentInset={verticalContentInset}
+                        svg={{ stroke: 'rgb(134, 65, 244)' }}
+                    >
+                        <Grid/>
+                    </LineChart>
+                    <XAxis
+                        style={{ marginHorizontal: -10, flex: 1, bottom:0}}
+                        data={this.state.dataX}
+                        formatLabel={(value, index) => value}
+                        contentInset={{ left: 10, right: 10 }}
+                        svg={axesSvg}
+                    />
+                </View>
+            </View>
+        </View>
         );
   };
 
