@@ -4,14 +4,13 @@ import { Constants } from 'expo';
 import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 
 class DetailsPageScreen extends React.Component {
   
   constructor() {
     super();
     this.state = {dataY:[], dataX:[], key:''};
-
-    
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
