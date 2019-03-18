@@ -50,14 +50,14 @@ class DetailsPageScreen extends React.Component {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 0.5, padding: 20, flexDirection: 'row', border:5 }}>
+            <View style={{ flex: 0.5, padding: 20, flexDirection: 'row', border:5, borderColor:'pink' }}>
                 <YAxis
                     data={this.state.dataY}
-                    style={{ marginBottom: xAxisHeight }}
+                    style={{ marginBottom: xAxisHeight, border:5, borderColor:'pink'  }}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
-                <View style={{ flex: 1, marginLeft: 10, border:5 }}>
+                <View style={{ flex: 1, marginLeft: 10, border:5, borderColor:'pink' }}>
                     <LineChart
                         style={{ flex: 1 }}
                         data={this.state.dataY}
@@ -67,7 +67,7 @@ class DetailsPageScreen extends React.Component {
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ flex: 1, bottom:0, border:5}}
+                        style={{ flex: 1, bottom:0, border:5, borderColor:'pink'}}
                         data={this.state.dataX}
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
