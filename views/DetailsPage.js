@@ -21,8 +21,6 @@ class DetailsPageScreen extends React.Component {
         const xAxisHeight = 30
 
     return (
-
-return (
             <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
                 <YAxis
                     data={data}
@@ -48,10 +46,7 @@ return (
                     />
                 </View>
             </View>
-        )
-
-        
-    );
+        );
   };
 
 }
