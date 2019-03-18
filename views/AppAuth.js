@@ -65,6 +65,7 @@ const MyDrawerNavigator = createDrawerNavigator({
     navigationOptions: ({navigation}) => ({
       drawerLockMode: 'locked-closed'
     })
+  },
   }, 
 {
   headerMode: 'none',
