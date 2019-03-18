@@ -7,13 +7,24 @@ class DetailsPageScreen extends React.Component {
   
   constructor() {
     super();
-    this.state = {dataY:[], dataX:[]};
+    this.state = {dataY:[], dataX:[], key:''};
 
   }
 
   render() {
     
     const {navigate} = this.props.navigation;
+
+    this.state.key=this.props.navigation.state.params.key;
+    var regex = /numeric_/gi;
+    var dKey = this.state.key.replace(regex, 'numeric_details_');
+
+    Storage.get(dKey, {level: 'public'})
+            .then(result => {
+              fetch(result)
+                .then(response => response.json())
+                  .then(data => {console.log(data)})
+            });
 
     this.state.dataY = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
     this.state.dataX = [ 1,2,3,4,5 ];
