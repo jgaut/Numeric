@@ -12,10 +12,7 @@ class DetailsPageScreen extends React.Component {
 
   }
 
-  render() {
-    
-    const {navigate} = this.props.navigation;
-
+  componentWillMount(){
     this.state.key=this.props.navigation.state.params.key;
     var regex = /numeric_/gi;
     var dKey = this.state.key.replace(regex, 'numeric_details_');
@@ -33,6 +30,13 @@ class DetailsPageScreen extends React.Component {
                     this.forceUpdate();
                   })
             });
+  }
+
+  render() {
+    
+    const {navigate} = this.props.navigation;
+
+    
 
     //this.state.dataY = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
     //this.state.dataX = [ 1,2,3,4,5 ];
