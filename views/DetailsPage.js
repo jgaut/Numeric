@@ -7,14 +7,16 @@ class DetailsPageScreen extends React.Component {
   
   constructor() {
     super();
-    this.state = {};
+    this.state = {dataY:[], dataX:[]};
+
   }
 
   render() {
     
     const {navigate} = this.props.navigation;
 
-    const data = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ]
+    this.state.dataY = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
+    this.state.dataX = [ 1,2,3,4,5 ];
 
         const axesSvg = { fontSize: 10, fill: 'grey' };
         const verticalContentInset = { top: 10, bottom: 10 }
@@ -23,7 +25,7 @@ class DetailsPageScreen extends React.Component {
     return (
             <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
                 <YAxis
-                    data={data}
+                    data={this.state.dataY}
                     style={{ marginBottom: xAxisHeight }}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
@@ -31,7 +33,7 @@ class DetailsPageScreen extends React.Component {
                 <View style={{ flex: 1, marginLeft: 10 }}>
                     <LineChart
                         style={{ flex: 1 }}
-                        data={data}
+                        data={this.state.dataY}
                         contentInset={verticalContentInset}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
@@ -39,7 +41,7 @@ class DetailsPageScreen extends React.Component {
                     </LineChart>
                     <XAxis
                         style={{ marginHorizontal: -10, height: xAxisHeight }}
-                        data={data}
+                        data={this.state.dataX}
                         formatLabel={(value, index) => index}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
