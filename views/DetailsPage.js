@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import { Constants } from 'expo';
 import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
+import Storage from '@aws-amplify/storage';
 
 class DetailsPageScreen extends React.Component {
   
