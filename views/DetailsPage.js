@@ -24,11 +24,18 @@ class DetailsPageScreen extends React.Component {
             .then(result => {
               fetch(result)
                 .then(response => response.json())
-                  .then(data => {console.log(data)})
+                  .then(data => {
+                    console.log(data);
+                    forearch(item=>data){
+                      this.state.dataX=item[0];
+                      this.state.dataY=item[1];
+                    }
+                    this.forceUpdate();
+                  })
             });
 
-    this.state.dataY = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
-    this.state.dataX = [ 1,2,3,4,5 ];
+    //this.state.dataY = [ 50, 10, 40, 95, -4, -24, 85, 91, 35, 53, -53, 24, 50, -20, -80 ];
+    //this.state.dataX = [ 1,2,3,4,5 ];
 
         const axesSvg = { fontSize: 10, fill: 'grey' };
         const verticalContentInset = { top: 10, bottom: 10 }
