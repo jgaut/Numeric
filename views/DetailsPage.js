@@ -55,7 +55,7 @@ class DetailsPageScreen extends React.Component {
 
   render() {
     
-    const {navigate} = this.props.navigation;
+    //const {navigate} = this.props.navigation;
     //console.log('X : ' + this.state.dataX);
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 5, bottom: 0 }
