@@ -24,12 +24,12 @@ class DetailsPageScreen extends React.Component {
   loadDetails(){
     this.state.dataX=[1];
     this.state.dataY=[1];
-    
+    this.forceUpdate();
+
     if(this.state.key=this.props.navigation.state.params.key){
     var regex = /numeric_/gi;
-    var dKey = this.state.key.replace(regex, 'numeric_details_');
 
-    Storage.get(dKey, {level: 'public'})
+    Storage.get(this.state.key.replace(regex, 'numeric_details_'), {level: 'public'})
             .then(result => {
               fetch(result)
                 .then(response => response.json())
