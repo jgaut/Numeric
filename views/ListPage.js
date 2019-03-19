@@ -191,7 +191,7 @@ class ListPageScreen extends React.Component {
         <TouchableOpacity
           key={this.state.list[indice].key}
           style={styles.item}
-          onPress={()=>{console.log('onpress'); navigate('Details', {key:this.state.list[indice].key});}}
+          onPress={()=>{console.log('onpress'); navigate(this.state.list[indice].second, {key:this.state.list[indice].key});}}
         >
           <ImageBackground 
             source={{uri: this.state.list[indice].uri}} 
