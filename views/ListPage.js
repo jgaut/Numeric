@@ -180,9 +180,6 @@ class ListPageScreen extends React.Component {
         indice=i;
       }
     }
-    //console.log("ancien élément : " + JSON.stringify(this.state.list[indice]));
-
-    //console.log('item::'+JSON.stringify(item));
 
     if (this.state.list[indice].empty === true) {
       return <View style={[styles.item, styles.itemInvisible]} />;
@@ -212,8 +209,7 @@ const formatData = (data, numColumns) => {
     data.push({ key: `blank-${numberOfElementsLastRow}`, empty: true });
     numberOfElementsLastRow++;
   }
-  //console.log("data =============> X");
-  //console.log("data =============> " +data);
+
   return data;
 };
 
