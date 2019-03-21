@@ -10,7 +10,7 @@ class DetailsPageScreen extends React.Component {
   
   constructor(...args) {
     super(...args);
-    
+
     this.state = {data:[{X:[], Y:[]}, {X:[], Y:[]}], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
@@ -28,6 +28,7 @@ class DetailsPageScreen extends React.Component {
     this.state.data[1].X=[1];
     this.state.data[1].Y=[1];
     this.forceUpdate();*/
+    console.log()
 
     if(this.state.key!=this.props.navigation.state.params.key){
     var regex = /numeric_/gi;
@@ -57,10 +58,6 @@ class DetailsPageScreen extends React.Component {
     }
   }
 
-  componentWillMount(){
-    //this.loadDetails();
-  }
-
   render() {
     
     //const {navigate} = this.props.navigation;
@@ -68,6 +65,8 @@ class DetailsPageScreen extends React.Component {
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 5, bottom: 0 }
     const xAxisHeight = 30
+
+    this.loadDetails();
 
     return (
         <View style={styles.container}>
