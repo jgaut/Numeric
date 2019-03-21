@@ -83,14 +83,14 @@ class DetailsPageScreen extends React.Component {
         <View style={styles.container}>
             <View style={{ flex: 0.5, padding: 20, flexDirection: 'row' }}>
                 <YAxis
-                    data={this.state.data[0].Y}
+                    data={this.state.data[0]["Y"]}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
                 <View style={{ flex: 1, marginLeft: 10}}>
                     <LineChart
                         style={{ flex: 1}}
-                        data={this.state.data[0].Y}
+                        data={this.state.data[0]["Y"]}
                         contentInset={verticalContentInset}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
@@ -98,7 +98,7 @@ class DetailsPageScreen extends React.Component {
                     </LineChart>
                     <XAxis
                         style={{ flex: 1, bottom:0, x:500}}
-                        data={this.state.data[0].X}
+                        data={this.state.data[0]["X"]}
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
@@ -107,14 +107,14 @@ class DetailsPageScreen extends React.Component {
             </View>
             <View style={{ flex: 0.5, padding: 20, flexDirection: 'row' }}>
                 <YAxis
-                    data={this.state.data[1].Y}
+                    data={this.state.data[1]["Y"]}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
                 <View style={{ flex: 1, marginLeft: 10 }}>
                     <LineChart
                         style={{ flex: 1 }}
-                        data={this.state.data[1].Y}
+                        data={this.state.data[1]["Y"]}
                         contentInset={verticalContentInset}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
@@ -122,7 +122,7 @@ class DetailsPageScreen extends React.Component {
                     </LineChart>
                     <XAxis
                         style={{flex: 1, bottom:0}}
-                        data={this.state.data[1].X}
+                        data={this.state.data[1]["Y"]}
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
