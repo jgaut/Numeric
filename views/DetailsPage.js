@@ -28,7 +28,7 @@ class DetailsPageScreen extends React.Component {
     this.state.data[1].X=[1];
     this.state.data[1].Y=[1];
     this.forceUpdate();*/
-    console.log(this.props.navigation.state.params.key);
+    //console.log(this.props.navigation.state.params.key);
 
     if(this.state.key!=this.props.navigation.state.params.key){
    
@@ -39,8 +39,8 @@ class DetailsPageScreen extends React.Component {
 
             var tmp = this.props.navigation.state.params.key;
             tmp = tmp.replace(regex, 'numeric_details_'+g+'_');
-            console.log(tmp);
-            console.log(JSON.stringify(this.state.data[g]));
+            //console.log(tmp);
+            //console.log(JSON.stringify(this.state.data[g]));
 
             Storage.get(tmp, {level: 'public'})
                 .then(result => {
@@ -54,11 +54,11 @@ class DetailsPageScreen extends React.Component {
                             dataTmp.X.push(parseFloat(item['_time']));
                             dataTmp.Y.push(parseFloat(item['value']));
 
-                            console.log(JSON.stringify(dataTmp));
+                            //console.log(JSON.stringify(dataTmp));
                         });
 
                         this.state.data[g] = dataTmp;
-                        //console.log('X : ' + this.state.dataX);
+                        console.log('X : ' + this.state.data[g]["X"]);
                         //console.log('Y : ' + this.state.dataY);
                         this.forceUpdate();
                     });
