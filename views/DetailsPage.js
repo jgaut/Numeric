@@ -46,14 +46,18 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
-                        this.state.data[g]['X']=[];
-                        this.state.data[g]['Y']=[];
-                        data.forEach(item=>{
-                            this.state.data[g]['X'].push(parseFloat(item['_time']));
-                            this.state.data[g]['Y'].push(parseFloat(item['value']));
+                        var dataTmp = {X:[], Y:[]};
+                        dataTmp.X = [];
+                        dataTmp.Y = [];
 
-                            console.log(JSON.stringify(this.state.data[g]['X']));
+                        data.forEach(item=>{
+                            dataTmp.X.push(parseFloat(item['_time']));
+                            dataTmp.Y.push(parseFloat(item['value']));
+
+                            console.log(JSON.stringify(dataTmp));
                         });
+
+                        this.state.data[g] = dataTmp;
                         //console.log('X : ' + this.state.dataX);
                         //console.log('Y : ' + this.state.dataY);
                         this.forceUpdate();
