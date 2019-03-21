@@ -40,6 +40,7 @@ class DetailsPageScreen extends React.Component {
             var tmp = this.props.navigation.state.params.key;
             tmp = tmp.replace(regex, 'numeric_details_'+g+'_');
             console.log(tmp);
+            console.log(JSON.stringify(this.state.data[g]));
 
             Storage.get(tmp, {level: 'public'})
                 .then(result => {
