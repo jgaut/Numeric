@@ -8,9 +8,10 @@ import { createAppContainer } from 'react-navigation';
 
 class DetailsPageScreen extends React.Component {
   
-  constructor() {
-    super();
-    this.state = {dataY:[], dataX:[], key:''};
+  constructor(...args) {
+    super(...args);
+    
+    this.state = {data:[{X:[], Y:[]}, {X:[], Y:[]}], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -22,30 +23,37 @@ class DetailsPageScreen extends React.Component {
   }
 
   loadDetails(){
-    this.state.dataX=[1];
-    this.state.dataY=[1];
-    this.forceUpdate();
+    /*this.state.data[0].X=[1];
+    this.state.data[0].Y=[1];
+    this.state.data[1].X=[1];
+    this.state.data[1].Y=[1];
+    this.forceUpdate();*/
 
-    if(this.state.key=this.props.navigation.state.params.key){
+    if(this.state.key!=this.props.navigation.state.params.key){
     var regex = /numeric_/gi;
 
-    Storage.get(this.state.key.replace(regex, 'numeric_details_'), {level: 'public'})
-            .then(result => {
-              fetch(result)
-                .then(response => response.json())
-                  .then(data => {
-                    //console.log(data);
-                    this.state.dataX=[];
-                    this.state.dataY=[];
-                    data.forEach(item=>{
-                      this.state.dataX.push(parseFloat(item['_time']));
-                      this.state.dataY.push(parseFloat(item['value']));
+        for (var g=0; g<2; g++) {
+
+            var tmp = this.state.key;
+
+            Storage.get(tmp.replace(regex, 'numeric_details_'+g+'_'), {level: 'public'})
+                .then(result => {
+                    fetch(result).then(response => response.json()).then(data => {
+                        //console.log(data);
+                        this.state.data[g].X=[];
+                        this.state.data[g].Y=[];
+                        data.forEach(item=>{
+                            this.state.data[g].X.push(parseFloat(item['_time']));
+                            this.state.data[g].Y.push(parseFloat(item['value']));
+                        });
+                        //console.log('X : ' + this.state.dataX);
+                        //console.log('Y : ' + this.state.dataY);
+                        this.forceUpdate();
                     });
-                    //console.log('X : ' + this.state.dataX);
-                    //console.log('Y : ' + this.state.dataY);
-                    this.forceUpdate();
-                  })
-            });
+                });
+        }
+
+        this.state.key=this.props.navigation.state.params.key;
     }
   }
 
@@ -65,14 +73,14 @@ class DetailsPageScreen extends React.Component {
         <View style={styles.container}>
             <View style={{ flex: 0.5, padding: 20, flexDirection: 'row' }}>
                 <YAxis
-                    data={this.state.dataY}
+                    data={this.state.data[0].Y}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
                 <View style={{ flex: 1, marginLeft: 10}}>
                     <LineChart
                         style={{ flex: 1}}
-                        data={this.state.dataY}
+                        data={this.state.data[0].Y}
                         contentInset={verticalContentInset}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
@@ -80,7 +88,7 @@ class DetailsPageScreen extends React.Component {
                     </LineChart>
                     <XAxis
                         style={{ flex: 1, bottom:0, x:500}}
-                        data={this.state.dataX}
+                        data={this.state.data[0].X}
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
@@ -89,14 +97,14 @@ class DetailsPageScreen extends React.Component {
             </View>
             <View style={{ flex: 0.5, padding: 20, flexDirection: 'row' }}>
                 <YAxis
-                    data={this.state.dataY}
+                    data={this.state.data[1].Y}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
                 <View style={{ flex: 1, marginLeft: 10 }}>
                     <LineChart
                         style={{ flex: 1 }}
-                        data={this.state.dataY}
+                        data={this.state.data[1].Y}
                         contentInset={verticalContentInset}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
@@ -104,7 +112,7 @@ class DetailsPageScreen extends React.Component {
                     </LineChart>
                     <XAxis
                         style={{flex: 1, bottom:0}}
-                        data={this.state.dataX}
+                        data={this.state.data[1].X}
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
