@@ -36,11 +36,13 @@ class DetailsPageScreen extends React.Component {
         for (var g=0; g<2; g++) {
 
             var tmp = this.state.key;
-
-            Storage.get(tmp.replace(regex, 'numeric_details_'+g+'_'), {level: 'public'})
+            tmp = tmp.replace(regex, 'numeric_details_'+g+'_');
+            console.log(tmp);
+            
+            Storage.get(tmp, {level: 'public'})
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
-                        //console.log(data);
+                        console.log(data);
                         this.state.data[g].X=[];
                         this.state.data[g].Y=[];
                         data.forEach(item=>{
