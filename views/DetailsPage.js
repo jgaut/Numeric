@@ -50,7 +50,7 @@ class DetailsPageScreen extends React.Component {
   }
 
   componentWillMount(){
-    this.loadDetails();
+    //this.loadDetails();
   }
 
   render() {
