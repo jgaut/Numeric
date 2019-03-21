@@ -28,7 +28,7 @@ class DetailsPageScreen extends React.Component {
     this.state.data[1].X=[1];
     this.state.data[1].Y=[1];
     this.forceUpdate();*/
-    console.log()
+    console.log(this.props.navigation.state.params.key);
 
     if(this.state.key!=this.props.navigation.state.params.key){
     var regex = /numeric_/gi;
@@ -38,7 +38,7 @@ class DetailsPageScreen extends React.Component {
             var tmp = this.state.key;
             tmp = tmp.replace(regex, 'numeric_details_'+g+'_');
             console.log(tmp);
-            
+
             Storage.get(tmp, {level: 'public'})
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
