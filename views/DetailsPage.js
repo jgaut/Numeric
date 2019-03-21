@@ -58,7 +58,7 @@ class DetailsPageScreen extends React.Component {
                         });
 
                         this.state.data[g] = dataTmp;
-                        console.log('X : ' + this.state.data[g]["X"]);
+                        //console.log('X : ' + this.state.data[g]["X"]);
                         //console.log('Y : ' + this.state.dataY);
                         this.forceUpdate();
                     });
