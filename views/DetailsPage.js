@@ -51,6 +51,8 @@ class DetailsPageScreen extends React.Component {
                         data.forEach(item=>{
                             this.state.data[g].X.push(parseFloat(item['_time']));
                             this.state.data[g].Y.push(parseFloat(item['value']));
+
+                            console.log(JSON.stringify(this.state.data[g]));
                         });
                         //console.log('X : ' + this.state.dataX);
                         //console.log('Y : ' + this.state.dataY);
