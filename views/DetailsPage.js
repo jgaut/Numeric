@@ -54,6 +54,8 @@ class DetailsPageScreen extends React.Component {
                             //console.log(JSON.stringify(dataTmp));
                         });
 
+                        this.state["data"][0]["X"] = [...new Set(this.state["data"][0]["X"])]; 
+
                         //console.log('X : ' + this.state.data[g]["X"]);
                         //console.log('Y : ' + this.state.dataY);
                         this.forceUpdate();
