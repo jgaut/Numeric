@@ -5,7 +5,7 @@ import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
-import { strftimeCEST } from 'strftime';
+import { dateformat } from 'dateformat';
 
 class DetailsPageScreen extends React.Component {
   
@@ -51,7 +51,7 @@ class DetailsPageScreen extends React.Component {
                         data.forEach(item=>{
                             this.state["data"][0]["X"].push(parseFloat(item['_time']));
                             this.state["data"][0]["Y"].push(parseFloat(item['value']));
-                            console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(parseFloat(item['_time'])));
+                            dateFormat(parseFloat(item['_time']), "UTC:h");
                             
                             //console.log(JSON.stringify(dataTmp));
                         });
