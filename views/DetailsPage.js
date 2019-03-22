@@ -33,12 +33,10 @@ class DetailsPageScreen extends React.Component {
     if(this.state.key!=this.props.navigation.state.params.key){
    
 
-        for (var g=0; g<2; g++) {
-
             var regex = /numeric_/gi;
             console.log(g);
             var tmp = this.props.navigation.state.params.key;
-            tmp = tmp.replace(regex, 'numeric_details_'+g+'_');
+            tmp = tmp.replace(regex, 'numeric_details_'+'0'+'_');
             //console.log(tmp);
             //console.log(JSON.stringify(this.state.data[g]));
 
@@ -46,13 +44,13 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
-                        console.log('X : ' + JSON.stringify(this.state["data"][g]["X"]));
-                        this.state["data"][g]["X"] = [];
-                        this.state["data"][g]["Y"] = [];
+                        console.log('X : ' + JSON.stringify(this.state["data"][0]["X"]));
+                        this.state["data"][0]["X"] = [];
+                        this.state["data"][0]["Y"] = [];
 
                         data.forEach(item=>{
-                            this.state["data"][g]["X"].push(parseFloat(item['_time']));
-                            this.state["data"][g]["Y"].push(parseFloat(item['value']));
+                            this.state["data"][0]["X"].push(parseFloat(item['_time']));
+                            this.state["data"][0]["Y"].push(parseFloat(item['value']));
 
                             //console.log(JSON.stringify(dataTmp));
                         });
@@ -62,7 +60,30 @@ class DetailsPageScreen extends React.Component {
                         this.forceUpdate();
                     });
                 });
-        }
+
+            tmp = this.props.navigation.state.params.key;
+            tmp = tmp.replace(regex, 'numeric_details_'+'1'+'_');
+
+            Storage.get(tmp, {level: 'public'})
+                .then(result => {
+                    fetch(result).then(response => response.json()).then(data => {
+                        //console.log(data);
+                        console.log('X : ' + JSON.stringify(this.state["data"][1]["X"]));
+                        this.state["data"][1]["X"] = [];
+                        this.state["data"][1]["Y"] = [];
+
+                        data.forEach(item=>{
+                            this.state["data"][1]["X"].push(parseFloat(item['_time']));
+                            this.state["data"][1]["Y"].push(parseFloat(item['value']));
+
+                            //console.log(JSON.stringify(dataTmp));
+                        });
+
+                        //console.log('X : ' + this.state.data[g]["X"]);
+                        //console.log('Y : ' + this.state.dataY);
+                        this.forceUpdate();
+                    });
+                });
 
         this.state.key=this.props.navigation.state.params.key;
     }
