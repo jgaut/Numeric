@@ -11,7 +11,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {data:[{'X':[], 'Y':[]}, {'X':[], 'Y':[]}], key:''};
+    this.state = {data:[{X:[], Y:[]}, {X:[], Y:[]}], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -46,7 +46,7 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
-                        console.log('X : ' + JSON.stringify(this.state));
+                        console.log('X : ' + JSON.stringify(this.state.["data"][g]));
                         this.state.data[g]["X"] = [];
                         this.state.data[g]["Y"] = [];
 
