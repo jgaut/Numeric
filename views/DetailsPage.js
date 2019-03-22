@@ -36,7 +36,7 @@ class DetailsPageScreen extends React.Component {
         for (var g=0; g<2; g++) {
 
             var regex = /numeric_/gi;
-
+            console.log(g);
             var tmp = this.props.navigation.state.params.key;
             tmp = tmp.replace(regex, 'numeric_details_'+g+'_');
             //console.log(tmp);
