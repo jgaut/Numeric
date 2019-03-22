@@ -49,7 +49,7 @@ class DetailsPageScreen extends React.Component {
                         this.state["data"][0]["Y"] = [];
 
                         data.forEach(item=>{
-                            var dd =  new Date(parseInt(item['_time']));
+                            var dd =  new Date(parseFloat(item['_time'])* 1000);
                             this.state["data"][0]["X"].push(dd.getYear().toString());
                             this.state["data"][0]["Y"].push(parseFloat(item['value']));
                             
