@@ -11,7 +11,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {data:[{X:[], Y:[]}, {X:[], Y:[]}], key:''};
+    this.state = {data:[{'X':[], 'Y':[]}, {'X':[], 'Y':[]}], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
