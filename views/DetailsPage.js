@@ -46,6 +46,7 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
+                        console.log('X : ' + this.state.data[g]["X"]);
                         this.state.data[g]["X"] = [];
                         this.state.data[g]["Y"] = [];
 
