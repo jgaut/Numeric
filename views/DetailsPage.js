@@ -5,7 +5,7 @@ import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
-import { dateformat } from 'dateformat';
+import Moment from 'moment';
 
 class DetailsPageScreen extends React.Component {
   
@@ -51,6 +51,9 @@ class DetailsPageScreen extends React.Component {
                         data.forEach(item=>{
                             this.state["data"][0]["X"].push(parseFloat(item['_time']));
                             this.state["data"][0]["Y"].push(parseFloat(item['value']));
+                            Moment.locale('en');
+                            console.log(Moment(parseFloat(item['_time'])).format('d MMM')); //basically you can do all sorts of the formatting and others
+
                             dateFormat(parseFloat(item['_time']), "yyyy:mm:dd");
                             
                             //console.log(JSON.stringify(dataTmp));
