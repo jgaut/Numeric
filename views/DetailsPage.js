@@ -5,7 +5,7 @@ import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
-import { strftime } from 'strftime';
+import { strftimeCEST } from 'strftime';
 
 class DetailsPageScreen extends React.Component {
   
