@@ -51,7 +51,7 @@ class DetailsPageScreen extends React.Component {
                         data.forEach(item=>{
                             this.state["data"][0]["X"].push(parseFloat(item['_time']));
                             this.state["data"][0]["Y"].push(parseFloat(item['value']));
-                            console.log(strftime('%F %T', new Date(parseFloat(item['_time']))));
+                            console.log(strftimeCEST('%F %T', new Date(parseFloat(item['_time']))));
                             //console.log(JSON.stringify(dataTmp));
                         });
 
