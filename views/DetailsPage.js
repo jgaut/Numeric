@@ -5,6 +5,7 @@ import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
+import { strftime } from 'strftime';
 
 class DetailsPageScreen extends React.Component {
   
@@ -50,7 +51,7 @@ class DetailsPageScreen extends React.Component {
                         data.forEach(item=>{
                             this.state["data"][0]["X"].push(parseFloat(item['_time']));
                             this.state["data"][0]["Y"].push(parseFloat(item['value']));
-
+                            console.log(strftime('%F %T', new Date(parseFloat(item['_time']))));
                             //console.log(JSON.stringify(dataTmp));
                         });
 
