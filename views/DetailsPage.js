@@ -53,7 +53,7 @@ class DetailsPageScreen extends React.Component {
                             this.state["data"][0]["X"].push(dd.getYear().toString());
                             this.state["data"][0]["Y"].push(parseFloat(item['value']));
                             
-                            console.log(ddd.getDate()); //basically you can do all sorts of the formatting and others
+                            console.log(dd.getDate()); //basically you can do all sorts of the formatting and others
 
                             
                             //console.log(JSON.stringify(dataTmp));
