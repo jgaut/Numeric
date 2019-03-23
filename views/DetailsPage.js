@@ -107,7 +107,7 @@ class DetailsPageScreen extends React.Component {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={{ flex: 1, flexDirection: 'row', marginLeft:2, width:10 }}>
                 <YAxis
                     data={this.state.data[0]["Y"]}
                     contentInset={verticalContentInset}
@@ -123,7 +123,7 @@ class DetailsPageScreen extends React.Component {
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ flex: 1}}
+                        style={{ flex: 1, marginLeft: 10}}
                         data={this.state.data[0]["X"]}
                         formatLabel={(value, index) => {return this.state.data[0]["X"][index];}}
                         contentInset={{ left: 0, right: 0 }}
