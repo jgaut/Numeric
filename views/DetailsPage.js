@@ -104,7 +104,7 @@ class DetailsPageScreen extends React.Component {
     const verticalContentInset = {};
     const xAxisHeight = 10;
     if(this.state.key==''){
-        return '';
+        return <View></View>;
     }else{
     return (
         <View style={styles.container}>
