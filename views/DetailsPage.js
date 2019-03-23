@@ -6,6 +6,7 @@ import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
 import Moment from 'moment';
+import * as d3scale from 'd3-scale';
 
 class DetailsPageScreen extends React.Component {
   
@@ -127,7 +128,7 @@ class DetailsPageScreen extends React.Component {
                         formatLabel={(value, index) => {return this.state.data[0]["X"][index];}}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
-                        xScale={scale.scaleTime}
+                        xScale={d3Scale.scaleTime}
                     />
                 </View>
             </View>
