@@ -49,11 +49,10 @@ class DetailsPageScreen extends React.Component {
                         this.state["data"][0]["Y"] = [];
 
                         data.forEach(item=>{
-                            var dd =  new Date(parseFloat(item['_time'])* 1000);
-                            this.state["data"][0]["X"].push(dd.getDate());
+                            this.state["data"][0]["X"].push(Moment.unix(parseFloat(item['_time'])).format("DD/MM/YYYY"));
                             this.state["data"][0]["Y"].push(parseFloat(item['value']));
                             
-                            console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
+                            //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
                             
                             //console.log(JSON.stringify(dataTmp));
