@@ -21,6 +21,8 @@ class DetailsPageScreen extends React.Component {
     this.props.navigation.addListener('didBlur', () => {
     });
 
+    this.loadDetails();
+    
   }
 
   loadDetails(){
@@ -101,8 +103,6 @@ class DetailsPageScreen extends React.Component {
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 5, bottom: 0 }
     const xAxisHeight = 5
-
-    this.loadDetails();
 
     return (
         <View style={styles.container}>
