@@ -102,7 +102,7 @@ class DetailsPageScreen extends React.Component {
     //const {navigate} = this.props.navigation;
     console.log('X : ' + this.state.data[0]["X"]);
     const axesSvg = { fontSize: 8, fill: 'grey' };
-    const verticalContentInset = { top: 5, bottom: 0 }
+    const verticalContentInset = {}
     const xAxisHeight = 5
 
     return (
@@ -126,7 +126,7 @@ class DetailsPageScreen extends React.Component {
                         style={{ flex: 1}}
                         data={this.state.data[0]["X"]}
                         formatLabel={(value, index) => {return this.state.data[0]["X"][index];}}
-                        contentInset={{ left: 2, right: 2 }}
+                        contentInset={{ left: 0, right: 0 }}
                         svg={axesSvg}
                         xScale={d3scale.scaleTime}
                     />
