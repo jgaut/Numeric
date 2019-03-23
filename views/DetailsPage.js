@@ -6,7 +6,6 @@ import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
 import Moment from 'moment';
-import * as d3scale from 'd3-scale';
 
 class DetailsPageScreen extends React.Component {
   
@@ -100,11 +99,13 @@ class DetailsPageScreen extends React.Component {
   render() {
     
     //const {navigate} = this.props.navigation;
-    console.log('X : ' + this.state.data[0]["X"]);
+    //console.log('X : ' + this.state.data[0]["X"]);
     const axesSvg = { fontSize: 8, fill: 'grey' };
-    const verticalContentInset = {}
-    const xAxisHeight = 5
-
+    const verticalContentInset = {};
+    const xAxisHeight = 10;
+    if(this.state.key==''){
+        return '';
+    }else{
     return (
         <View style={styles.container}>
             <View style={{ flex: 1, flexDirection: 'row', marginLeft:5}}>
@@ -113,7 +114,7 @@ class DetailsPageScreen extends React.Component {
                     contentInset={{ left: 5, right: 5 }}
                     svg={axesSvg}
                 />
-                <View style={{ flex: 1, marginLeft: 10}}>
+                <View style={{ flex: 1 }}>
                     <LineChart
                         style={{ flex: 1}}
                         data={this.state.data[0]["Y"]}
@@ -127,20 +128,19 @@ class DetailsPageScreen extends React.Component {
                         formatLabel={(value, index) => {return this.state.data[0]["X"][index]}}
                         contentInset={{ left: 5, right: 5 }}
                         svg={axesSvg}
-                        xScale={d3scale.scaleTime}
                     />
                 </View>
             </View>
         </View>
         );
   };
-
+}
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: Constants.statusBarHeight
+    paddingTop: Constants.statusBarHeight
   },
 });
 
