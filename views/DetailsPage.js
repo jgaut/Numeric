@@ -140,7 +140,7 @@ class DetailsPageScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight
+    padding: Constants.statusBarHeight
   },
 });
 
