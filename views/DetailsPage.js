@@ -33,8 +33,8 @@ class DetailsPageScreen extends React.Component {
     this.forceUpdate();*/
     //console.log(this.props.navigation.state.params.key);
     console.log("loaddetails");
-    
-    if(this.state.key!=this.props.navigation.state.params.key){
+
+    if(this.state.key!=this.props.navigation.state.params.key || false){
    
 
             var regex = /numeric_/gi;
@@ -47,7 +47,7 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
-                        console.log('X : ' + JSON.stringify(this.state["data"][0]["X"]));
+                        //console.log('X : ' + JSON.stringify(this.state["data"][0]["X"]));
                         this.state["data"][0]["X"] = [];
                         this.state["data"][0]["Y"] = [];
 
