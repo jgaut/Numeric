@@ -62,7 +62,7 @@ class DetailsPageScreen extends React.Component {
 
                         this.state["data"][0]["X"] = [...new Set(this.state["data"][0]["X"])]; 
 
-                        //console.log('X : ' + this.state.data[g]["X"]);
+                        console.log('after set : ' + this.state["data"][0]["X"]);
                         //console.log('Y : ' + this.state.dataY);
                         this.forceUpdate();
                     });
@@ -75,7 +75,7 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
-                        console.log('X : ' + JSON.stringify(this.state["data"][1]["X"]));
+                        //console.log('X : ' + JSON.stringify(this.state["data"][1]["X"]));
                         this.state["data"][1]["X"] = [];
                         this.state["data"][1]["Y"] = [];
 
