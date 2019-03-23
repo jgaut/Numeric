@@ -100,7 +100,7 @@ class DetailsPageScreen extends React.Component {
     //console.log('X : ' + this.state.dataX);
     const axesSvg = { fontSize: 10, fill: 'grey' };
     const verticalContentInset = { top: 5, bottom: 0 }
-    const xAxisHeight = 30
+    const xAxisHeight = 5
 
     this.loadDetails();
 
