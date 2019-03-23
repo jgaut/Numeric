@@ -34,7 +34,7 @@ class DetailsPageScreen extends React.Component {
     //console.log(this.props.navigation.state.params.key);
     console.log("loaddetails");
 
-    if(this.state.key!=this.props.navigation.state.params.key || false){
+    if(this.state.key==this.props.navigation.state.params.key || false){
    
 
             var regex = /numeric_/gi;
