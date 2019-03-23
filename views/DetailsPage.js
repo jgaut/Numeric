@@ -128,7 +128,7 @@ class DetailsPageScreen extends React.Component {
                         formatLabel={(value, index) => {return this.state.data[0]["X"][index];}}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
-                        xScale={d3Scale.scaleTime}
+                        xScale={d3scale.scaleTime}
                     />
                 </View>
             </View>
