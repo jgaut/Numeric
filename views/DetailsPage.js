@@ -106,7 +106,7 @@ class DetailsPageScreen extends React.Component {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 0.5, flexDirection: 'row' }}>
+            <View style={{ flex: 1, flexDirection: 'row' }}>
                 <YAxis
                     data={this.state.data[0]["Y"]}
                     contentInset={verticalContentInset}
