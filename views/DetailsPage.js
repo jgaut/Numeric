@@ -88,11 +88,12 @@ class DetailsPageScreen extends React.Component {
 
                         //console.log('X : ' + this.state.data[g]["X"]);
                         //console.log('Y : ' + this.state.dataY);
+                        this.state.key=this.props.navigation.state.params.key;
                         this.forceUpdate();
                     });
                 });
 
-        this.state.key=this.props.navigation.state.params.key;
+        
     }
   }
 
