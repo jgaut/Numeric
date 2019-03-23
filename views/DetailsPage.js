@@ -101,7 +101,7 @@ class DetailsPageScreen extends React.Component {
     
     //const {navigate} = this.props.navigation;
     console.log('X : ' + this.state.data[0]["X"]);
-    const axesSvg = { fontSize: 10, fill: 'grey' };
+    const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = { top: 5, bottom: 0 }
     const xAxisHeight = 5
 
@@ -123,10 +123,10 @@ class DetailsPageScreen extends React.Component {
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ flex: 1, bottom:0, x:500}}
+                        style={{ flex: 1}}
                         data={this.state.data[0]["X"]}
                         formatLabel={(value, index) => {return this.state.data[0]["X"][index];}}
-                        contentInset={{ left: 10, right: 10 }}
+                        contentInset={{ left: 2, right: 2 }}
                         svg={axesSvg}
                         xScale={d3scale.scaleTime}
                     />
