@@ -62,7 +62,7 @@ class DetailsPageScreen extends React.Component {
 
                         this.state["data"][0]["X"] = [...new Set(this.state["data"][0]["X"])]; 
 
-                        console.log('after set : ' + this.state["data"][0]["X"]);
+                        //console.log('after set : ' + this.state["data"][0]["X"]);
                         //console.log('Y : ' + this.state.dataY);
                         this.forceUpdate();
                     });
@@ -106,7 +106,7 @@ class DetailsPageScreen extends React.Component {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 0.5, flexDirection: 'row' }}>
+            <View style={{ flex: 1, flexDirection: 'row' }}>
                 <YAxis
                     data={this.state.data[0]["Y"]}
                     contentInset={verticalContentInset}
@@ -124,31 +124,7 @@ class DetailsPageScreen extends React.Component {
                     <XAxis
                         style={{ flex: 1, bottom:0, x:500}}
                         data={this.state.data[0]["X"]}
-                        formatLabel={(value, index) => {console.log(value+" ::: "+index); return this.state.data[0]["X"][index];}}
-                        contentInset={{ left: 10, right: 10 }}
-                        svg={axesSvg}
-                    />
-                </View>
-            </View>
-            <View style={{ flex: 0.5, flexDirection: 'row' }}>
-                <YAxis
-                    data={this.state.data[1]["Y"]}
-                    contentInset={verticalContentInset}
-                    svg={axesSvg}
-                />
-                <View style={{ flex: 1, marginLeft: 10 }}>
-                    <LineChart
-                        style={{ flex: 1 }}
-                        data={this.state.data[1]["Y"]}
-                        contentInset={verticalContentInset}
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
-                    >
-                        <Grid/>
-                    </LineChart>
-                    <XAxis
-                        style={{flex: 1, bottom:0}}
-                        data={this.state.data[1]["X"]}
-                        formatLabel={(value, index) => value}
+                        formatLabel={(value, index) => {return this.state.data[0]["X"][index];}}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
                     />
