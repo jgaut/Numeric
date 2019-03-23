@@ -12,7 +12,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {data:[{X:[], Y:[]}, {X:[], Y:[]}], key:''};
+    this.state = {data:[{X:[1], Y:[1]}, {X:[1], Y:[1]}], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -21,8 +21,8 @@ class DetailsPageScreen extends React.Component {
     this.props.navigation.addListener('didBlur', () => {
     });
 
-    this.loadDetails();
-    
+    //this.loadDetails();
+
   }
 
   loadDetails(){
