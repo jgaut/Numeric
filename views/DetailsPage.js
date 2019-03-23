@@ -110,23 +110,22 @@ class DetailsPageScreen extends React.Component {
             <View style={{ flex: 1, flexDirection: 'row', marginLeft:5}}>
                 <YAxis
                     data={this.state.data[0]["Y"]}
-                    contentInset={verticalContentInset}
+                    contentInset={{ left: 5, right: 5 }}
                     svg={axesSvg}
                 />
                 <View style={{ flex: 1, marginLeft: 10}}>
                     <LineChart
                         style={{ flex: 1}}
                         data={this.state.data[0]["Y"]}
-                        contentInset={verticalContentInset}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ flex: 1, marginLeft: 10}}
+                        style={{ flex: 1}}
                         data={this.state.data[0]["X"]}
                         formatLabel={(value, index) => {return this.state.data[0]["X"][index]}}
-                        contentInset={{ left: 10, right: 0 }}
+                        contentInset={{ left: 5, right: 5 }}
                         svg={axesSvg}
                         xScale={d3scale.scaleTime}
                     />
