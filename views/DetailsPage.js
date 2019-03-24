@@ -52,6 +52,7 @@ class DetailsPageScreen extends React.Component {
     });
 
     //this.loadDetails();
+    console.log(dateFns.setHours(new Date(2018, 0, 0), 21));
 
   }
 
