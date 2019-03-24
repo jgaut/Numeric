@@ -12,7 +12,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {data:{X:[], Y:[]}, key:''};
+    this.state = {dataX:[], dataY:[], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -49,12 +49,12 @@ class DetailsPageScreen extends React.Component {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
                         //console.log('X : ' + JSON.stringify(this.state["data"][0]["X"]));
-                        this.state.data.X = [];
-                        this.state.data.Y = [];
+                        this.state.dataX = [];
+                        this.state.dataY = [];
 
                         data.forEach(item=>{
-                            this.state.data.X.push(Moment.unix(parseFloat(item['_time'])).format("D"));
-                            this.state.data.Y.push(parseFloat(item['value']));
+                            this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
+                            this.state.dataY.push(parseFloat(item['value']));
                             
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
@@ -62,7 +62,7 @@ class DetailsPageScreen extends React.Component {
                             //console.log(JSON.stringify(dataTmp));
                         });
 
-                        this.state.data.X = [...new Set(this.state.data.X)]; 
+                        this.state.dataX = [...new Set(this.state.dataX)]; 
 
                         //console.log('after set : ' + this.state["data"][0]["X"]);
                         //console.log('Y : ' + this.state.dataY);
@@ -86,21 +86,21 @@ class DetailsPageScreen extends React.Component {
         <View style={styles.container}>
             <View style={{ flex: 1, flexDirection: 'row', marginLeft:5}}>
                 <YAxis
-                    data={this.state.data.Y}
+                    data={this.state.dataY}
                     contentInset={{ left: 5, right: 5 }}
                     svg={axesSvg}
                 />
                 <View style={{ flex: 1 }}>
                     <LineChart
                         style={{ flex: 1}}
-                        data={this.state.data.Y}
+                        data={this.state.dataY}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
                         <Grid/>
                     </LineChart>
                     <XAxis
                         style={{ flex: 1}}
-                        data={this.state.data.X}
+                        data={this.state.dataX}
                         formatLabel={(value, index) => {return value;}}
                         contentInset={{ left: 5, right: 5 }}
                         svg={axesSvg}
