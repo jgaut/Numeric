@@ -91,7 +91,7 @@ class DetailsPageScreen extends React.Component {
   
     return (
         <View style={{ height: 500, paddingLeft: 20 }}>
-                <AreaChart
+                <LineChart
                     style={{ flex: 1 }}
                     data={ this.state.data }
                     yAccessor={ ({ item }) => item.value }
@@ -102,7 +102,7 @@ class DetailsPageScreen extends React.Component {
                     curve={ shape.curveLinear }
                 >
                     <Grid/>
-                </AreaChart>
+                </LineChart>
                 <XAxis
                     data={ this.state.data }
                     svg={{
