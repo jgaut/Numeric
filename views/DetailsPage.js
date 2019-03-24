@@ -78,16 +78,18 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         console.log(data);
-                        this.state.data=data;
-                        /*data.forEach(item=>{
-                            this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
-                            this.state.dataY.push(parseFloat(item['value']));
-                            
+                        //this.state.data=data;
+                        this.state.data = [];
+                        data.forEach(item=>{
+
+                            //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
+                            //this.state.dataY.push(parseFloat(item['value']));
+                            this.state.data.push({date:item['_time'], value:item['value']});
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
                             
                             //console.log(JSON.stringify(dataTmp));
-                        });*/
+                        });
 
 
 
