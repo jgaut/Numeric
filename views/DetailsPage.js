@@ -90,7 +90,7 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 10;
   
     return (
-        <View style={{ height: 500, padding: 20 }}>
+        <View style={{ height: 500, paddingLeft: 20 }}>
                 <AreaChart
                     style={{ flex: 1 }}
                     data={ this.state.data }
