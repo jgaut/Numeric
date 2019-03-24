@@ -78,7 +78,7 @@ class DetailsPageScreen extends React.Component {
             Storage.get(tmp, {level: 'public'})
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
-                        console.log(data);
+                        //console.log(data);
                         //this.state.data=data;
                         this.state.data = [];
                         data.forEach(item=>{
@@ -98,7 +98,7 @@ class DetailsPageScreen extends React.Component {
                         //this.state.dataX = [...new Set(this.state.dataX)]; 
 
                         //console.log('after set : ' + this.state["data"][0]["X"]);
-                        //console.log('Y : ' + this.state.dataY);
+                        console.log('Y : ' + this.state.data);
                         this.forceUpdate();
                     });
                 });    
