@@ -105,11 +105,11 @@ class DetailsPageScreen extends React.Component {
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
                             
-                            //console.log(JSON.stringify(dataTmp));
+                            
                         });
 
 
-
+                        console.log(JSON.stringify(this.state.data));
                         //this.state.dataX = [...new Set(this.state.dataX)]; 
 
                         //console.log('after set : ' + this.state["data"][0]["X"]);
