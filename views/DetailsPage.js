@@ -17,45 +17,6 @@ class DetailsPageScreen extends React.Component {
 
     this.state = {data:[], key:''};
 
-    this.state.data = [
-            {
-                value: 50,
-                date: dateFns.setHours(new Date(2018, 0, 0), 6),
-            },
-            {
-                value: 10,
-                date: dateFns.setHours(new Date(2018, 0, 0), 9),
-            },
-            {
-                value: 150,
-                date: dateFns.setHours(new Date(2018, 0, 0), 15),
-            },
-            {
-                value: 10,
-                date: dateFns.setHours(new Date(2018, 0, 0), 18),
-            },
-            {
-                value: 100,
-                date: dateFns.setHours(new Date(2018, 0, 0), 21),
-            },
-            {
-                value: 20,
-                date: dateFns.setHours(new Date(2018, 0, 0), 24),
-            },
-        ];
-    this.state.data.forEach(item=>{
-
-                            //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
-                            //this.state.dataY.push(parseFloat(item['value']));
-                            var myDate = new Date(item['date']);
-                            console.log(item['date']);
-                            console.log(myDate);
-                            //this.state.data.push({date: myDate, value: item['value']});
-                            //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
-
-                            
-                            //console.log(JSON.stringify(dataTmp));
-                        });
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
     });
