@@ -34,9 +34,10 @@ class DetailsPageScreen extends React.Component {
     //console.log(this.props.navigation.state.params.key);
     console.log("loaddetails");
 
-    if(this.state.key==this.props.navigation.state.params.key){
+    if(this.state.key!=this.props.navigation.state.params.key){
    
-
+        this.state.key=this.props.navigation.state.params.key;
+        
             var regex = /numeric_/gi;
             var tmp = this.props.navigation.state.params.key;
             tmp = tmp.replace(regex, 'numeric_details_'+'0'+'_');
@@ -67,34 +68,7 @@ class DetailsPageScreen extends React.Component {
                         //console.log('Y : ' + this.state.dataY);
                         this.forceUpdate();
                     });
-                });
-
-            tmp = this.props.navigation.state.params.key;
-            tmp = tmp.replace(regex, 'numeric_details_'+'1'+'_');
-
-            Storage.get(tmp, {level: 'public'})
-                .then(result => {
-                    fetch(result).then(response => response.json()).then(data => {
-                        //console.log(data);
-                        //console.log('X : ' + JSON.stringify(this.state["data"][1]["X"]));
-                        this.state["data"][1]["X"] = [];
-                        this.state["data"][1]["Y"] = [];
-
-                        data.forEach(item=>{
-                            this.state["data"][1]["X"].push(parseFloat(item['_time']));
-                            this.state["data"][1]["Y"].push(parseFloat(item['value']));
-
-                            //console.log(JSON.stringify(dataTmp));
-                        });
-
-                        //console.log('X : ' + this.state.data[g]["X"]);
-                        //console.log('Y : ' + this.state.dataY);
-                        this.state.key=this.props.navigation.state.params.key;
-                        //this.forceUpdate();
-                    });
-                });
-
-        
+                });    
     }
   }
 
