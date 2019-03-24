@@ -43,9 +43,9 @@ class DetailsPageScreen extends React.Component {
                 date: dateFns.setHours(new Date(2018, 0, 0), 24),
             },
         ];
-    
+
     this.props.navigation.addListener('didFocus', () => {
-        this.loadDetails();
+        //this.loadDetails();
     });
 
     this.props.navigation.addListener('didBlur', () => {
