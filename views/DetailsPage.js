@@ -99,7 +99,7 @@ class DetailsPageScreen extends React.Component {
                     xScale={ scale.scaleTime }
                     contentInset={{ top: 10, bottom: 10 }}
                     svg={{ fill: 'rgba(134, 65, 244, 0.5)' }}
-                    curve={ shape.curveLinear }
+                    //curve={ shape.curveLinear }
                 >
                     <Grid/>
                 </LineChart>
