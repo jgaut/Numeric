@@ -80,7 +80,7 @@ class DetailsPageScreen extends React.Component {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
                         //this.state.data=data;
-                        this.state.data = [];
+                        this.state.data = [...new Set()];
                         data.forEach(item=>{
 
                             //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
