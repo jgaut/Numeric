@@ -62,7 +62,7 @@ class DetailsPageScreen extends React.Component {
                             //var myDate = new Date(item['_time']);
                             //console.log(item['_time']);
                             //console.log(myDate);
-                            this.state.data.push({date: item['_time'], value: parseInt(item['value'])});
+                            this.state.data.push({date: new Date(item['_time']*1000), value: parseInt(item['value'])});
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
                             
