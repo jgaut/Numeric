@@ -12,7 +12,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {data:[{X:[1], Y:[1]}, {X:[1], Y:[1]}], key:''};
+    this.state = {data:{X:[], Y:[]}, key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -37,7 +37,7 @@ class DetailsPageScreen extends React.Component {
     if(this.state.key!=this.props.navigation.state.params.key){
    
         this.state.key=this.props.navigation.state.params.key;
-        
+
             var regex = /numeric_/gi;
             var tmp = this.props.navigation.state.params.key;
             tmp = tmp.replace(regex, 'numeric_details_'+'0'+'_');
@@ -49,12 +49,12 @@ class DetailsPageScreen extends React.Component {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
                         //console.log('X : ' + JSON.stringify(this.state["data"][0]["X"]));
-                        this.state["data"][0]["X"] = [];
-                        this.state["data"][0]["Y"] = [];
+                        this.state.data.X = [];
+                        this.state.data.Y = [];
 
                         data.forEach(item=>{
-                            this.state["data"][0]["X"].push(Moment.unix(parseFloat(item['_time'])).format("D"));
-                            this.state["data"][0]["Y"].push(parseFloat(item['value']));
+                            this.state.data.X.push(Moment.unix(parseFloat(item['_time'])).format("D"));
+                            this.state.data.Y.push(parseFloat(item['value']));
                             
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
@@ -62,7 +62,7 @@ class DetailsPageScreen extends React.Component {
                             //console.log(JSON.stringify(dataTmp));
                         });
 
-                        this.state["data"][0]["X"] = [...new Set(this.state["data"][0]["X"])]; 
+                        this.state.data.X = [...new Set(this.state.data.X)]; 
 
                         //console.log('after set : ' + this.state["data"][0]["X"]);
                         //console.log('Y : ' + this.state.dataY);
@@ -86,22 +86,22 @@ class DetailsPageScreen extends React.Component {
         <View style={styles.container}>
             <View style={{ flex: 1, flexDirection: 'row', marginLeft:5}}>
                 <YAxis
-                    data={this.state.data[0]["Y"]}
+                    data={this.state.data.Y}
                     contentInset={{ left: 5, right: 5 }}
                     svg={axesSvg}
                 />
                 <View style={{ flex: 1 }}>
                     <LineChart
                         style={{ flex: 1}}
-                        data={this.state.data[0]["Y"]}
+                        data={this.state.data.Y}
                         svg={{ stroke: 'rgb(134, 65, 244)' }}
                     >
                         <Grid/>
                     </LineChart>
                     <XAxis
                         style={{ flex: 1}}
-                        data={this.state.data[0]["X"]}
-                        formatLabel={(value, index) => {return this.state.data[0]["X"][index]}}
+                        data={this.state.data.X}
+                        formatLabel={(value, index) => {return value;}}
                         contentInset={{ left: 5, right: 5 }}
                         svg={axesSvg}
                     />
