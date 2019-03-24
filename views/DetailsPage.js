@@ -45,7 +45,7 @@ class DetailsPageScreen extends React.Component {
         ];
 
     this.props.navigation.addListener('didFocus', () => {
-        //this.loadDetails();
+        this.loadDetails();
     });
 
     this.props.navigation.addListener('didBlur', () => {
