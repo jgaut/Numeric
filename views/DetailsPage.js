@@ -17,6 +17,33 @@ class DetailsPageScreen extends React.Component {
 
     this.state = {data:[], key:''};
 
+    this.state.data = [
+            {
+                value: 50,
+                date: dateFns.setHours(new Date(2018, 0, 0), 6),
+            },
+            {
+                value: 10,
+                date: dateFns.setHours(new Date(2018, 0, 0), 9),
+            },
+            {
+                value: 150,
+                date: dateFns.setHours(new Date(2018, 0, 0), 15),
+            },
+            {
+                value: 10,
+                date: dateFns.setHours(new Date(2018, 0, 0), 18),
+            },
+            {
+                value: 100,
+                date: dateFns.setHours(new Date(2018, 0, 0), 21),
+            },
+            {
+                value: 20,
+                date: dateFns.setHours(new Date(2018, 0, 0), 24),
+            },
+        ];
+    
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
     });
