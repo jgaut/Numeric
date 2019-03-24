@@ -79,7 +79,7 @@ class DetailsPageScreen extends React.Component {
                     fetch(result).then(response => response.json()).then(data => {
                         console.log(data);
                         //this.state.data=data;
-                        this.state.data = [];
+                        //this.state.data = [];
                         data.forEach(item=>{
 
                             //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
@@ -140,7 +140,7 @@ class DetailsPageScreen extends React.Component {
                     numberOfTicks={ 6 }
                     style={{ marginHorizontal: -15, height: 20 }}
                     contentInset={{ left: 10, right: 25 }}
-                    formatLabel={ (value) => dateFns.format(value, 'HH:mm') }
+                    //formatLabel={ (value) => dateFns.format(value, 'HH:mm') }
                 />
             </View>
         );
