@@ -59,7 +59,7 @@ class DetailsPageScreen extends React.Component {
 
                             //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
                             //this.state.dataY.push(parseFloat(item['value']));
-                            var myDate = new Date(item['_time']);
+                            //var myDate = new Date(item['_time']);
                             //console.log(item['_time']);
                             //console.log(myDate);
                             this.state.data.push({date: item['_time'], value: parseInt(item['value'])});
@@ -70,7 +70,7 @@ class DetailsPageScreen extends React.Component {
                         });
 
 
-                        console.log(JSON.stringify(this.state.data));
+                        //console.log(JSON.stringify(this.state.data));
                         //this.state.dataX = [...new Set(this.state.dataX)]; 
 
                         //console.log('after set : ' + this.state["data"][0]["X"]);
@@ -114,11 +114,11 @@ class DetailsPageScreen extends React.Component {
                         y: 5,
                     }}
                     xAccessor={ ({ item }) => item.date }
-                    //scale={ scale.scaleTime }
+                    scale={ scale.scaleTime }
                     numberOfTicks={ 6 }
                     style={{ marginHorizontal: -15, height: 20 }}
                     contentInset={{ left: 10, right: 25 }}
-                    //formatLabel={ (value) => dateFns.format(value, 'HH:mm') }
+                    formatLabel={ (value) => dateFns.format(value, 'HH:mm') }
                 />
             </View>
         );
