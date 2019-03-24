@@ -1,18 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View} from 'react-native';
 import { Constants } from 'expo';
-import { Grid, LineChart, XAxis, YAxis } from 'react-native-svg-charts'
+import { Grid, LineChart, XAxis, YAxis, AreaChart } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
 import { createStackNavigator } from 'react-navigation';
 import { createAppContainer } from 'react-navigation';
 import Moment from 'moment';
+import * as scale from 'd3-scale'
+import * as shape from 'd3-shape'
+import dateFns from 'date-fns'
 
 class DetailsPageScreen extends React.Component {
   
   constructor(...args) {
     super(...args);
 
-    this.state = {dataX:['0', '1'], dataY:[], key:''};
+    this.state = {data:[], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -48,11 +51,8 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
                         console.log(data);
-                        //console.log('X : ' + JSON.stringify(this.state["data"][0]["X"]));
-                        this.state.dataX = [];
-                        this.state.dataY = [];
-
-                        data.forEach(item=>{
+                        this.state.data=data;
+                        /*data.forEach(item=>{
                             this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
                             this.state.dataY.push(parseFloat(item['value']));
                             
@@ -60,9 +60,11 @@ class DetailsPageScreen extends React.Component {
 
                             
                             //console.log(JSON.stringify(dataTmp));
-                        });
+                        });*/
 
-                        this.state.dataX = [...new Set(this.state.dataX)]; 
+
+
+                        //this.state.dataX = [...new Set(this.state.dataX)]; 
 
                         //console.log('after set : ' + this.state["data"][0]["X"]);
                         //console.log('Y : ' + this.state.dataY);
@@ -83,31 +85,37 @@ class DetailsPageScreen extends React.Component {
         return <View></View>;
     }else{
     return (
-        <View style={styles.container}>
-            <View style={{ flex: 1, flexDirection: 'row', marginLeft:5}}>
-                <YAxis
-                    data={this.state.dataY}
-                    contentInset={{ left: 5, right: 5 }}
-                    svg={axesSvg}
+        <View style={{ height: 200, padding: 20 }}>
+                <AreaChart
+                    style={{ flex: 1 }}
+                    data={ this.state.data }
+                    yAccessor={ ({ item }) => item.value }
+                    xAccessor={ ({ item }) => item._time }
+                    xScale={ scale.scaleTime }
+                    contentInset={{ top: 10, bottom: 10 }}
+                    svg={{ fill: 'rgba(134, 65, 244, 0.5)' }}
+                    curve={ shape.curveLinear }
+                >
+                    <Grid/>
+                </AreaChart>
+                <XAxis
+                    data={ this.state.data }
+                    svg={{
+                        fill: 'black',
+                        fontSize: 8,
+                        fontWeight: 'bold',
+                        rotation: 20,
+                        originY: 30,
+                        y: 5,
+                    }}
+                    xAccessor={ ({ item }) => item._time }
+                    scale={ scale.scaleTime }
+                    numberOfTicks={ 6 }
+                    style={{ marginHorizontal: -15, height: 20 }}
+                    contentInset={{ left: 10, right: 25 }}
+                    formatLabel={ (value) => dateFns.format(value, 'HH:mm') }
                 />
-                <View style={{ flex: 1 }}>
-                    <LineChart
-                        style={{ flex: 1}}
-                        data={this.state.dataY}
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
-                    >
-                        <Grid/>
-                    </LineChart>
-                    <XAxis
-                        style={{ flex: 1}}
-                        data={this.state.dataX}
-                        formatLabel={(value, index) => {return value;}}
-                        contentInset={{ left: 5, right: 5 }}
-                        svg={axesSvg}
-                    />
-                </View>
             </View>
-        </View>
         );
   };
 }
