@@ -34,7 +34,7 @@ class DetailsPageScreen extends React.Component {
     //console.log(this.props.navigation.state.params.key);
     console.log("loaddetails");
 
-    if(this.state.key==this.props.navigation.state.params.key || false){
+    if(this.state.key==this.props.navigation.state.params.key){
    
 
             var regex = /numeric_/gi;
@@ -90,7 +90,7 @@ class DetailsPageScreen extends React.Component {
                         //console.log('X : ' + this.state.data[g]["X"]);
                         //console.log('Y : ' + this.state.dataY);
                         this.state.key=this.props.navigation.state.params.key;
-                        this.forceUpdate();
+                        //this.forceUpdate();
                     });
                 });
 
