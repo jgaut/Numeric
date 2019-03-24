@@ -118,7 +118,7 @@ class DetailsPageScreen extends React.Component {
                     numberOfTicks={ 6 }
                     style={{ marginHorizontal: -15, height: 80 }}
                     contentInset={{ left: 10, right: 25 }}
-                    formatLabel={ (value) => ""+value+""}
+                    formatLabel={ (value) => dateFns.format(value, 'YY-MM-DD') }
                 />
             </View>
         );
