@@ -43,7 +43,19 @@ class DetailsPageScreen extends React.Component {
                 date: dateFns.setHours(new Date(2018, 0, 0), 24),
             },
         ];
+    this.state.data.forEach(item=>{
 
+                            //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
+                            //this.state.dataY.push(parseFloat(item['value']));
+                            var myDate = new Date(item['_time']);
+                            console.log(item['_time']);
+                            console.log(myDate);
+                            //this.state.data.push({date: myDate, value: item['value']});
+                            //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
+
+                            
+                            //console.log(JSON.stringify(dataTmp));
+                        });
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
     });
@@ -52,7 +64,7 @@ class DetailsPageScreen extends React.Component {
     });
 
     //this.loadDetails();
-    console.log('Y : ' + this.state.data);
+    //console.log('Y : ' + this.state.data);
     console.log(dateFns.setHours(new Date(2018, 0, 0), 21));
 
   }
@@ -87,8 +99,8 @@ class DetailsPageScreen extends React.Component {
                             //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
                             //this.state.dataY.push(parseFloat(item['value']));
                             var myDate = new Date(item['_time']);
-                            console.log(item['_time']);
-                            console.log(myDate);
+                            //console.log(item['_time']);
+                            //console.log(myDate);
                             this.state.data.push({date: myDate, value: item['value']});
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
@@ -101,7 +113,7 @@ class DetailsPageScreen extends React.Component {
                         //this.state.dataX = [...new Set(this.state.dataX)]; 
 
                         //console.log('after set : ' + this.state["data"][0]["X"]);
-                        console.log('Y : ' + this.state.data);
+                        //console.log('Y : ' + this.state.data);
                         this.forceUpdate();
                     });
                 });    
