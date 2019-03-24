@@ -109,7 +109,7 @@ class DetailsPageScreen extends React.Component {
                         fill: 'black',
                         fontSize: 8,
                         fontWeight: 'bold',
-                        rotation: 20,
+                        rotation: 90,
                         originY: 30,
                         y: 5,
                     }}
