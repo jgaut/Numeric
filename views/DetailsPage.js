@@ -116,7 +116,7 @@ class DetailsPageScreen extends React.Component {
                     xAccessor={ ({ item }) => item.date }
                     scale={ scale.scaleTime }
                     numberOfTicks={ 6 }
-                    style={{ marginHorizontal: -15, height: 20 }}
+                    style={{ marginHorizontal: -15, height: 80 }}
                     contentInset={{ left: 10, right: 25 }}
                     formatLabel={ (value) => ""+value+""}
                 />
