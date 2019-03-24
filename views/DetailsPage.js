@@ -91,18 +91,21 @@ class DetailsPageScreen extends React.Component {
   
     return (
         <View style={{ height: 500, paddingLeft: 20 }}>
-                <LineChart
-                    style={{ flex: 1 }}
-                    data={ this.state.data }
-                    yAccessor={ ({ item }) => item.value }
-                    xAccessor={ ({ item }) => item.date }
-                    xScale={ scale.scaleTime }
-                    contentInset={{ top: 10, bottom: 10 }}
-                    svg={{ fill: 'rgba(134, 65, 244, 0.5)' }}
-                    //curve={ shape.curveLinear }
-                >
-                    <Grid/>
-                </LineChart>
+                      <YAxis
+                    data={this.state.data}
+                    style={{ marginBottom: xAxisHeight }}
+                    contentInset={verticalContentInset}
+                    svg={axesSvg}
+                />
+               <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                        style={{ flex: 1 }}
+                        data={this.state.data}
+                        contentInset={verticalContentInset}
+                        svg={{ stroke: 'rgb(134, 65, 244)' }}
+                    >
+                        <Grid/>
+                    </LineChart>
                 <XAxis
                     data={ this.state.data }
                     svg={{
@@ -121,6 +124,7 @@ class DetailsPageScreen extends React.Component {
                     formatLabel={ (value) => dateFns.format(value, 'DD MMMM') }
                 />
             </View>
+        </View>
         );
 }
 }
