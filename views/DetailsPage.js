@@ -47,7 +47,7 @@ class DetailsPageScreen extends React.Component {
             Storage.get(tmp, {level: 'public'})
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
-                        //console.log(data);
+                        console.log(data);
                         //console.log('X : ' + JSON.stringify(this.state["data"][0]["X"]));
                         this.state.dataX = [];
                         this.state.dataY = [];
