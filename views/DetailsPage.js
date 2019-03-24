@@ -108,16 +108,14 @@ class DetailsPageScreen extends React.Component {
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
-    if(this.state.key==''){
-        return <View></View>;
-    }else{
+  
     return (
         <View style={{ height: 200, padding: 20 }}>
                 <AreaChart
                     style={{ flex: 1 }}
                     data={ this.state.data }
                     yAccessor={ ({ item }) => item.value }
-                    xAccessor={ ({ item }) => item._time }
+                    xAccessor={ ({ item }) => item.date }
                     xScale={ scale.scaleTime }
                     contentInset={{ top: 10, bottom: 10 }}
                     svg={{ fill: 'rgba(134, 65, 244, 0.5)' }}
@@ -135,7 +133,7 @@ class DetailsPageScreen extends React.Component {
                         originY: 30,
                         y: 5,
                     }}
-                    xAccessor={ ({ item }) => item._time }
+                    xAccessor={ ({ item }) => item.date }
                     scale={ scale.scaleTime }
                     numberOfTicks={ 6 }
                     style={{ marginHorizontal: -15, height: 20 }}
@@ -144,7 +142,6 @@ class DetailsPageScreen extends React.Component {
                 />
             </View>
         );
-  };
 }
 }
 
