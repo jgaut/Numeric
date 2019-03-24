@@ -65,7 +65,7 @@ class DetailsPageScreen extends React.Component {
 
     //this.loadDetails();
     //console.log('Y : ' + this.state.data);
-    console.log(dateFns.setHours(new Date(2018, 0, 0), 21));
+    console.log(JSON.stringify(this.state.data));
 
   }
 
