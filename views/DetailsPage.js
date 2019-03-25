@@ -115,7 +115,14 @@ class DetailsPageScreen extends React.Component {
                         scale={ scale.scaleTime }
                         formatLabel={(value, index) => dateFns.format(value, 'DD MMMM')}
                         contentInset={{ left: 10, right: 10 }}
-                        svg={axesSvg}
+                        svg={{
+                        fill: 'black',
+                        fontSize: 8,
+                        fontWeight: 'bold',
+                        rotation: 20,
+                        originY: 30,
+                        y: 5,
+                    }}
                     />
                 </View>
             </View>
