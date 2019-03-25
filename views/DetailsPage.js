@@ -93,7 +93,7 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 10;
     
     return (
-        <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+        <View style={{ height: 200, padding: 20, flexDirection: 'row', paddingTop: Constants.statusBarHeight }}>
                 <YAxis
                     data={this.state.dataY}
                     style={{ marginBottom: xAxisHeight }}
@@ -110,9 +110,8 @@ class DetailsPageScreen extends React.Component {
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ marginHorizontal: 0, height: 100 }}
+                        style={{ height: 100 }}
                         data={this.state.dataX}
-                        scale={ scale.scaleTime }
                         formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
                         svg={{
