@@ -113,13 +113,13 @@ class DetailsPageScreen extends React.Component {
                         style={{ height: xAxisHeight }}
                         data={this.state.dataX}
                         formatLabel={(value, index) => this.state.dataX[index]}
-                        contentInset={{ left: 10, right: 10 }}
+                        contentInset={{ left: 5, right: 5 }}
                         svg={{
                         fill: 'black',
                         fontSize: 8,
                         fontWeight: 'bold',
                         rotation: 5,
-                        originY: 20,
+                        originY: 10,
                         y: 5,
                     }}
                     />
