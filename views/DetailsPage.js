@@ -91,7 +91,7 @@ class DetailsPageScreen extends React.Component {
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
-    
+    if(this.state.dataX.length()!=0 || this.state.dataX.length()!=0) {
     return (
         <View style={{ height: 200, padding: 5, flexDirection: 'row', paddingTop: Constants.statusBarHeight + 5 }}>
                 <YAxis
@@ -118,7 +118,7 @@ class DetailsPageScreen extends React.Component {
                         fill: 'black',
                         fontSize: 8,
                         fontWeight: 'bold',
-                        rotation: 5,
+                        rotation: 0,
                         originY: 10,
                         y: 5,
                     }}
@@ -126,6 +126,9 @@ class DetailsPageScreen extends React.Component {
                 </View>
             </View>
         );
+} else{
+    return (<View></View>);
+}
 }
 }
 
