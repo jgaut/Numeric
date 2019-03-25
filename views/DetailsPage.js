@@ -26,7 +26,7 @@ class DetailsPageScreen extends React.Component {
 
     //this.loadDetails();
     //console.log('Y : ' + this.state.data);
-    console.log(JSON.stringify(this.state.data));
+    //console.log(JSON.stringify(this.state.data));
 
   }
 
@@ -37,7 +37,7 @@ class DetailsPageScreen extends React.Component {
     this.state.data[1].Y=[1];
     this.forceUpdate();*/
     //console.log(this.props.navigation.state.params.key);
-    console.log("loaddetails");
+    //console.log("loaddetails");
 
     if(this.state.key!=this.props.navigation.state.params.key){
    
@@ -93,39 +93,31 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 10;
   
     return (
-        <View style={{ height: 500, paddingLeft: 20 }}>
-            <YAxis
-                data={this.state.dataY}
-                style={{ marginBottom: xAxisHeight }}
-                contentInset={verticalContentInset}
-                svg={axesSvg}
-            />
-           <View style={{ flex: 1, marginLeft: 10 }}>
-                <LineChart
-                    style={{ flex: 1 }}
+        <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
+                <YAxis
                     data={this.state.dataY}
+                    style={{ marginBottom: xAxisHeight }}
                     contentInset={verticalContentInset}
-                    svg={{ stroke: 'rgb(134, 65, 244)' }}
-                >
-                <Grid/>
-                </LineChart>
-                <XAxis
-                    data={ this.state.dataX }
-                    svg={{
-                        fill: 'black',
-                        fontSize: 8,
-                        fontWeight: 'bold',
-                        rotation: 20,
-                        originY: 30,
-                        y: 5,
-                    }}
-                    scale={ scale.scaleTime }
-                    style={{height: 50 }}
-                    contentInset={{ left: 10, right: 10 }}
-                    formatLabel={ (value) => dateFns.format(value, 'DD MMMM') }
+                    svg={axesSvg}
                 />
+                <View style={{ flex: 1, marginLeft: 10 }}>
+                    <LineChart
+                        style={{ flex: 1 }}
+                        data={this.state.dataY}
+                        contentInset={verticalContentInset}
+                        svg={{ stroke: 'rgb(134, 65, 244)' }}
+                    >
+                        <Grid/>
+                    </LineChart>
+                    <XAxis
+                        style={{ marginHorizontal: -10, height: xAxisHeight }}
+                        data={this.state.dataX}
+                        formatLabel={(value, index) => index}
+                        contentInset={{ left: 10, right: 10 }}
+                        svg={axesSvg}
+                    />
+                </View>
             </View>
-        </View>
         );
 }
 }
