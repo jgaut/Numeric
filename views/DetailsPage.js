@@ -105,7 +105,7 @@ class DetailsPageScreen extends React.Component {
                         style={{ flex: 1 }}
                         data={this.state.dataY}
                         contentInset={verticalContentInset}
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
+                        svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
                     >
                         <Grid/>
                     </LineChart>
