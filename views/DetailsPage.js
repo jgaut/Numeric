@@ -93,7 +93,7 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 10;
     if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
     return (
-        <View style={{ height: 200, padding: 5, flexDirection: 'row', paddingTop: Constants.statusBarHeight + 5 }}>
+        <View style={{ height: 300, padding: 5, flexDirection: 'row', paddingTop: Constants.statusBarHeight + 5 }}>
                 <YAxis
                     data={this.state.dataY}
                     style={{ marginBottom: xAxisHeight }}
