@@ -112,7 +112,8 @@ class DetailsPageScreen extends React.Component {
                     <XAxis
                         style={{ marginHorizontal: -10, height: xAxisHeight }}
                         data={this.state.dataX}
-                        formatLabel={(value, index) => index}
+                        scale={ scale.scaleTime }
+                        formatLabel={(value, index) => dateFns.format(value, 'DD MMMM')}
                         contentInset={{ left: 10, right: 10 }}
                         svg={axesSvg}
                     />
