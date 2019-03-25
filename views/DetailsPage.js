@@ -110,7 +110,7 @@ class DetailsPageScreen extends React.Component {
                         <Grid/>
                     </LineChart>
                     <XAxis
-                        style={{ height: 100 }}
+                        style={{ height: xAxisHeight }}
                         data={this.state.dataX}
                         formatLabel={(value, index) => this.state.dataX[index]}
                         contentInset={{ left: 10, right: 10 }}
@@ -119,7 +119,7 @@ class DetailsPageScreen extends React.Component {
                         fontSize: 8,
                         fontWeight: 'bold',
                         rotation: 5,
-                        originY: 0,
+                        originY: 20,
                         y: 5,
                     }}
                     />
