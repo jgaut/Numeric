@@ -63,7 +63,7 @@ class DetailsPageScreen extends React.Component {
                             //var myDate = new Date(item['_time']);
                             //console.log(item['_time']);
                             //console.log(myDate);
-                            this.state.dataX.push(new Date(item['_time']*1000));
+                            this.state.dataX.push(dateFns.format(new Date(item['_time']*1000), 'DD MMMM'));
                             this.state.dataY.push(parseInt(item['value']));
                             console.log(new Date(item['_time']*1000));
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
@@ -113,7 +113,7 @@ class DetailsPageScreen extends React.Component {
                         style={{ marginHorizontal: -10, height: xAxisHeight }}
                         data={this.state.dataX}
                         scale={ scale.scaleTime }
-                        formatLabel={(value, index) => dateFns.format(value, 'DD MMMM')}
+                        formatLabel={(value, index) => value}
                         contentInset={{ left: 10, right: 10 }}
                         svg={{
                         fill: 'black',
