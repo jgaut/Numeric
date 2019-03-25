@@ -15,7 +15,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {data:[], key:''};
+    this.state = {dataX:[], dataY:[], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -54,7 +54,8 @@ class DetailsPageScreen extends React.Component {
                     fetch(result).then(response => response.json()).then(data => {
                         //console.log(data);
                         //this.state.data=data;
-                        this.state.data = [...new Set()];
+                        this.state.dataX = [...new Set()];
+                        this.state.dataY = [...new Set()];
                         data.forEach(item=>{
 
                             //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
@@ -62,7 +63,9 @@ class DetailsPageScreen extends React.Component {
                             //var myDate = new Date(item['_time']);
                             //console.log(item['_time']);
                             //console.log(myDate);
-                            this.state.data.push({date: new Date(item['_time']*1000), value: parseInt(item['value'])});
+                            this.state.dataX.push(new Date(item['_time']*1000));
+                            this.state.dataY.push(parseInt(item['value']));
+                            
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
                             
@@ -91,23 +94,23 @@ class DetailsPageScreen extends React.Component {
   
     return (
         <View style={{ height: 500, paddingLeft: 20 }}>
-                      <YAxis
-                    data={this.state.data}
-                    style={{ marginBottom: xAxisHeight }}
+            <YAxis
+                data={this.state.dataY}
+                style={{ marginBottom: xAxisHeight }}
+                contentInset={verticalContentInset}
+                svg={axesSvg}
+            />
+           <View style={{ flex: 1, marginLeft: 10 }}>
+                <LineChart
+                    style={{ flex: 1 }}
+                    data={this.state.dataY}
                     contentInset={verticalContentInset}
-                    svg={axesSvg}
-                />
-               <View style={{ flex: 1, marginLeft: 10 }}>
-                    <LineChart
-                        style={{ flex: 1 }}
-                        data={this.state.data}
-                        contentInset={verticalContentInset}
-                        svg={{ stroke: 'rgb(134, 65, 244)' }}
-                    >
-                        <Grid/>
-                    </LineChart>
+                    svg={{ stroke: 'rgb(134, 65, 244)' }}
+                >
+                <Grid/>
+                </LineChart>
                 <XAxis
-                    data={ this.state.data }
+                    data={ this.state.dataX }
                     svg={{
                         fill: 'black',
                         fontSize: 8,
@@ -116,9 +119,7 @@ class DetailsPageScreen extends React.Component {
                         originY: 30,
                         y: 5,
                     }}
-                    xAccessor={ ({ item }) => item.date }
                     scale={ scale.scaleTime }
-                    numberOfTicks={ 8 }
                     style={{height: 50 }}
                     contentInset={{ left: 10, right: 10 }}
                     formatLabel={ (value) => dateFns.format(value, 'DD MMMM') }
