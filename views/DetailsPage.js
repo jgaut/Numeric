@@ -90,7 +90,7 @@ class DetailsPageScreen extends React.Component {
     console.log('X : ' + JSON.stringify(this.state.dataX));
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
-    const xAxisHeight = 10;
+    const xAxisHeight = 50;
     
     return (
         <View style={{ height: 200, padding: 20, flexDirection: 'row' }}>
