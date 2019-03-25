@@ -112,7 +112,7 @@ class DetailsPageScreen extends React.Component {
                     <XAxis
                         style={{ height: 100 }}
                         data={this.state.dataX}
-                        formatLabel={(value, index) => value}
+                        formatLabel={(value, index) => index}
                         contentInset={{ left: 10, right: 10 }}
                         svg={{
                         fill: 'black',
