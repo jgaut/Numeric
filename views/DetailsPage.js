@@ -24,27 +24,13 @@ class DetailsPageScreen extends React.Component {
     this.props.navigation.addListener('didBlur', () => {
     });
 
-    //this.loadDetails();
-    //console.log('Y : ' + this.state.data);
-    //console.log(JSON.stringify(this.state.data));
-
   }
 
   loadDetails(){
-    /*this.state.data[0].X=[1];
-    this.state.data[0].Y=[1];
-    this.state.data[1].X=[1];
-    this.state.data[1].Y=[1];
-    this.forceUpdate();*/
-    //console.log(this.props.navigation.state.params.key);
-    //console.log("loaddetails");
-
 
     var regex = /numeric_/gi;
     var tmp = this.props.navigation.state.params.key;
     tmp = tmp.replace(regex, 'numeric_details_'+'0'+'_');
-    //console.log(tmp);
-    //console.log(JSON.stringify(this.state.data[g]));
 
     Storage.get(tmp, {level: 'public'})
         .then(result => {
@@ -66,9 +52,8 @@ class DetailsPageScreen extends React.Component {
 
   render() {
     
-    //const {navigate} = this.props.navigation;
     console.log('X : ' + JSON.stringify(this.state.dataX));
-    const axesSvg = { fontSize: 8, fill: 'grey', fontWeight: 'bold' };
+    const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
     if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
@@ -80,7 +65,7 @@ class DetailsPageScreen extends React.Component {
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
-                <View style={{ flex: 1, marginLeft: 10 }}>
+                <View style={{ flex: 1, marginLeft: 0 }}>
                     <LineChart
                         style={{ flex: 1 }}
                         data={this.state.dataY}
@@ -97,7 +82,6 @@ class DetailsPageScreen extends React.Component {
                         svg={{
                         fill: 'black',
                         fontSize: 8,
-                        fontWeight: 'bold',
                         rotation: 0,
                         originY: 10,
                         y: 5,
