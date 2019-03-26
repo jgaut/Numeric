@@ -15,7 +15,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {dataX:[], dataY:[], key:''};
+    this.state = {dataX:[[], []], dataY:[], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -28,7 +28,7 @@ class DetailsPageScreen extends React.Component {
 
     loadDetails(){
 
-    for (let i=0; i<3; i++){
+    for (let i=0; i<2; i++){
 
         var regex = /numeric_/gi;
         var tmp = this.props.navigation.state.params.key;
