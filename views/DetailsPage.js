@@ -57,7 +57,7 @@ class DetailsPageScreen extends React.Component {
                     this.state.dataX.push(item['_time']);
                     this.state.dataY.push(parseInt(item['value']));
                 });
-                this.state.dataX = [...new Set(this.state.dataX]; 
+                this.state.dataX = [...new Set(this.state.dataX)]; 
 
                 this.forceUpdate();
             });
