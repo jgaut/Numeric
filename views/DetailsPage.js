@@ -84,14 +84,7 @@ class DetailsPageScreen extends React.Component {
     }
   }
 
-  render() {
-    
-    //const {navigate} = this.props.navigation;
-    console.log('X : ' + JSON.stringify(this.state.dataX));
-    const axesSvg = { fontSize: 8, fill: 'grey', fontWeight: 'bold' };
-    const verticalContentInset = {};
-    const xAxisHeight = 10;
-    if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
+  myRender(){
     return (
         <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight)/2, padding: 5, flexDirection: 'row', paddingTop: Constants.statusBarHeight + 5 }}>
                 <YAxis
@@ -125,6 +118,18 @@ class DetailsPageScreen extends React.Component {
                     />
                 </View>
             </View>
+        );
+  }
+  render() {
+    
+    //const {navigate} = this.props.navigation;
+    console.log('X : ' + JSON.stringify(this.state.dataX));
+    const axesSvg = { fontSize: 8, fill: 'grey', fontWeight: 'bold' };
+    const verticalContentInset = {};
+    const xAxisHeight = 10;
+    if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
+    return (
+        this.myRender();
         );
 } else{
     return (<View></View>);
