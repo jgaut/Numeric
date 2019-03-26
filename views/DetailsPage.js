@@ -66,7 +66,7 @@ class DetailsPageScreen extends React.Component {
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
-                <View style={{ flex: 1, marginLeft: 5 }}>
+                <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
                     <LineChart
                         style={{ flex: 1 }}
                         data={this.state.dataY}
