@@ -61,8 +61,8 @@ class DetailsPageScreen extends React.Component {
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
-    console.log(this.state.dataX);
-    console.log(this.state.dataY);
+    console.log(this.state.dataX.length);
+    console.log(this.state.dataY.length);
 
     if(this.state.dataX.length==0){
         return (<View></View>);
