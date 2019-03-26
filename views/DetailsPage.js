@@ -52,20 +52,21 @@ class DetailsPageScreen extends React.Component {
 
   render() {
     
-    console.log('X : ' + JSON.stringify(this.state.dataX));
+    //console.log('X : ' + JSON.stringify(this.state.dataX));
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
     if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
         return (
-            <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight)/2, padding: 5, flexDirection: 'row', paddingTop: Constants.statusBarHeight + 5 }}>
+            <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
+            <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight)/2, padding: 0, flexDirection: 'row' }}>
                 <YAxis
                     data={this.state.dataY}
                     style={{ marginBottom: xAxisHeight }}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
                 />
-                <View style={{ flex: 1, marginLeft: 0 }}>
+                <View style={{ flex: 1, marginLeft: 5 }}>
                     <LineChart
                         style={{ flex: 1 }}
                         data={this.state.dataY}
@@ -88,6 +89,7 @@ class DetailsPageScreen extends React.Component {
                     }}
                     />
                 </View>
+            </View>
             </View>
         );
         } else{
