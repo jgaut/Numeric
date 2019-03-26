@@ -129,7 +129,7 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 10;
     if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
     return (
-        this.myRender();
+        {this.myRender()}
         );
 } else{
     return (<View></View>);
