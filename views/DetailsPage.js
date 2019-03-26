@@ -15,7 +15,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {dataX:[[], []], dataY:[], key:''};
+    this.state = {dataX:[], dataY:[], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -46,7 +46,8 @@ class DetailsPageScreen extends React.Component {
                         this.state.dataY[i].push(parseInt(item['value']));
                     });
                     this.state.dataX[i] = [...new Set(this.state.dataX[i])]; 
-
+                    console.log(this.state.dataX[i]);
+                    console.log(this.state.dataY[i]);
                     this.forceUpdate();
                 });
             });  
