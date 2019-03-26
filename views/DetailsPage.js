@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View, Dimensions} from 'react-native';
 import { Constants } from 'expo';
 import { Grid, LineChart, XAxis, YAxis, AreaChart } from 'react-native-svg-charts'
 import Storage from '@aws-amplify/storage';
