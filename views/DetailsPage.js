@@ -30,27 +30,27 @@ class DetailsPageScreen extends React.Component {
 
     for (var i=0; i<3; i++){
 
-    var regex = /numeric_/gi;
-    var tmp = this.props.navigation.state.params.key;
-    tmp = tmp.replace(regex, 'numeric_details_'+i+'_');
+        var regex = /numeric_/gi;
+        var tmp = this.props.navigation.state.params.key;
+        tmp = tmp.replace(regex, 'numeric_details_'+i+'_');
 
-    Storage.get(tmp, {level: 'public'})
-        .then(result => {
-            fetch(result).then(response => response.json()).then(data => {
-                //console.log(data);
-                //this.state.data=data;
-                this.state.dataX[i] = [...new Set()];
-                this.state.dataY[i] = [...new Set()];
-                data.forEach(item=>{
-                    this.state.dataX[i].push(item['_time']);
-                    this.state.dataY[i].push(parseInt(item['value']));
+        Storage.get(tmp, {level: 'public'})
+            .then(result => {
+                fetch(result).then(response => response.json()).then(data => {
+                    //console.log(data);
+                    //this.state.data=data;
+                    this.state.dataX[i] = [...new Set()];
+                    this.state.dataY[i] = [...new Set()];
+                    data.forEach(item=>{
+                        this.state.dataX[i].push(item['_time']);
+                        this.state.dataY[i].push(parseInt(item['value']));
+                    });
+                    this.state.dataX[i] = [...new Set(this.state.dataX[0])]; 
+
+                    this.forceUpdate();
                 });
-                this.state.dataX[i] = [...new Set(this.state.dataX[0])]; 
-
-                this.forceUpdate();
-            });
-        });  
-    }
+            });  
+        }
     }
 
   render() {
