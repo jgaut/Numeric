@@ -39,50 +39,46 @@ class DetailsPageScreen extends React.Component {
     //console.log(this.props.navigation.state.params.key);
     //console.log("loaddetails");
 
-    if(this.state.key!=this.props.navigation.state.params.key){
-   
-        this.state.key=this.props.navigation.state.params.key;
 
-            var regex = /numeric_/gi;
-            var tmp = this.props.navigation.state.params.key;
-            tmp = tmp.replace(regex, 'numeric_details_'+'0'+'_');
-            //console.log(tmp);
-            //console.log(JSON.stringify(this.state.data[g]));
+    var regex = /numeric_/gi;
+    var tmp = this.props.navigation.state.params.key;
+    tmp = tmp.replace(regex, 'numeric_details_'+'0'+'_');
+    //console.log(tmp);
+    //console.log(JSON.stringify(this.state.data[g]));
 
-            Storage.get(tmp, {level: 'public'})
-                .then(result => {
-                    fetch(result).then(response => response.json()).then(data => {
-                        //console.log(data);
-                        //this.state.data=data;
-                        this.state.dataX = [...new Set()];
-                        this.state.dataY = [...new Set()];
-                        data.forEach(item=>{
+    Storage.get(tmp, {level: 'public'})
+        .then(result => {
+            fetch(result).then(response => response.json()).then(data => {
+                //console.log(data);
+                //this.state.data=data;
+                this.state.dataX = [...new Set()];
+                this.state.dataY = [...new Set()];
+                data.forEach(item=>{
 
-                            //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
-                            //this.state.dataY.push(parseFloat(item['value']));
-                            //var myDate = new Date(item['_time']);
-                            //console.log(item['_time']);
-                            //console.log(myDate);
-                            this.state.dataX.push(item['_time']);
-                            this.state.dataY.push(parseInt(item['value']));
-                            //console.log(new Date(item['_time']*1000));
-                            //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
+                    //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
+                    //this.state.dataY.push(parseFloat(item['value']));
+                    //var myDate = new Date(item['_time']);
+                    //console.log(item['_time']);
+                    //console.log(myDate);
+                    this.state.dataX.push(item['_time']);
+                    this.state.dataY.push(parseInt(item['value']));
+                    //console.log(new Date(item['_time']*1000));
+                    //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
 
-                            
-                            
-                        });
+                    
+                    
+                });
 
 
-                        //console.log(JSON.stringify(this.state.data));
-                        this.state.dataX = [...new Set(this.state.dataX)]; 
+                //console.log(JSON.stringify(this.state.data));
+                this.state.dataX = [...new Set(this.state.dataX)]; 
 
-                        //console.log('after set : ' + this.state["data"][0]["X"]);
-                        //console.log('Y : ' + this.state.data);
-                        this.forceUpdate();
-                    });
-                });    
+                //console.log('after set : ' + this.state["data"][0]["X"]);
+                //console.log('Y : ' + this.state.data);
+                this.forceUpdate();
+            });
+        });    
     }
-  }
 
   render() {
     
