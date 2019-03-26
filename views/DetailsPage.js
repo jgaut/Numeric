@@ -15,7 +15,7 @@ class DetailsPageScreen extends React.Component {
   constructor(...args) {
     super(...args);
 
-    this.state = {dataX:[''], dataY:[''], key:''};
+    this.state = {dataX:[], dataY:[], key:''};
 
     this.props.navigation.addListener('didFocus', () => {
         this.loadDetails();
@@ -63,6 +63,10 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 10;
     console.log(this.state.dataX);
     console.log(this.state.dataY);
+
+    if(this.state.dataX.length==0){
+        return (<View></View>);
+    }
         return (
             <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
             <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2, padding: 0, flexDirection: 'row' }}>
