@@ -63,7 +63,7 @@ class DetailsPageScreen extends React.Component {
                             //var myDate = new Date(item['_time']);
                             //console.log(item['_time']);
                             //console.log(myDate);
-                            this.state.dataX.push(dateFns.format(new Date(item['_time']*1000), 'DD/MM'));
+                            this.state.dataX.push(item['_time']);
                             this.state.dataY.push(parseInt(item['value']));
                             //console.log(new Date(item['_time']*1000));
                             //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
@@ -92,8 +92,8 @@ class DetailsPageScreen extends React.Component {
     const verticalContentInset = {};
     const xAxisHeight = 10;
     if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
-    return (
-        <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight)/2, padding: 5, flexDirection: 'row', paddingTop: Constants.statusBarHeight + 5 }}>
+        return (
+            <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight)/2, padding: 5, flexDirection: 'row', paddingTop: Constants.statusBarHeight + 5 }}>
                 <YAxis
                     data={this.state.dataY}
                     style={{ marginBottom: xAxisHeight }}
@@ -112,7 +112,7 @@ class DetailsPageScreen extends React.Component {
                     <XAxis
                         style={{ height: xAxisHeight }}
                         data={this.state.dataX}
-                        formatLabel={(value, index) => this.state.dataX[index]}
+                        formatLabel={(index) => this.state.dataX[index]}
                         contentInset={{ left: 15, right: 15 }}
                         svg={{
                         fill: 'black',
@@ -126,10 +126,10 @@ class DetailsPageScreen extends React.Component {
                 </View>
             </View>
         );
-} else{
-    return (<View></View>);
-}
-}
+        } else{
+            return (<View></View>);
+        }
+    }
 }
 
 const styles = StyleSheet.create({
