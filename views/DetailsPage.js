@@ -28,7 +28,7 @@ class DetailsPageScreen extends React.Component {
 
     loadDetails(){
 
-    for (var i=0; i<3; i++){
+    for (let i=0; i<3; i++){
 
         var regex = /numeric_/gi;
         var tmp = this.props.navigation.state.params.key;
