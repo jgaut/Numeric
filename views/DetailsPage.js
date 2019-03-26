@@ -67,7 +67,7 @@ class DetailsPageScreen extends React.Component {
     if(this.state.dataX.length == 0){
         console.log("x=>"+this.state.dataX.length);
         return (<View></View>);
-    }
+    }else{
         return (
             <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
             <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2, padding: 0, flexDirection: 'row' }}>
@@ -139,6 +139,7 @@ class DetailsPageScreen extends React.Component {
 
             </View>
         );
+    }
     }
 }
 
