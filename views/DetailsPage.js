@@ -48,8 +48,7 @@ class DetailsPageScreen extends React.Component {
                         this.state.dataY[i].push(parseInt(item['value']));
                     });
                     this.state.dataX[i] = [...new Set(this.state.dataX[i])]; 
-                    console.log(this.state.dataX[i]);
-                    console.log(this.state.dataY[i]);
+                    
                     this.forceUpdate();
                 });
             });  
@@ -62,7 +61,8 @@ class DetailsPageScreen extends React.Component {
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
-    
+    console.log(this.state.dataX);
+    console.log(this.state.dataY);
         return (
             <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
             <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2, padding: 0, flexDirection: 'row' }}>
