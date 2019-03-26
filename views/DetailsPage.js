@@ -120,6 +120,7 @@ class DetailsPageScreen extends React.Component {
             </View>
         );
   }
+
   render() {
     
     //const {navigate} = this.props.navigation;
@@ -129,7 +130,7 @@ class DetailsPageScreen extends React.Component {
     const xAxisHeight = 10;
     if(this.state.dataX.length!=0 || this.state.dataX.length!=0) {
     return (
-        {this.myRender()}
+        {myRender()}
         );
 } else{
     return (<View></View>);
