@@ -26,28 +26,31 @@ class DetailsPageScreen extends React.Component {
 
   }
 
-  loadDetails(){
+    loadDetails(){
+
+    for(int i=0; i<3;i++){
 
     var regex = /numeric_/gi;
     var tmp = this.props.navigation.state.params.key;
-    tmp = tmp.replace(regex, 'numeric_details_'+'0'+'_');
+    tmp = tmp.replace(regex, 'numeric_details_'+i+'_');
 
     Storage.get(tmp, {level: 'public'})
         .then(result => {
             fetch(result).then(response => response.json()).then(data => {
                 //console.log(data);
                 //this.state.data=data;
-                this.state.dataX[0] = [...new Set()];
-                this.state.dataY[0] = [...new Set()];
+                this.state.dataX[i] = [...new Set()];
+                this.state.dataY[i] = [...new Set()];
                 data.forEach(item=>{
-                    this.state.dataX[0].push(item['_time']);
-                    this.state.dataY[0].push(parseInt(item['value']));
+                    this.state.dataX[i].push(item['_time']);
+                    this.state.dataY[i].push(parseInt(item['value']));
                 });
-                this.state.dataX[0] = [...new Set(this.state.dataX[0])]; 
+                this.state.dataX[i] = [...new Set(this.state.dataX[0])]; 
 
                 this.forceUpdate();
             });
-        });    
+        });  
+    }
     }
 
   render() {
@@ -90,6 +93,39 @@ class DetailsPageScreen extends React.Component {
                     />
                 </View>
             </View>
+
+            <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2, padding: 0, flexDirection: 'row' }}>
+                <YAxis
+                    data={this.state.dataY[1]}
+                    style={{ marginBottom: xAxisHeight }}
+                    contentInset={verticalContentInset}
+                    svg={axesSvg}
+                />
+                <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
+                    <LineChart
+                        style={{ flex: 1 }}
+                        data={this.state.dataY[1]}
+                        contentInset={verticalContentInset}
+                        svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
+                    >
+                        <Grid/>
+                    </LineChart>
+                    <XAxis
+                        style={{ height: xAxisHeight }}
+                        data={this.state.dataX[1]}
+                        formatLabel={(index) => this.state.dataX[1][index]}
+                        contentInset={{ left: 15, right: 15 }}
+                        svg={{
+                        fill: 'black',
+                        fontSize: 8,
+                        rotation: 0,
+                        originY: 10,
+                        y: 5,
+                    }}
+                    />
+                </View>
+            </View>
+
             </View>
         );
         } else{
