@@ -53,8 +53,6 @@ class DetailsPageScreen extends React.Component {
                 //this.state.data=data;
                 this.state.dataX = [...new Set()];
                 this.state.dataY = [...new Set()];
-                this.state.dataX.push(0);
-                
                 data.forEach(item=>{
 
                     //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
@@ -73,7 +71,7 @@ class DetailsPageScreen extends React.Component {
 
 
                 //console.log(JSON.stringify(this.state.data));
-                this.state.dataX = [...new Set(this.state.dataX)]; 
+                this.state.dataX = [...new Set(this.state.dataX.slice())]; 
 
                 //console.log('after set : ' + this.state["data"][0]["X"]);
                 //console.log('Y : ' + this.state.data);
