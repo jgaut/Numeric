@@ -65,6 +65,7 @@ class DetailsPageScreen extends React.Component {
     console.log(this.state.dataY.length);
 
     if(this.state.dataX.length===0){
+        console.log("x=>"+this.state.dataX.length);
         return (<View></View>);
     }
         return (
