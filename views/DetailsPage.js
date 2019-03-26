@@ -54,27 +54,11 @@ class DetailsPageScreen extends React.Component {
                 this.state.dataX = [...new Set()];
                 this.state.dataY = [...new Set()];
                 data.forEach(item=>{
-
-                    //this.state.dataX.push(Moment.unix(parseFloat(item['_time'])).format("D"));
-                    //this.state.dataY.push(parseFloat(item['value']));
-                    //var myDate = new Date(item['_time']);
-                    //console.log(item['_time']);
-                    //console.log(myDate);
                     this.state.dataX.push(item['_time']);
                     this.state.dataY.push(parseInt(item['value']));
-                    //console.log(new Date(item['_time']*1000));
-                    //console.log(Moment.unix(parseFloat(item['_time'])).format("MM/DD/YYYY")); //basically you can do all sorts of the formatting and others
-
-                    
-                    
                 });
+                this.state.dataX = [...new Set(this.state.dataX]; 
 
-
-                //console.log(JSON.stringify(this.state.data));
-                this.state.dataX = [...new Set(this.state.dataX.slice())]; 
-
-                //console.log('after set : ' + this.state["data"][0]["X"]);
-                //console.log('Y : ' + this.state.data);
                 this.forceUpdate();
             });
         });    
