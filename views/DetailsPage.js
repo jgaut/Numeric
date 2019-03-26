@@ -37,13 +37,13 @@ class DetailsPageScreen extends React.Component {
             fetch(result).then(response => response.json()).then(data => {
                 //console.log(data);
                 //this.state.data=data;
-                this.state.dataX = [...new Set()];
-                this.state.dataY = [...new Set()];
+                this.state.dataX[0] = [...new Set()];
+                this.state.dataY[0] = [...new Set()];
                 data.forEach(item=>{
-                    this.state.dataX.push(item['_time']);
-                    this.state.dataY.push(parseInt(item['value']));
+                    this.state.dataX[0].push(item['_time']);
+                    this.state.dataY[0].push(parseInt(item['value']));
                 });
-                this.state.dataX = [...new Set(this.state.dataX)]; 
+                this.state.dataX[0] = [...new Set(this.state.dataX[0])]; 
 
                 this.forceUpdate();
             });
@@ -61,7 +61,7 @@ class DetailsPageScreen extends React.Component {
             <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
             <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2, padding: 0, flexDirection: 'row' }}>
                 <YAxis
-                    data={this.state.dataY}
+                    data={this.state.dataY[0]}
                     style={{ marginBottom: xAxisHeight }}
                     contentInset={verticalContentInset}
                     svg={axesSvg}
@@ -69,7 +69,7 @@ class DetailsPageScreen extends React.Component {
                 <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
                     <LineChart
                         style={{ flex: 1 }}
-                        data={this.state.dataY}
+                        data={this.state.dataY[0]}
                         contentInset={verticalContentInset}
                         svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
                     >
@@ -77,8 +77,8 @@ class DetailsPageScreen extends React.Component {
                     </LineChart>
                     <XAxis
                         style={{ height: xAxisHeight }}
-                        data={this.state.dataX}
-                        formatLabel={(index) => this.state.dataX[index]}
+                        data={this.state.dataX[0]}
+                        formatLabel={(index) => this.state.dataX[0][index]}
                         contentInset={{ left: 15, right: 15 }}
                         svg={{
                         fill: 'black',
