@@ -62,7 +62,7 @@ class DetailsPageScreen extends React.Component {
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
-    if(this.state.dataX[0].length!=0 && this.state.dataY[0].length!=0 && this.state.dataX[1].length!=0 || this.state.dataY[1].length!=0) {
+    
         return (
             <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
             <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2, padding: 0, flexDirection: 'row' }}>
@@ -134,9 +134,6 @@ class DetailsPageScreen extends React.Component {
 
             </View>
         );
-        } else{
-            return (<View></View>);
-        }
     }
 }
 
