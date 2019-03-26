@@ -35,7 +35,7 @@ class DetailsPageScreen extends React.Component {
         tmp = tmp.replace(regex, 'numeric_details_'+i+'_');
         console.log('numeric_details_'+i+'_');
         console.log(tmp);
-        
+
         Storage.get(tmp, {level: 'public'})
             .then(result => {
                 fetch(result).then(response => response.json()).then(data => {
@@ -85,6 +85,39 @@ class DetailsPageScreen extends React.Component {
                         style={{ height: xAxisHeight }}
                         data={this.state.dataX[0]}
                         formatLabel={(index) => this.state.dataX[0][index]}
+                        contentInset={{ left: 15, right: 15 }}
+                        svg={{
+                        fill: 'black',
+                        fontSize: 8,
+                        rotation: 0,
+                        originY: 10,
+                        y: 5,
+                    }}
+                    />
+                </View>
+            </View>
+
+
+                        <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2, padding: 0, flexDirection: 'row' }}>
+                <YAxis
+                    data={this.state.dataY[1]}
+                    style={{ marginBottom: xAxisHeight }}
+                    contentInset={verticalContentInset}
+                    svg={axesSvg}
+                />
+                <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
+                    <LineChart
+                        style={{ flex: 1 }}
+                        data={this.state.dataY[1]}
+                        contentInset={verticalContentInset}
+                        svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
+                    >
+                        <Grid/>
+                    </LineChart>
+                    <XAxis
+                        style={{ height: xAxisHeight }}
+                        data={this.state.dataX[1]}
+                        formatLabel={(index) => this.state.dataX[1][index]}
                         contentInset={{ left: 15, right: 15 }}
                         svg={{
                         fill: 'black',
