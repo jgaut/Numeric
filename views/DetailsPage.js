@@ -45,6 +45,7 @@ class DetailsPageScreen extends React.Component {
                         var dataX = [...new Set()];
                         var dataY = [...new Set()];
                         data.forEach(item=>{
+                            console.log(item);
                             dataX.push(item['_time']);
                             dataY.push(parseInt(item['value']));
                         });
