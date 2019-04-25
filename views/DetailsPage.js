@@ -55,13 +55,13 @@ class DetailsPageScreen extends React.Component {
                         console.log(JSON.stringify(dataX));
                         console.log(dataY);
 
-                        this.setState({
+                        /*this.setState({
                             dataX
                         });
 
                         this.setState({
                             dataY
-                        });
+                        });*/
 
                         //this.forceUpdate();
                     });
