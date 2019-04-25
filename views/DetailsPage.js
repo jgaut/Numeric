@@ -71,7 +71,7 @@ class DetailsPageScreen extends React.Component {
                 dataY
             });
 
-            console.log
+            console.log(this.state.dataX);
         }
     }
 
