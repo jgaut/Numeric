@@ -62,7 +62,13 @@ class DetailsPageScreen extends React.Component {
 
                         console.log(dataX);
                         console.log(dataY);
+                        this.setState({
+                dataX
+            });
 
+            this.setState({
+                dataY
+            });
  
 
                         //this.forceUpdate();
@@ -72,13 +78,6 @@ class DetailsPageScreen extends React.Component {
 
             
         }
-            this.setState({
-                dataX
-            });
-
-            this.setState({
-                dataY
-            });
             console.log(dataX);
     }
 
