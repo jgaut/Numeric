@@ -57,17 +57,18 @@ class DetailsPageScreen extends React.Component {
                         console.log(dataX);
                         console.log(dataY);
 
-                        /*this.setState({
+ 
+
+                        //this.forceUpdate();
+                    });
+                });
+                                   this.setState({
                             dataX
                         });
 
                         this.setState({
                             dataY
-                        });*/
-
-                        //this.forceUpdate();
-                    });
-                });  
+                        });
         }
     }
 
