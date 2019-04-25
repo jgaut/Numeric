@@ -40,19 +40,26 @@ class DetailsPageScreen extends React.Component {
                 .then(result => {
                     fetch(result).then(response => response.json()).then(data => {
 
-                        this.state.dataX[i] = [...new Set()];
-                        this.state.dataY[i] = [...new Set()];
+                        //this.state.dataX[i] = [...new Set()];
+                        //this.state.dataY[i] = [...new Set()];
+                        var myDataX = [...new Set()];
+                        var myDataY = [...new Set()];
                         data.forEach(item=>{
-                            this.setState({
-                                dataX[i]: item['_time']
-                            });
-                            this.setState({
-                                dataY[i]: parseInt(item['value'])
-                            });
-                            //this.state.dataX[i].push(item['_time']);
-                            //this.state.dataY[i].push(parseInt(item['value']));
+                            myDataX[i].push(item['_time']);
+                            myDataY[i].push(parseInt(item['value']));
                         });
-                        this.state.dataX[i] = [...new Set(this.state.dataX[i])]; 
+
+                        myDataX[i] = [...new Set(myDataX[i])];
+
+                        this.setState({
+                            dataX : myDataX
+                        });
+
+                        this.setState({
+                            dataY : myDataY
+                        });
+
+                         
                         
                         //this.forceUpdate();
                     });
@@ -121,7 +128,7 @@ class DetailsPageScreen extends React.Component {
                             style={{ height: xAxisHeight }}
                             data={this.state.dataX[1]}
                             formatLabel={(index) => this.state.dataX[1][index]}
-                            contentInset={{ margin:auto}}
+                            contentInset={{ margin:auto }}
                             svg={{
                             fill: 'black',
                             fontSize: 8,
