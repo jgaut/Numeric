@@ -44,14 +44,14 @@ class DetailsPageScreen extends React.Component {
 
                         //this.state.dataX[i] = [...new Set()];
                         //this.state.dataY[i] = [...new Set()];
-                        myDataX[i] = [...new Set()];
-                        myDataY[i] = [...new Set()];
+                        myDataX = [...new Set()];
+                        myDataY = [...new Set()];
                         data.forEach(item=>{
-                            myDataX[i].push(item['_time']);
-                            myDataY[i].push(parseInt(item['value']));
+                            myDataX.push(item['_time']);
+                            myDataY.push(parseInt(item['value']));
                         });
 
-                        myDataX[i] = [...new Set(myDataX[i])];
+                        myDataX = [...new Set(myDataX)];
 
                         this.setState({
                             dataX : myDataX
