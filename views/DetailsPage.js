@@ -32,6 +32,9 @@ class DetailsPageScreen extends React.Component {
 
     loadDetails(){
 
+        var dataX = [[...new Set()], [...new Set()]];
+        var dataY = [[...new Set()], [...new Set()]];
+
         for (let i=0; i<2; i++){
 
             var regex = /numeric_/gi;
@@ -40,8 +43,7 @@ class DetailsPageScreen extends React.Component {
             console.log('numeric_details_'+i+'_');
             console.log(tmp);
             
-            var dataX = [[...new Set()], [...new Set()]];
-            var dataY = [[...new Set()], [...new Set()]];
+
 
             Storage.get(tmp, {level: 'public'})
                 .then(result => {
@@ -67,15 +69,16 @@ class DetailsPageScreen extends React.Component {
                     });
                 });
 
-            this.setState({
+
+            //console.log(dataX);
+        }
+                    this.setState({
                 dataX
             });
 
             this.setState({
                 dataY
             });
-            console.log(dataX);
-        }
     }
 
     render() {
