@@ -17,13 +17,17 @@ class DetailsPageScreen extends React.Component {
 
         this.state = {dataX:[[0,1],[0,1]], dataY:[[0,1], [0,1]], key:''};
 
-        this.props.navigation.addListener('didFocus', () => {
-            this.loadDetails();
-        });
+
 
         this.props.navigation.addListener('didBlur', () => {
         });
 
+    }
+
+    componentDidMount(){
+        this.props.navigation.addListener('didFocus', () => {
+            this.loadDetails();
+        });
     }
 
     loadDetails(){
