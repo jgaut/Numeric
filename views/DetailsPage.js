@@ -60,18 +60,9 @@ class DetailsPageScreen extends React.Component {
 
                         dataX[i] = [...new Set(dataX[i])];
 
-                        console.log(dataX);
-                        console.log(dataY);
-                        this.setState({
-                dataX
-            });
-
-            this.setState({
-                dataY
-            });
+                        this.setState({dataX});
+                        this.setState({dataY});
  
-
-                        //this.forceUpdate();
                     });
                 });
 
