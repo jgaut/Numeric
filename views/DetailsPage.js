@@ -15,7 +15,7 @@ class DetailsPageScreen extends React.Component {
     constructor(...args) {
         super(...args);
 
-        this.state = {dataX:[[0,1],[0,1]], dataY:[[0,1], [0,1]], key:''};
+        this.state = {dataX:[['2019/03/03'],['2019/03/03']], dataY:[[0,1], [0,1]], key:''};
 
 
 
