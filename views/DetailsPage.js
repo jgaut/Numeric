@@ -59,8 +59,6 @@ class DetailsPageScreen extends React.Component {
                             dataY : myDataY
                         });
 
-                         
-                        
                         //this.forceUpdate();
                     });
                 });  
@@ -128,7 +126,7 @@ class DetailsPageScreen extends React.Component {
                             style={{ height: xAxisHeight }}
                             data={this.state.dataX[1]}
                             formatLabel={(index) => this.state.dataX[1][index]}
-                            contentInset={{ margin:auto }}
+                            contentInset={{ margin:'auto' }}
                             svg={{
                             fill: 'black',
                             fontSize: 8,
