@@ -12,57 +12,53 @@ import dateFns from 'date-fns'
 
 class DetailsPageScreen extends React.Component {
   
-  constructor(...args) {
-    super(...args);
+    constructor(...args) {
+        super(...args);
 
-    this.state = {dataX:[[0,1],[0,1]], dataY:[[0,1], [0,1]], key:''};
+        this.state = {dataX:[[0,1],[0,1]], dataY:[[0,1], [0,1]], key:''};
 
-    this.props.navigation.addListener('didFocus', () => {
-        this.loadDetails();
-    });
+        this.props.navigation.addListener('didFocus', () => {
+            this.loadDetails();
+        });
 
-    this.props.navigation.addListener('didBlur', () => {
-    });
+        this.props.navigation.addListener('didBlur', () => {
+        });
 
-  }
+    }
 
     loadDetails(){
 
-    for (let i=0; i<2; i++){
+        for (let i=0; i<2; i++){
 
-        var regex = /numeric_/gi;
-        var tmp = this.props.navigation.state.params.key;
-        tmp = tmp.replace(regex, 'numeric_details_'+i+'_');
-        console.log('numeric_details_'+i+'_');
-        console.log(tmp);
+            var regex = /numeric_/gi;
+            var tmp = this.props.navigation.state.params.key;
+            tmp = tmp.replace(regex, 'numeric_details_'+i+'_');
+            console.log('numeric_details_'+i+'_');
+            console.log(tmp);
 
-        Storage.get(tmp, {level: 'public'})
-            .then(result => {
-                fetch(result).then(response => response.json()).then(data => {
-                    //console.log(data);
-                    //this.state.data=data;
-                    this.state.dataX[i] = [...new Set()];
-                    this.state.dataY[i] = [...new Set()];
-                    data.forEach(item=>{
-                        this.state.dataX[i].push(item['_time']);
-                        this.state.dataY[i].push(parseInt(item['value']));
+            Storage.get(tmp, {level: 'public'})
+                .then(result => {
+                    fetch(result).then(response => response.json()).then(data => {
+
+                        this.state.dataX[i] = [...new Set()];
+                        this.state.dataY[i] = [...new Set()];
+                        data.forEach(item=>{
+                            this.state.dataX[i].push(item['_time']);
+                            this.state.dataY[i].push(parseInt(item['value']));
+                        });
+                        this.state.dataX[i] = [...new Set(this.state.dataX[i])]; 
+                        
+                        this.forceUpdate();
                     });
-                    this.state.dataX[i] = [...new Set(this.state.dataX[i])]; 
-                    
-                    this.forceUpdate();
-                });
-            });  
+                });  
         }
     }
 
   render() {
     
-    //console.log('X : ' + JSON.stringify(this.state.dataX));
     const axesSvg = { fontSize: 8, fill: 'grey' };
     const verticalContentInset = {};
     const xAxisHeight = 10;
-    //console.log(this.state.dataX.length);
-    //console.log(this.state.dataY.length);
 
         return (
             <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
@@ -119,7 +115,7 @@ class DetailsPageScreen extends React.Component {
                         style={{ height: xAxisHeight }}
                         data={this.state.dataX[1]}
                         formatLabel={(index) => this.state.dataX[1][index]}
-                        contentInset={{ left: 15, right: 15 }}
+                        contentInset={{ left: 50, right: 15 }}
                         svg={{
                         fill: 'black',
                         fontSize: 8,
