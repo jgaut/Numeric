@@ -35,6 +35,9 @@ class DetailsPageScreen extends React.Component {
             tmp = tmp.replace(regex, 'numeric_details_'+i+'_');
             console.log('numeric_details_'+i+'_');
             console.log(tmp);
+            
+            var dataX = [[...new Set()], [...new Set()]];
+            var dataY = [[...new Set()], [...new Set()]];
 
             Storage.get(tmp, {level: 'public'})
                 .then(result => {
@@ -42,17 +45,16 @@ class DetailsPageScreen extends React.Component {
 
                         //this.state.dataX[i] = [...new Set()];
                         //this.state.dataY[i] = [...new Set()];
-                        var dataX = [...new Set()];
-                        var dataY = [...new Set()];
+                        
                         data.forEach(item=>{
                             //console.log(item);
-                            dataX.push(item['_time']);
-                            dataY.push(parseInt(item['value']));
+                            dataX[i].push(item['_time']);
+                            dataY[i].push(parseInt(item['value']));
                         });
 
-                        dataX = [...new Set(dataX)];
+                        dataX[i] = [...new Set(dataX[i])];
 
-                        //console.log(JSON.stringify(dataX));
+                        console.log(dataX);
                         console.log(dataY);
 
                         /*this.setState({
