@@ -51,9 +51,9 @@ class DetailsPageScreen extends React.Component {
 
                         dataX = [...new Set(dataX)];
 
-                        console.log(dataX);
+                        console.log(JSON.stringify(dataX));
                         console.log(dataY);
-                        
+
                         this.setState({
                             dataX
                         });
