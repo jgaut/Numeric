@@ -70,7 +70,7 @@ class DetailsPageScreen extends React.Component {
                 });
 
 
-            //console.log(dataX);
+            
         }
                     this.setState({
                 dataX
@@ -79,6 +79,7 @@ class DetailsPageScreen extends React.Component {
             this.setState({
                 dataY
             });
+            console.log(dataX);
     }
 
     render() {
