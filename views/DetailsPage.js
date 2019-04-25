@@ -60,78 +60,78 @@ class DetailsPageScreen extends React.Component {
         }
     }
 
-  render() {
+    render() {
     
-    const axesSvg = { fontSize: 8, fill: 'grey' };
-    const verticalContentInset = {};
-    const xAxisHeight = 10;
+        const axesSvg = { fontSize: 8, fill: 'grey' };
+        const verticalContentInset = {};
+        const xAxisHeight = 10;
 
         return (
             <View style={{ paddingTop: Constants.statusBarHeight + 5}}>
-            <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2-5, paddingBottom: 5, paddingLeft:5, flexDirection: 'row' }}>
-                <YAxis
-                    data={this.state.dataY[0]}
-                    style={{ marginBottom: xAxisHeight }}
-                    contentInset={verticalContentInset}
-                    svg={axesSvg}
-                />
-                <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
-                    <LineChart
-                        style={{ flex: 1 }}
+                <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2-5, paddingBottom: 5, paddingLeft:5, flexDirection: 'row' }}>
+                    <YAxis
                         data={this.state.dataY[0]}
+                        style={{ marginBottom: xAxisHeight }}
                         contentInset={verticalContentInset}
-                        svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
-                    >
-                        <Grid/>
-                    </LineChart>
-                    <XAxis
-                        style={{ height: xAxisHeight }}
-                        data={this.state.dataX[0]}
-                        formatLabel={(index) => this.state.dataX[0][index]}
-                        contentInset={{ left: 15, right: 15 }}
-                        svg={{
-                        fill: 'black',
-                        fontSize: 8,
-                        rotation: 0,
-                        originY: 10,
-                        y: 5,
-                    }}
+                        svg={axesSvg}
                     />
+                    <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
+                        <LineChart
+                            style={{ flex: 1 }}
+                            data={this.state.dataY[0]}
+                            contentInset={verticalContentInset}
+                            svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
+                        >
+                            <Grid/>
+                        </LineChart>
+                        <XAxis
+                            style={{ height: xAxisHeight }}
+                            data={this.state.dataX[0]}
+                            formatLabel={(index) => this.state.dataX[0][index]}
+                            contentInset={{ left: 15, right: 15 }}
+                            svg={{
+                            fill: 'black',
+                            fontSize: 8,
+                            rotation: 0,
+                            originY: 10,
+                            y: 5,
+                        }}
+                        />
+                    </View>
                 </View>
-            </View>
 
 
-            <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2-5, paddingBottom: 5, paddingLeft:5, flexDirection: 'row' }}>
-                <YAxis
-                    data={this.state.dataY[1]}
-                    style={{ marginBottom: xAxisHeight }}
-                    contentInset={verticalContentInset}
-                    svg={axesSvg}
-                />
-                <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
-                    <LineChart
-                        style={{ flex: 1 }}
+                <View style={{ height: (Dimensions.get('window').height-Constants.statusBarHeight-5)/2-5, paddingBottom: 5, paddingLeft:5, flexDirection: 'row' }}>
+                    <YAxis
                         data={this.state.dataY[1]}
+                        style={{ marginBottom: xAxisHeight }}
                         contentInset={verticalContentInset}
-                        svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
-                    >
-                        <Grid/>
-                    </LineChart>
-                    <XAxis
-                        style={{ height: xAxisHeight }}
-                        data={this.state.dataX[1]}
-                        formatLabel={(index) => this.state.dataX[1][index]}
-                        contentInset={{ left: 50, right: 15 }}
-                        svg={{
-                        fill: 'black',
-                        fontSize: 8,
-                        rotation: 0,
-                        originY: 10,
-                        y: 5,
-                    }}
+                        svg={axesSvg}
                     />
+                    <View style={{ flex: 1, marginLeft: 5, marginRight: 5 }}>
+                        <LineChart
+                            style={{ flex: 1 }}
+                            data={this.state.dataY[1]}
+                            contentInset={verticalContentInset}
+                            svg={{ stroke: 'rgb(134, 65, 244, 0.5)' }}
+                        >
+                            <Grid/>
+                        </LineChart>
+                        <XAxis
+                            style={{ height: xAxisHeight }}
+                            data={this.state.dataX[1]}
+                            formatLabel={(index) => this.state.dataX[1][index]}
+                            contentInset={{ margin:auto}}
+                            svg={{
+                            fill: 'black',
+                            fontSize: 8,
+                            rotation: 0,
+                            originY: 10,
+                            y: 5,
+                        }}
+                        />
+                    </View>
                 </View>
-            </View>
 
             </View>
         );
